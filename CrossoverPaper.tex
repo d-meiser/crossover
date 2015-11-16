@@ -40,11 +40,6 @@ lasing to steady state superradiance where the phase information that
 allows for coherence can be stored in the light field and the atomic
 ensemble simultaneously. The properties of systems that lie in the
 superradiance, lasing and crossover parameter regions are compared.
-%The linewidth is reduced from the Schawlow Townes linewidth as common
-%phase information starts to become stored in the atoms, but that the
-%power is also reduced.  We find that a system is more sensitive to
-%atomic dephasing and spontaneous emission in the superradiant region,
-  %and less sensitive in the lasing region.
 The rate at which energy is re-supplied to a typical laser, allows the
 system to operate just above the lasing threshold. For this same rate of
 re-supplying energy, a system in the crossover region operates much
@@ -420,8 +415,8 @@ by,
 +\hat{F}^{z},
 \label{Lsz}
 \end{equation}
-%where $\delta=\omega_{a}-\omega_{c}$, where we have defined the collective
-%operators,
+where $\delta=\omega_{a}-\omega_{c}$, where we have defined the collective
+operators,
 \begin{equation}
 \hat{S}^{(+,-,z)}=\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{(+,-,z)},
 \nonumber
@@ -562,27 +557,6 @@ must be chosen, and consistently used. The difference lies in the
 inability of the semiclassical theory to completely describe the full
 predictions of quantum mechanics.
 \dmcomment{This discussion needs to be tightened up a bit}
-
-%As a second example, consider the following quantum and c-number equations,
-%\begin{eqnarray}
-%\frac{d}{dt} \left<\hat{S}^{-}\hat{S}^{-} \right> &=& -  \left(\Gamma +2 i \omega_a \right)  \left< \hat{S}^{-} \hat{S}^{-} \right>
-%\nonumber
-%\\
-%&&+\frac{i \Omega}{2}\left(  \left< \hat{a} \hat{S}^{-} \hat{S}^{z} \right> + \left< \hat{a} \hat{S}^{z} \hat{S}^{-} \right> \right) + 2 D^{--},
-%\nonumber
-%\\
-%\label{2om2}
-%\end{eqnarray}
-
-%\begin{eqnarray}
-%\frac{d}{dt} \left<S^{-}S^{-} \right> &=& -  \left(\Gamma +2 i \omega_a \right)  \left< S^{-} S^{-} \right>
-%\nonumber
-%\\
-%&&+i \Omega  \left< a S^{-} S^{z} \right>  + 2 \mathscr{D}^{--}.
-%\label{c2om2}
-%\end{eqnarray}
-
-%The $\left< a S^{-} S^{z} \right>$ in Eq.(~\ref{c2om2}) term could either correspond to $\left< \hat{a} \hat{S}^{-} \hat{S}^{z} \right>$, $\left< \hat{a} \hat{S}^{z}  \hat{S}^{-} \right>$, or the symmetric combination of the two. If we choose for it to be equal to $\left< \hat{a} \hat{S}^{-} \hat{S}^{z} \right>$, for instance, we will have to use commutation relations to change the $\left< \hat{a} \hat{S}^{-} \hat{S}^{z} \right>$ term in Eq.~(\ref{2om2}) to this ordering, which will leave us with a left over commutator piece that will be absorbed into $\mathscr{D}^{--}$. Therefore, in this choice of ordering, even though $D^{--}$ is zero, $\mathscr{D}^{--}$ will not be.
 
 With this in mind, we make our correspondence, by first changing
 variables to,
@@ -889,31 +863,6 @@ constant,
 and hence the spectrum is a Lorentzian with linewidth given by
 Eq.~(\ref{LW1}).
 
-%We now seek simple analytic solutions to our second order cumulant model. To this end, we find steady state solutions to Eqns.~(\ref{szCE1})~--~(\ref{adaCE1}) by setting the time derivatives to zero, and solving the resulting algebraic equations.  It will suffice our purposes to consider only consider solutions with $\delta= \frac{1}{T_2}=\gamma=0$. We assume $N$ is large compared to $\frac{\kappa}{w+\kappa}$. Then we arrive at the following simple analytic solutions,
-%\begin{equation}
-%\left<\hat{\sigma}_{1}^{z}\right> = \frac{1}{C} -\frac{\epsilon}{C} \frac{(C^2+1)}{(C-1)},
-%\label{szSimple}
-%\end{equation}
-%where $C \equiv \frac{N\Omega^2}{w\kappa}$ and $\epsilon \equiv \frac{\kappa}{N(w+\kappa)}$,
-%\begin{equation}
-%\left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right> = \frac{1}{2} \left<\hat{\sigma}_{1}^{z}\right> \left(1-\left<\hat{\sigma}_{1}^{z}\right> \right),
-%\label{spsmSimple}
-%\end{equation}
-%\begin{equation}
-%\left<\hat{a}^{\dagger}\hat{a}\right> =  \frac{Nw}{2\kappa} \left(1-\left<\hat{\sigma}_{1}^{z}\right> \right),
-%\label{adaSimple}
-%\end{equation}
-%\begin{equation}
-%\left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> =
-%\frac{iw}{2\Omega} \left(1- \left<\hat{\sigma}_{1}^{z}\right>\right).
-%\end{equation}
-
-%By plugging Eq.~(\ref{szSimple}) into Eq.~(\ref{LW1}), and again assuming $N \gg \frac{\kappa}{w+\kappa}$ , we find a simple expression for the linewidth,
-%\begin{equation}
-%\Delta \nu =  \frac{C^2+1}{C(C-1)} \frac{\Omega^2 \kappa}{(w+\kappa)^2}.
-%\label{LWSimple}
-%\end{equation}
-
 
 \section{Characterizion of the Crossover}
 
@@ -1056,18 +1005,6 @@ in the superradiance row, and in column (d), there is a quantitative
 disagreement between this theory and the SU(4) and c-number Langevin
 theories.
 
-%We find that our c-number Langevin simulations and analytic Langevin
-%theory agree well, that all three theories agree qualitatively, but
-%that there is a consistent $25\%$  difference in the linewidth between
-%the analytic Langevin and cumulant theories. This difference can be
-%seen explicitly by comparing equations (\ref{LWHaken}) (\ref{LWSimple})
-%in the limit $\gamma=\frac{1}{T_2}=0$. The only difference is that
-%Eq.~(\ref{LWHaken}) has the numerical pre-factor $ \frac{C+1}{2(C-1)}$,
-%while Eq.~(\ref{LWSimple}) has the numerical prefactor $
-%\frac{C^2+1}{C(C-1)}$.  For $C>1$, this difference in pre-factor is
-%never more than a $33\%$. Therefore, the qualitative behavior of the
-%cumulant theory can be relied on.
-
 This quantitative disagreement is due to the fact that there is a
 difference between a Gaussian theory, one in which all moments factorize
 into products of no higher than second order moments, and a theory that
@@ -1085,9 +1022,9 @@ Langevin simulations. Even though the difference between $\left<
 \hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z \right>$ and $\left<
 \hat{a}^{\dagger}\hat{a}\right> \left<\hat{\sigma}_i^z \right>$
 decreases as $\frac{1}{N}$, it is precisely the $\frac{1}{N}$ terms that
-gives rise to the linewidth according to the cumulant theory.
-%Therefore the $25\%$ disagreement between the Langevin and cumulant
-%theories for large N is not surprising.
+gives rise to the linewidth according to the cumulant theory.  Therefore
+the $25\%$ disagreement between the Langevin and cumulant theories for
+large N is not surprising.
 
 The merit of the 2nd order cumulant theory lies in its simplicity. It is
 simple to derive the cumulant equations and it is not computationally
@@ -1137,6 +1074,8 @@ $\Delta \nu/\kappa$ is flat, and as $w/w_{opt}$ approaches unity,
 $\Delta \nu/\kappa$ starts to linearly decrease as in the lasing regime.
 Therefore, a system in the crossover region displays characteristics of
 both superradiance and lasing.
+\dmcomment{The previous sentence was commented out. Do we want this in
+  the paper? Perhaps rephrase a bit?}
 
 \begin{figure}
 \begin{center}
@@ -1260,12 +1199,6 @@ farther above threshold, potentially allowing for a linewidth orders of
 magnitude smaller than in the laser region. Also, a crossover system
 will have a larger intracavity intensity than a superradiant system,
 making the former more experimentally accessible.
-
-%We find that the linewidth is reduced from the Schawlow Townes
-%linewidth as the crossover is traversed from the lasing into the
-%intermediate and superradiance regimes. We also find that the output
-%power grows only gradually as the crossover is traversed from
-%superradiance to lasing.
 
 It was also demonstrated that a system in all regions of the crossover
 is insensitive to atomic dephasing as long as the re-pumping rate is
