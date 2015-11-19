@@ -121,22 +121,27 @@ Second of all, perturbations of atomic transition frequencies can
 potentially lead to phase and frequency perturbations in the generated
 field.
 
-Balancing the advantages and disadvantages of the two systems (lasers
-and light sources based on steady state superradiance) leads to the
-following question: Why not consider a cavity QED system in which
-coherence is stored in both the light field and atoms on an equal
-footing? The linewidth of such a system should be less sensitive to
-thermal fluctuations of the cavity mirrors than a laser, and it should
-be able to produce more output power than a device based on steady state
-superradiance.
+Both of these cavity QED systems have their own drawbacks for being
+used in precision measurement applications. Further reduction of a
+laser's linewidth is limited by the thermal fluctuations of the cavity
+mirrors~\cite{PhysRevLett.101.260602}. A light source based on steady
+state superradiance circumvents this
+problem~\cite{ChenDeliciousLaser}, but it suffers from extremely weak
+output power.
 
-The focus of this paper is to consider the properties of such a
-hybrid system, and to compare them to the properties of systems based
-purely on lasing and systems based purely on steady state superradiance.
-In order to make this comparison, we develop a theory that captures all
-of the essential physics throughout the crossover from a laser to steady
-state superradiance.
+The following question naturally arises: Why not consider a cavity QED
+system in which coherence is stored in both the light field and atoms
+on an equal footing? The linewidth of such a system should be less
+sensitive to thermal fluctuations of the cavity mirrors than a laser,
+and it should be able to produce more output power than a device based
+on steady state superradiance.
 
+The focus of this paper, then, will be to consider the properties of
+such a hybrid system, and to compare them to the properties of systems
+based purely on lasing and systems based purely on steady state
+superradiance. In order to make this comparison, we develop a theory
+that captures all of the essential physics throughout the crossover
+from a laser to steady state superradiance.
 
 \section{Model}
 
@@ -157,15 +162,20 @@ where,
     \hat{a}^{\dagger} \hat{\sigma}^{-}_{j} +
     \hat{\sigma}^{+}_{j} \hat{a} \right\},
 \end{equation}
-and $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$ denotes the Liouvillian.
+and $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$ denotes the
+Liouvillian superoperator.
 
-The Hamiltonian $H$ describes the coherent evolution of the coupled atom
-cavity system, where $\omega_{a}$ is the frequency between the two
-levels of each of the atoms, and  $\omega_c$ is the frequency of the
-cavity mode. The Pauli spin matrices for the atoms are
-$\hat{\sigma}_j^{+}$ ,$\hat{\sigma}_j^{-}$ and $\hat{\sigma}_j^{z}$, and
-$\hat{a}$ is the annihilation operator of the cavity mode. The
-atom-cavity coupling rate is $\Omega$.
+The Hamiltonian $\hat{H}$ describes the coherent evolution of the
+coupled atom cavity system, where $\omega_{a}$ is the frequency
+between the two levels of each of the atoms, and $\omega_c$ is the
+frequency of the cavity mode. The Pauli spin matrices for the atoms
+are $\hat{\sigma}_j^{+}$ ,$\hat{\sigma}_j^{-}$ and
+$\hat{\sigma}_j^{z}$, and $\hat{a}$ is the annihilation operator of
+the cavity mode. The atom-cavity coupling rate is $\Omega$. That we
+take this to be the same for all items implies assumption of the
+equivalence of the atom-cavity coupling at the positions of all of the
+atoms. This could be achieved by strongly confining the ensemble in a
+optical lattice potential at the antinodes of the cavity modefunction.
 
 The incoherent evolution is described by the Liouvillian
 $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$,
@@ -208,6 +218,11 @@ is the inhomogeneous dephasing rate.
 
 \section{Solution Methods}
 
+Introduction to be added providing the structure of increasing number
+and increasing level of approximation....
+
+Moving each of the subsections below to individual appendices....
+
 Eq.~(\ref{ME1Crossover}) becomes increasingly complex with increasing
 atom number $N$, since the associated Hilbert space scales as $2^N$.
 Exact simulation methods, such as the quantum jump and quantum state
@@ -215,16 +230,16 @@ diffusion methods, are limited to $N\sim10$ with the cavity field basis
 truncated to just a few photons.
 
 The SU(4) solution method \cite{Hartmann:arXiv1201.1732}
-\cite{Holland13} exploits an underlying symmetry in
+\cite{Holland13} exploits an underlying permutation symmetry in
 Eq.~(\ref{ME1Crossover}) to drastically reduce the number of basis
-states needed to describe the problem, allowing systems with $N\sim100$
-to be treated. However to treat this many particles, the cavity field
-basis must also be truncated to just a few photons. In order to treat
-systems which have a larger number of photons, we combine the SU(4)
-method with the quantum jump method \cite{Dalibard92} \cite{Dum92}
-\cite{Knight98}. Even with the ability to describe problems with larger
-photon number, $N\sim100$ is still too few particles to describe many
-realistic experimental situations.
+states needed to describe the problem, allowing systems with
+$N\sim100$ to be treated. However to treat this many particles, the
+cavity field basis must also be truncated to just a few photons. In
+order to treat systems which have a larger number of photons, we
+combine the SU(4) method with the quantum jump method
+\cite{Dalibard92} \cite{Dum92} \cite{Knight98}. Even with the ability
+to describe problems with larger photon number, $N\sim100$ is still
+too few particles to describe many realistic experimental situations.
 
 We therefore also describe the c-number Langevin equation method
 \cite{Scully97, PhysRevA.47.1431}, which approximate the quantum
@@ -858,6 +873,10 @@ Eq.~(\ref{LW1}).
 
 
 \section{Characterizion of the Crossover}
+
+Move to above solutions methods ....
+
+Fix definitions...
 
 \begin{figure*}
 \begin{center}
