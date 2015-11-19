@@ -29,105 +29,97 @@ superscriptaddress,groupedaddress]{revtex4}
 \date{\today}
 
 \begin{abstract}
-\dmcomment{I think the abstract should be shortened.  Some of the
-  material in here belongs in the introduction}
-Although lasing and steady state superradiance might seem to be disjoint
-phenomena, they should actually be thought of as the extreme limits of a
-more general phenomenon. In a laser, the phase information that allows
-for coherence is stored in the light field. In steady state
-superradiance, the phase information that allows for coherence is stored
-in the atomic ensemble. We develop the theory of the crossover from
-lasing to steady state superradiance where the phase information that
-allows for coherence can be stored in the light field and the atomic
-ensemble simultaneously. The properties of systems that lie in the
-superradiance, lasing and crossover parameter regions are compared.
-The rate at which energy is re-supplied to a typical laser, allows the
-system to operate just above the lasing threshold. For this same rate of
-re-supplying energy, a system in the crossover region operates much
-farther above threshold, which can allow the linewidth to be orders of
-magnitude smaller than the laser. Such a system also exhibits a much
-larger intracavity intensity than a superradiant system, so that the
-crossover system is more experimentally accessible. The linewidth and
-intracavity intensity are then shown to be insensitive to atomic
-dephasing in all parameter regions, so long as the rate of atomic
-dephasing is smaller than the rate of energy being resupplied to the
-system.  Finally, it is shown that a system in the superradiance region
-is insensitive to fluctuations in cavity frequency, while a system in
-the lasing region is insensitive to fluctuations in the atomic
-frequency. A crossover system is less sensitive to fluctuations in
-cavity frequency than a laser system, and less sensitive to fluctuations
-in atomic frequency than a superradiant system. Fluctuations in cavity
-length are the cause of the current limit on the further reduction of
-the linewidth in today's best ultrastable lasers.
+  Lasing and steady state superradiance are two phenomena that may
+  appear at first glance to be distinct, but in fact should be thought
+  of as the two extreme limits of a continuous crossover. In a laser,
+  the macroscopic field that stores the phase information is the
+  intracavity light field, and the robustness of this phase is what
+  leads to the coherence properties of the output light. In contrast,
+  in steady-state superradiant systems, the coherence derives from the
+  macroscopic collective dipole of a many-atom ensemble. In this
+  paper, we develop a quantum theory that connects smoothly between
+  these two extreme limits by showing that coherence can be
+  simultaneously stored in both atoms and light. The properties of
+  systems that lie in the superradiance, lasing and crossover
+  parameter regions are contrasted and compared. We find that a
+  crossover system can operate much farther above threshold than a
+  typical laser system, and that this can allow the linewidth of the
+  output light to be orders of magnitude smaller. Importantly for
+  precision metrology applications, we find that in the superradiant
+  limit, the linewidth is insensitive to fluctuations in the cavity
+  length, while a system in the lasing limit produces light with the
+  linewidth that is insensitive to fluctuations in the atomic
+  transition energy.
 \end{abstract}
-
 \maketitle
 
 \section{Introduction}
 Since its first demonstration in 1960~\cite{maiman1960stimulated}, the
-laser has had a profound impact on fundamental science research, and has
-also become ubiquitous in other areas of our society. Lasers are
-integral to many areas of research and applications, ranging from atomic
-and molecular physics research, atomic clocks, GPS, nuclear fusion
-research, biology research, medicine and even consumer electronics.
+laser has had a profound impact on fundamental science research, and
+has also become ubiquitous in other areas of society. Lasers are
+integral to many areas of research and applications, ranging from
+atomic and molecular physics research, atomic clocks, global
+positioning system, nuclear fusion research, biology research,
+medicine and consumer electronics.
 
-Although many different types of lasers exist, with their key parameters
-spanning many orders of magnitude, all lasers share the same conceptual
-foundation.  A laser is a cavity QED system consisting of a gain medium
-inside of an optical cavity.  We will oftentimes refer to the gain
-medium as "atoms" for brevity.  Lasers typically operate in the so
-called good cavity regime of cavity QED where the linewidth of the
-cavity is much more narrow than the bandwidth of the gain medium.  The
-atoms generate a coherent electro-magnetic field in the cavity by means
-of stimulated emission~\cite{PhysRev.112.1940}. Stimulated emission is a
-quantum mechanical interference effect in which the presence of a large
-number of photons in a certain mode of a light field increases the
+Although many different types of lasers exist, with their key
+parameters spanning many orders of magnitude, all lasers share the
+same conceptual foundation.  A laser is a cavity quantum
+electrodynamics (QED) system consisting of a gain medium inside of an
+optical cavity.  We will oftentimes refer to the gain medium as
+``atoms'' for brevity.  Lasers typically operate in the so called good
+cavity regime of cavity QED where the linewidth of the cavity is much
+narrower than the bandwidth of the gain medium.  The atoms generate a
+coherent electromagnetic field in the cavity by means of stimulated
+emission~\cite{PhysRev.112.1940}. Stimulated emission is a quantum
+mechanical interference effect in which the presence of a large number
+of photons in a certain mode of a light field increases the
 probability that an atom will emit into that mode. The energy emitted
-into the cavity field has to be replenished by some repumping mechanism
-to achieve steady state operation. In a laser, the common phase
-information that allows for coherence is associated with the light
-field.
+into the cavity field has to be replenished by some repumping
+mechanism to achieve steady state operation. In a laser, the
+macroscopic phase information that is associated with the coherence of
+the generated radiation is stored in the light field.
 
-Around the same time as the laser was first demonstrated, the effect of
-superradiance was predicted~\cite{PhysRev.93.99} and soon there after,
-experimentally demonstrated.  Superradiance is a quantum mechanical
-interference effect in which correlations between atoms cause them to
-emit collectively.  Although superradiance has been an active field in
-quantum optics research, unlike its cousin the laser, it has not found a
-wide range of applicability outside of basic research.
-
-Superradiance has most commonly been considered as a pulsed phenomenon.
-Atoms in an ensemble are prepared in the excited state.  Spontaneous
-emission into one or a few spatial modes is then enhanced via a quantum
-mechanical interference effect.  However, it has been known for some
-time that superradiance can also occur in steady
-state~\cite{PhysRevLett.102.163601, PhysRevA.81.033847,
-PhysRevA.81.063827,PhysRevLett.89.253003} by placing the atomic ensemble
-inside a cavity.  In contrast to lasers, superradiance requires a cavity
-with a much broader linewidth than the atomic linewidth.  This regime is
-referred to as the bad cavity limit of cavity QED~\cite{PhysRevA.51.809,
-PhysRevLett.72.3815, ChenDeliciousLaser, HakenLaser, HakenLaserBook}.
-The radiation produced in steady state superradiance is also coherent.
-However, in contrast to a laser, the coherence is stored in the atomic
-medium.  Progress has recently been made towards the experimental
-verification~\cite{ThompsonPaper} of this proposal.
+Around the same time as the laser was first demonstrated, the effect
+of superradiance was predicted~\cite{PhysRev.93.99}, and soon
+thereafter, experimentally demonstrated.  Superradiance is a quantum
+mechanical interference effect in which correlations between atoms
+cause them to emit collectively.  Superradiance has most commonly been
+considered as a pulsed phenomenon.  Atoms in an ensemble are prepared
+in the excited state.  Spontaneous emission into one or a few spatial
+modes is then enhanced via a quantum mechanical interference effect.
+However, it has been known for some time that superradiance can also
+occur in steady state~\cite{PhysRevLett.102.163601,
+  PhysRevA.81.033847, PhysRevA.81.063827,PhysRevLett.89.253003} by
+placing the atomic ensemble inside a cavity.  In contrast to lasers,
+superradiance in steady-state requires a cavity with a much broader
+linewidth than the atomic linewidth.  This regime is referred to as
+the bad-cavity limit of cavity QED~\cite{PhysRevA.51.809,
+  PhysRevLett.72.3815, ChenDeliciousLaser, HakenLaser,
+  HakenLaserBook}.  The radiation produced in steady state
+superradiance is also coherent.  However, in contrast to a laser, the
+coherence is stored in the atomic medium.  Progress has recently been
+made towards the experimental verification~\cite{ThompsonPaper} of
+this proposal.
 
 An important application of lasers is as a stable local oscillator for
-optical atomic clocks and precision spectroscopy.  These lasers rely on
-stabilization against reference cavities.  The most advanced such lasers
-reach linewidths of $\sim 0.1 {\rm Hz}$ corresponding to quality factors
-of $Q>10^{15}$ \dmcomment{Dave, please check these numbers and add a
-reference or two}.  The limiting factor in the way of further
+optical atomic clocks and precision spectroscopy.  These lasers rely
+on stabilization against reference cavities.  The most advanced such
+lasers reach linewidths of $< 0.1 {\rm Hz}$ corresponding to quality
+factors of $Q>10^{15}$ \dmcomment{Dave, please check these numbers and
+  add a reference or two}.  The limiting factor in the way of further
 improvement of these local oscillators are thermal vibrations of the
-dielectric coatings in the cavity mirrors~\cite{PhysRevLett.101.260602}.
-To overcome this challenge, it has been proposed to use steady state
-superradiance based on clock transitions to create an even more stable
-light source~\cite{prospectsofamillihertzlaser,ChenDeliciousLaser}.
-However, this proposed light source has challenges of its own.  First of
-all, this light source typically produces a much lower intensity than a
-conventional laser.  Second of all, perturbations of atomic transition
-frequencies can lead to phase and frequency perturbations in the
-generated field.
+dielectric coatings in the cavity
+mirrors~\cite{PhysRevLett.101.260602}.  To overcome this challenge, it
+has been proposed to use steady state superradiance based on clock
+transitions to create an even more stable light
+source~\cite{prospectsofamillihertzlaser,ChenDeliciousLaser}.
+However, this proposal has challenges of its own.  First of all, in
+spite of the enhancement that occurs due to superradiance, the
+produced intensity is typically much lower than a conventional laser.
+Second of all, perturbations of atomic transition frequencies can
+potentially lead to phase and frequency perturbations in the generated
+field.
 
 Balancing the advantages and disadvantages of the two systems (lasers
 and light sources based on steady state superradiance) leads to the
