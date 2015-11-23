@@ -1,4 +1,6 @@
-\documentclass[aps,prl,twocolumn,
+\documentclass[aps,
+%prl,
+twocolumn,
 %showpacs,
 superscriptaddress,groupedaddress]{revtex4}
 
@@ -112,7 +114,7 @@ oscillators are thermal vibrations of the dielectric coatings in the
 cavity mirrors~\cite{PhysRevLett.101.260602}.  To overcome this
 challenge, it has been proposed to use steady state superradiance based
 on clock transitions to create an even more stable light
-source~\cite{prospectsofamillihertzlaser,ChenDeliciousLaser}.  However,
+source~\cite{PhysRevLett.102.163601, ChenDeliciousLaser}.  However,
 this proposal has challenges of its own.  First of all, in spite of the
 enhancement that occurs due to superradiance, the produced intensity is
 typically much lower than a conventional laser.  Second of all,
@@ -132,7 +134,7 @@ The focus of this paper is to consider the properties of such a hybrid
 system, and to compare and contrast them to the properties of systems
 based purely on lasing and systems based purely on steady state
 superradiance.  To this end we develop a theoretical model that is
-applicable throughout the entire crossover.  We analyse the model using
+applicable throughout the entire crossover.  We analyze the model using
 different levels of approximation: An exact method using SU(4)
 operators, a semi-classical method based on {\it c}-Number Langevin
 equations, a quantum phase diffusion model for the field amplitude, a
@@ -142,14 +144,15 @@ role played by quantum fluctuations and correlations\dmcomment{Dave: Can
 you put in some specifics on what role these play}.
 
 The rest of this paper is organized as follows.  In section~\ref{sec:Model}
-we summarize the physical model upon which our analysis is based.  In
+we summarize the physical model upon which our analysis is based. In
 \ref{sec:Methods} we discuss the different levels of approximation
 and to what extent they are able to capture the various physical
-signatures.  In section~\ref{sec:Results} we discuss our results on the
+signatures. In section \ref{sec:CrossoverCharacterization} we characterize the crossover. In section~\ref{sec:Results} we discuss our results on the
 crossover.  Details of the computation are presented in appendices.
 
 
 \section{Model}
+\label{sec:Model}
 
 We model our system as a collection of $N$ two-level atoms inside a
 single mode optical cavity using the quantum Born-Markov master equation
@@ -164,9 +167,9 @@ where,
 \begin{equation}
 \hat{H} = \frac{\hbar \omega_a}{2} \sum_{j=1}^{N} \hat{\sigma}^{z}_{j}
 + \hbar \omega_c \hat{a}^{\dagger}\hat{a}
-+ \frac{\hbar \Omega}{2}  \sum_{j=1}^{N} \left\{
++ \frac{\hbar \Omega}{2}  \sum_{j=1}^{N} \left(
     \hat{a}^{\dagger} \hat{\sigma}^{-}_{j} +
-    \hat{\sigma}^{+}_{j} \hat{a} \right\},
+    \hat{\sigma}^{+}_{j} \hat{a} \right),
 \end{equation}
 and $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$ denotes the
 Liouvillian superoperator.
@@ -188,41 +191,41 @@ $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$,
 \begin{eqnarray}
 \hat{\mathcal{L}}\left[ \hat{\rho} \right] &=&
   -\frac{\kappa}{2}
-  \left\{
+  \left(
     \hat{a}^{\dagger} \hat{a} \hat{\rho}
     + \hat{\rho}  \hat{a}^{\dagger} \hat{a}
     - 2\hat{a} \hat{\rho} \hat{a}^{\dagger}
-  \right\}
+  \right)
 \nonumber
 \\
  &&-\frac{\gamma}{2} \sum_{j=1}^N
-  \left\{
+  \left(
    \hat{\sigma}_{j}^{+} \hat{\sigma}_{j}^{-} \hat{\rho}
    + \hat{\rho} \hat{\sigma}_{j}^{+} \hat{\sigma}_{j}^{-}
    - 2\hat{\sigma}_{j}^{-} \hat{\rho} \hat{\sigma}_{j}^{+}
-  \right\}
+  \right)
 \nonumber
 \\
  &&-\frac{w}{2} \sum_{j=1}^N
-  \left\{
+  \left(
    \hat{\sigma}_{j}^{-} \hat{\sigma}_{j}^{+} \hat{\rho}
    + \hat{\rho} \hat{\sigma}_{j}^{-} \hat{\sigma}_{j}^{+}
    - 2\hat{\sigma}_{j}^{+} \hat{\rho}  \hat{\sigma}_{j}^{-}
-  \right\},
+  \right),
 \nonumber
 \\
  &&+\frac{1}{2T_2} \sum_{j=1}^N
-  \left\{
+  \left(
    \hat{\sigma}_{j}^{z} \hat{\rho}  \hat{\sigma}_{j}^{z} - \hat{\rho}
-  \right\},
+  \right),
 \end{eqnarray}
 where $\hat{\rho}$ is the system's density matrix, $\kappa$ is the decay
 rate of the cavity, $\gamma$ is the incoherent decay rate of the atoms,
 $w$ is the incoherent repumping rate of the atoms, and $\frac{1}{T_2}$
 is the inhomogeneous dephasing rate.
 
-
 \section{Solution Methods}
+\label{sec:Methods}
 
 Introduction to be added providing the structure of increasing number
 and increasing level of approximation....
@@ -424,8 +427,8 @@ by,
 \begin{equation}
 \frac{d}{dt} \hat{S}^{z} =
 -(w+\gamma)\left( \hat{S}^{z} - d_0\right)
-+i\Omega \left\{ \hat{a}^{\dagger}\hat{S}^{-} -
-\hat{a}\hat{S}^{+} \right\}
++i\Omega \left( \hat{a}^{\dagger}\hat{S}^{-} -
+\hat{a}\hat{S}^{+} \right)
 +\hat{F}^{z},
 \label{Lsz}
 \end{equation}
@@ -490,7 +493,7 @@ be taken in making this correspondence. We define,
 \end{equation}
 \begin{equation}
 \frac{d}{dt} S^{z} = -(w+\gamma)\left( S^{z} - d_0\right)
-+i\Omega \left\{ a^{\dagger}S^{-} - a S^{+} \right\}
++i\Omega \left( a^{\dagger}S^{-} - a S^{+} \right)
 \label{Lszc}
 +F^{z},
 \end{equation}
@@ -613,7 +616,7 @@ equations with this symmetric noise are given by,
 \end{equation}
 \begin{equation}
 \frac{d}{dt} S^{z} = -(w+\gamma)\left( S^{z} - d_0\right)
-+2 \Omega \left\{ q S^{y} - p S^{x} \right\}
++2 \Omega \left( q S^{y} - p S^{x} \right)
 +F^{z},
 \end{equation}
 with,
@@ -647,7 +650,7 @@ Eqns.~(\ref{cq1}~--~\ref{cNoise1}) are equivalent to a Fokker-Planck
 equation for the Wigner quasi-probability distribution.
 
 
-\subsubsection{Analytic Langevin}
+\subsubsection{Mean Field Langevin}
 
 Much physical insight into our system can be gained by considering
 analytical expressions derived with varying orders of quantum
@@ -670,7 +673,7 @@ become,
 \end{equation}
 \begin{equation}
 \frac{d}{dt} S_0^{z} = -(w+\gamma)\left( S_0^{z} - d_0\right)
-+i\Omega \left\{ a_0^{\dagger} S_0^{-} - a_0 S_0^{+} \right\}.
++i\Omega \left( a_0^{\dagger} S_0^{-} - a_0 S_0^{+} \right).
 \label{Lsz0}
 \end{equation}
 In steady state, Eqns.~(\ref{La0}~--~\ref{Lsz0}) yield that either
@@ -678,6 +681,7 @@ $a_0=0$, or,
 \begin{equation}
 S_0^{z}=
 \frac{(\kappa+2i(\omega_c-\omega))(\Gamma+2i(\omega_a-\omega))}{N\Omega^2}.
+\label{Sz01}
 \end{equation}
 Since $S_0^{z}$ must be real, we find
 \begin{equation}
@@ -685,37 +689,40 @@ Since $S_0^{z}$ must be real, we find
 \label{atomcavityfrequencycenter1}
 \end{equation}
 It is assumed that $\delta = \omega_a-\omega_c$ is small, so that terms
-proportional to $\delta^2$ can be neglected so that,
+proportional to $\delta^2$ can be neglected. Then Eq.~\ref{Sz01} becomes,
 \begin{equation}
 S_0^{z}=\frac{1}{\mathcal{C}},
 \end{equation}
-where $\mathcal{C}\equiv \frac{N \Omega^2}{\kappa \Gamma}$ is known as
-the many-atom cooperativity. We also find,
+where $\mathcal{C}\equiv \frac{N \Omega^2}{\kappa \Gamma}$ is the many-atom cooperativity. We also find,
 \begin{equation}
 |a_0|^2=\frac{N(w+\gamma)}{2 \kappa} (d_0 - \frac{1}{\mathcal{C}}).
 \label{a0sqSS}
 \end{equation}
-Since $|a_0|^2 \geq 0$, Eq.~(\ref{a0sqSS}) gives the threshold
-condition,
-\begin{equation}
-\mathcal{C}>\frac{1}{d_0}.
-\label{ThresholdCondition}
-\end{equation}
-
-From these simple steady state solutions, the optimum value of $w$ which
-gives maximum $|a_0|^2$ can be found. It is given by,
+Eq.~(\ref{a0sqSS}) is a quadratic function of $w$, and therefore has a maximum value. By setting the derivative of Eq.~(\ref{a0sqSS}) with respect to w equal to zero, the optimum value of $w$ which gives maximum $|a_0|^2$ can be found. It is given by,
 \begin{equation}
 w_{\mathrm{opt}} = \frac{N \Omega^2}{2\kappa} - \gamma - \frac{1}{T_2}.
 \label{wopt}
 \end{equation}
-If $\frac{N\Omega^2}{2 \kappa} >> \gamma, \frac{1}{T_2}$, then,
+In the limit $\frac{N\Omega^2}{2 \kappa} >> \gamma, \frac{1}{T_2}$, then,
 \begin{equation}
 (|a_0|^2)_{\mathrm{opt}}= \frac{N^2 \Omega^2}{8\kappa^2}.
 \label{adaopt}
 \end{equation}
+The first and second threshold are defined to be the values of w at which Eq.~(\ref{a0sqSS}) equals zero. It is assumed that the first threshold occurs at $w_1 \ll w_{opt}$. In this limit, Eq.~(\ref{a0sqSS}) set equal to zero yields,
+\begin{equation}
+w_1 = \gamma.
+\label{FirstThreshold}
+\end{equation} 
+Eq.~(\ref{FirstThreshold}) tells us that the first threshold occurs when the repumping becomes greater than the natural linewidth of the atoms, when coherence can start to become established.
+The second threshold occurs at $w_2 \sim w_{opt}$. In this limit, Eq.~(\ref{a0sqSS}) set equal to zero yields,
+\begin{equation}
+w_2 =  \frac{N \Omega^2}{\kappa}
+\end{equation} 
+At this point, $S_0^{z}$ is very close to unity, and the repumping destroys the coherence in the system.
+\subsubsection{Phase Diffusion Linewidth}
 
 \dmcomment{A bit of a rough transition here; could use some context}
-The linewidth due to the phase fluctuations of $\hat{a}$ is now derived.
+The linewidth due to the phase fluctuations of $\hat{a}$ is now derived from the quantum Langevin equations, Eqns.~(\ref{La}~--~\ref{Lsz}) .
 Following closely to the derivation done in \cite{HakenLaser,
 HakenLaserBook}, Eq.~(\ref{La}) is differentiated, and substituted into
 it Eqns.~(\ref{La}~--~\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
@@ -731,12 +738,12 @@ where
 \begin{eqnarray}
 \hat{S}^z &=&
 \int_0^t dt^{\prime} e^{-(w+\gamma)(t-t^{\prime})}
-\bigg\{ (w+\gamma) + \hat{F}^z
+\bigg( (w+\gamma) + \hat{F}^z
 \nonumber
 \\
 &&-\frac{2}{N} \left( \frac{d}{dt} (\hat{a}^{\dagger} \hat{a}) +
 \kappa \hat{a}^{\dagger} \hat{a} -\hat{a}^{\dagger} \hat{F}^a -
-\hat{F}^{a^{\dagger}} \hat{a} \right) \bigg\},
+\hat{F}^{a^{\dagger}} \hat{a} \right) \bigg),
 \end{eqnarray}
 and,
 \begin{equation}
@@ -802,8 +809,8 @@ closed set of equations,
 \begin{equation}
 \frac{d}{dt} \left<\hat{\sigma}_{1}^{z}\right> =
 -(w+\gamma)\left( \left<\hat{\sigma}_{1}^{z}\right> - d_0\right)
-+i\Omega \left\{ \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
-\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right\}
++i\Omega \left( \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
+\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right)
 \label{szCE1}
 \end{equation}
 \begin{eqnarray}
@@ -823,15 +830,15 @@ closed set of equations,
 \frac{d}{dt} \left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right> =
 -\Gamma \left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right> +
 \frac{\Omega}{2i} \left< \hat{\sigma}_{1}^{z} \right>
-\left\{ \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
-\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right\}
+\left( \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
+\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right)
 \end{equation}
 \begin{equation}
 \frac{d}{dt} \left<\hat{a}^{\dagger}\hat{a}\right> =
 -\kappa \left<\hat{a}^{\dagger}\hat{a}\right>
 +\frac{N \Omega}{2i}
-\left\{ \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
-\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right\}.
+\left( \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
+\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right).
 \label{adaCE1}
 \end{equation}
 \dmcomment{Steady state of cumulant eqns provide initial conditions;
@@ -877,13 +884,6 @@ constant,
 and hence the spectrum is a Lorentzian with linewidth given by
 Eq.~(\ref{LW1}).
 
-
-\section{Characterizion of the Crossover}
-
-Move to above solutions methods ....
-
-Fix definitions...
-
 \begin{figure*}
 \begin{center}
 	\rotatebox{90}{\hspace{4mm} \textbf{Superradiance}}
@@ -922,33 +922,31 @@ $G^{(2)}(0)$.}
 \label{N40Comparison}
 \end{figure*}
 
+\section{Characterization of the Crossover}
+\label{sec:CrossoverCharacterization}
+
 \dmcomment{Need to give more context/motivation here}
-A characterization of where in the crossover a cavity QED system lies in
-terms of system parameters is now established. We define
+A characterization of the parameter space in which a cavity QED system that can be described by Eq.~(\ref{ME1Crossover}) is now given. Since the repumping rate $w$ is varied in a typical experiment, the system is characterized by considering the value $w=w_{opt}$, at which there is a maximum number of intra-cavity photons. We define the crossover parameter $\xi$ to be the ratio of the modified atomic linewidth (including repumping $w$ and dephasing $1/T_2$) evaluated at $w=w_{opt}$, to the cavity linewidth $\kappa$,
 \begin{equation}
-\xi\equiv\frac{ \Gamma}{4\kappa},
+\xi\equiv\frac{ w_{opt}+\gamma+\frac{1}{T_2}}{4\kappa}.
 \label{CrossoverParameter}
 \end{equation}
-where $\Gamma = w+\gamma+\frac{2}{T_2}$ is the gain bandwidth of the
-atoms and $\kappa$ is the cavity linewidth. If $\xi\ll1$, the system is
-in the bad cavity or superradiant regime. If $\xi\gg1$ our system is in
-the good cavity or laser regime. If $\xi\sim1$, the system is in the
-intermediate regime.
-
-Since the repumping rate $w$ is varied in a typical experiment, the
-system is characterized by considering the value $w=w_{opt}$, at which
-there is a maximum number of intra-cavity photons.
-Eqns.~(\ref{wopt}~--~\ref{adaopt}) can then be combined to further
-motivate the use of $\xi$ to characterize the crossover, since then,
+Inserting Eq.~(\ref{wopt}) into  Eq.~(\ref{CrossoverParameter}) yields,
 \begin{equation}
-\xi = \frac{(|a_0|^2)_{\mathrm{opt}}}{N},
+\xi\equiv \frac{N \Omega^2}{8\kappa^2}.
+\label{CrossoverParameter2}
 \end{equation}
-i.e. it is proportional to the ratio of the intra-cavity photon number
-to atom number, or the ratio of the importance of stimulated emission to
-collective atomic effects.
+Eq.~(\ref{adaopt}) can then be used to rewrite $\xi$ in terms of $(|a_0|^2)_{opt}$ which motivates the use of $\xi$ to characterize the crossover, since then,
+\begin{equation}
+\xi = \frac{(|a_0|^2)_{opt}}{N},
+\end{equation}
+i.e. it is proportional to the ratio of the intra-cavity photon number to atom number, or the ratio of the importance of stimulated emission to collective atomic effects.
 
+If $\xi\ll1$, the system is in the bad cavity or superradiant regime. If $\xi\gg1$ our system is in
+the good cavity or laser regime. If $\xi\sim1$, the system is in the intermediate regime.
 
 \section{Results}
+\label{sec:Results}
 
 \begin{figure*}
 \begin{center}
