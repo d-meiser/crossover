@@ -652,15 +652,15 @@ equation for the Wigner quasi-probability distribution.
 
 \subsubsection{Mean Field Langevin}
 
-Much of the physical insight into our system can be gained by
-considering analytical expressions in which quantum fluctuations are
-treated at varying levels of approximation. Since our system is
-composed of a large number of constituent parts, the overall effect of
-quantum fluctuations is expected to be small. To this end, we first
-look at the expectation values of Eqns.~(\ref{La}--\ref{Lsz}), whereby
-the fluctuations drop out since they have zero average. In an
-interaction picture that rotates with the frequency of atom-cavity coupled
-system $\omega$, these equations become,
+Much physical insight into our system can be gained by considering
+analytical expressions derived with varying orders of quantum
+fluctuations. Since our system is composed of a large number of
+constituent parts, the overall quantum fluctuations are expected to be
+small. To this end, we first look at Eqns.~(\ref{La}~--~\ref{Lsz}) in
+the limit that all quantum fluctuations are neglected by taking their
+expectation values. In an interaction picture that rotates with the
+frequency of the coupled atom cavity system $\omega$, these equations
+become,
 \begin{equation}
 \frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
 -\frac{i N \Omega}{2} S_0^{-},
@@ -683,8 +683,7 @@ S_0^{z}=
 \frac{(\kappa+2i(\omega_c-\omega))(\Gamma+2i(\omega_a-\omega))}{N\Omega^2}.
 \label{Sz01}
 \end{equation}
-Since $S_0^{z}$ is determined by atomic populations, it must be real,
-and this sets frequency for the atom-cavity coupled system to be
+Since $S_0^{z}$ must be real, we find
 \begin{equation}
 \omega = \frac{\kappa \omega_a + \Gamma \omega_c}{\kappa+\Gamma}.
 \label{atomcavityfrequencycenter1}
@@ -699,11 +698,7 @@ where $\mathcal{C}\equiv \frac{N \Omega^2}{\kappa \Gamma}$ is the many-atom coop
 |a_0|^2=\frac{N(w+\gamma)}{2 \kappa} (d_0 - \frac{1}{\mathcal{C}}).
 \label{a0sqSS}
 \end{equation}
-Eq.~(\ref{a0sqSS}) is a quadratic function of $w$ (note that $d_0$ and
-$\mathcal C$ depend on $w$), and therefore has an extremum value. By
-setting the derivative of Eq.~(\ref{a0sqSS}) with respect to w equal
-to zero, the optimum value of $w$ which gives the maximum $|a_0|^2$
-can be found:
+Eq.~(\ref{a0sqSS}) is a quadratic function of $w$, and therefore has a maximum value. By setting the derivative of Eq.~(\ref{a0sqSS}) with respect to w equal to zero, the optimum value of $w$ which gives maximum $|a_0|^2$ can be found. It is given by,
 \begin{equation}
 w_{\mathrm{opt}} = \frac{N \Omega^2}{2\kappa} - \gamma - \frac{1}{T_2}.
 \label{wopt}
@@ -713,24 +708,17 @@ In the limit $\frac{N\Omega^2}{2 \kappa} >> \gamma, \frac{1}{T_2}$, then,
 (|a_0|^2)_{\mathrm{opt}}= \frac{N^2 \Omega^2}{8\kappa^2}.
 \label{adaopt}
 \end{equation}
-The first and second thresholds are defined to be the values of $w$ at
-which Eq.~(\ref{a0sqSS}) equals zero. The first threshold is defined
-to be $w_1 \ll w_{opt}$. In this case, the zero of Eq.~(\ref{a0sqSS})
-yields,
+The first and second threshold are defined to be the values of w at which Eq.~(\ref{a0sqSS}) equals zero. It is assumed that the first threshold occurs at $w_1 \ll w_{opt}$. In this limit, Eq.~(\ref{a0sqSS}) set equal to zero yields,
 \begin{equation}
 w_1 = \gamma.
 \label{FirstThreshold}
 \end{equation} 
-{\em i.e.}\ the first threshold occurs
-when the repumping becomes greater than the natural linewidth of the
-atoms so that coherence can establish.  The second
-threshold occurs around $w_2 \sim w_{opt}$. In this case,
-the zero of Eq.~(\ref{a0sqSS}) yields,
+Eq.~(\ref{FirstThreshold}) tells us that the first threshold occurs when the repumping becomes greater than the natural linewidth of the atoms, when coherence can start to become established.
+The second threshold occurs at $w_2 \sim w_{opt}$. In this limit, Eq.~(\ref{a0sqSS}) set equal to zero yields,
 \begin{equation}
 w_2 =  \frac{N \Omega^2}{\kappa}
 \end{equation} 
-At this point, $S_0^{z}$ is close to unity, and the repumping is so
-strong that it prevents coherence in the system developing.
+At this point, $S_0^{z}$ is very close to unity, and the repumping destroys the coherence in the system.
 \subsubsection{Phase Diffusion Linewidth}
 
 \dmcomment{A bit of a rough transition here; could use some context}
@@ -937,14 +925,8 @@ $G^{(2)}(0)$.}
 \section{Characterization of the Crossover}
 \label{sec:CrossoverCharacterization}
 
-A characterization of the parameter space of a cavity QED system can
-now be given. Since the repumping rate $w$ is varied in a typical
-experiment, the system is characterized by considering the value
-$w=w_{opt}$, at which there is a maximum number of intra-cavity
-photons. We define a crossover parameter $\xi$ to be the ratio of the
-modified atomic linewidth (including repumping $w$ and dephasing
-$1/T_2$) evaluated at the optimum repump rate $w=w_{opt}$, to the
-cavity linewidth $\kappa$,
+\dmcomment{Need to give more context/motivation here}
+A characterization of the parameter space in which a cavity QED system that can be described by Eq.~(\ref{ME1Crossover}) is now given. Since the repumping rate $w$ is varied in a typical experiment, the system is characterized by considering the value $w=w_{opt}$, at which there is a maximum number of intra-cavity photons. We define the crossover parameter $\xi$ to be the ratio of the modified atomic linewidth (including repumping $w$ and dephasing $1/T_2$) evaluated at $w=w_{opt}$, to the cavity linewidth $\kappa$,
 \begin{equation}
 \xi\equiv\frac{ w_{opt}+\gamma+\frac{1}{T_2}}{4\kappa}.
 \label{CrossoverParameter}
@@ -954,19 +936,14 @@ Inserting Eq.~(\ref{wopt}) into  Eq.~(\ref{CrossoverParameter}) yields,
 \xi\equiv \frac{N \Omega^2}{8\kappa^2}.
 \label{CrossoverParameter2}
 \end{equation}
-Eq.~(\ref{adaopt}) can then be used to rewrite $\xi$ in terms of
-$(|a_0|^2)_{opt}$. We do this since it provides an alternative
-interpretation of $\xi$ as a parameter that characterizes the
-crossover, since,
+Eq.~(\ref{adaopt}) can then be used to rewrite $\xi$ in terms of $(|a_0|^2)_{opt}$ which motivates the use of $\xi$ to characterize the crossover, since then,
 \begin{equation}
 \xi = \frac{(|a_0|^2)_{opt}}{N},
 \end{equation}
-{\em i.e.}\ it is proportional to the ratio of the intra-cavity photon
-number to atom number. Thus one may interpret $\xi$ as a quantity that
-expresses the relative importance of stimulated emission to collective
-atomic effects. If $\xi\ll1$, the system is in the bad cavity or superradiant
-regime. If $\xi\gg1$ the system is in the good cavity or laser
-regime. The region $\xi\sim1$ defines the intermediate or crossover regime.
+i.e. it is proportional to the ratio of the intra-cavity photon number to atom number, or the ratio of the importance of stimulated emission to collective atomic effects.
+
+If $\xi\ll1$, the system is in the bad cavity or superradiant regime. If $\xi\gg1$ our system is in
+the good cavity or laser regime. If $\xi\sim1$, the system is in the intermediate regime.
 
 \section{Results}
 \label{sec:Results}
