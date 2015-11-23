@@ -147,8 +147,7 @@ The rest of this paper is organized as follows.  In section~\ref{sec:Model}
 we summarize the physical model upon which our analysis is based. In
 \ref{sec:Methods} we discuss the different levels of approximation
 and to what extent they are able to capture the various physical
-signatures. In section \ref{sec:CrossoverCharacterization} we characterize the crossover. In section~\ref{sec:Results} we discuss our results on the
-crossover.  Details of the computation are presented in appendices.
+signatures. In section \ref{sec:CrossoverCharacterization} we define a crossover parameter which characterizes the relative importance of stimulated emission to collective atomic effects in a cavity QED system. In section~\ref{sec:Results} we discuss our results on the crossover.  Details of the computation are presented in appendices.
 
 
 \section{Model}
@@ -506,21 +505,14 @@ are c-numbers. The noise terms are correlated according to,
 where the elements of $\mathscr{D}^{\mu \nu}$ depend on the precise
 operator ordering that is chosen.
 
-\dmcomment{Need to clean up the following paragraph}
-The elements of $\mathscr{D}^{\mu \nu}$ can be determined by using
-Eqns.~(\ref{Lac}~--~\ref{Lszc}) to derive equations of motion for the
-c-number second order moments, since those equations of motion contain
-the elements of $\mathscr{D}^{\mu \nu}$ (i.e. $\mathscr{D}^{\mu \nu} =
+The elements of $\mathscr{D}^{\mu \nu}$ are determined by calculating the
+c-number second order moments using Eqns.~(\ref{Lac}~--~\ref{Lszc}), and then making a correspondence between them and the the quantum second order moments calculated using Eqns.~(\ref{La}~--~\ref{Lsz}). This procedure determines $\mathscr{D}^{\mu \nu}$ since the c-number second order moments contain $\mathscr{D}^{\mu \nu}$ ({\em i.e.} $\mathscr{D}^{\mu \nu} =
 \left<A^{\mu}F^{\nu}\right>=\left<F^{\mu}A^{\nu}\right>$ where $A^{\mu}$
-is a system variable). Equations of motion for the operator second order
-moments using Eqns.~(\ref{La}~--~\ref{Lsz}) must then also be derived. A
-correspondence is then made by choosing an ordering for the operators,
-and enforcing that the c-number second order moment equations are equal
-to the operator second order moment equations for that ordering.
+is a system variable), and the quantum second order moments contain $D^{\mu \nu}$. A correspondence is then made by choosing an ordering for the operators, and enforcing that the c-number second order moment equations are equal
+to the operator second order moment equations in that ordering.
 
-\dmcomment{"c-numbers commute" is a bit repetitive}
-To illustrate the procedure, we note that since c-numbers commute,
-$\left<S^{+}S^{-} \right> = \left<S^{-}S^{+} \right>$, and they also
+To illustrate the procedure, we note that since,
+$\left<S^{+}S^{-} \right> = \left<S^{-}S^{+} \right>$, they also
 have the same equations of motion,
 \begin{eqnarray}
 \frac{d}{dt} \left<S^{+}S^{-} \right>  \hspace{-0.03in} &=&
@@ -596,7 +588,7 @@ conjugate to $a$, and $S^+$  complex conjugate to $S^-$.
 We choose to match the c-number second order moments to the
 symmetrically ordered quantum second order moments. This ordering is
 chosen since, by construction, this correspondence will always give
-$2\mathscr{D}^{\mu \nu}=D^{\mu \nu}+D^{\nu \mu}$, i.e. there are never
+$2\mathscr{D}^{\mu \nu}=D^{\mu \nu}+D^{\nu \mu}$, {\em i.e.} there are never
 any left over commutator pieces in $\mathscr{D}^{\mu \nu}$. The c-number
 equations with this symmetric noise are given by,
 \begin{equation}
@@ -731,6 +723,7 @@ w_2 =  \frac{N \Omega^2}{\kappa}
 \end{equation} 
 At this point, $S_0^{z}$ is close to unity, and the repumping is so
 strong that it prevents coherence in the system developing.
+
 \subsubsection{Phase Diffusion Linewidth}
 
 \dmcomment{A bit of a rough transition here; could use some context}
@@ -1021,7 +1014,7 @@ The SU(4) method becomes more computationally intensive as $\xi$ is
 increased, since there are more photons as $\xi$ is increased, and hence
 more basis states need to be tracked. Therefore, for $\xi=5$, the method
 that combines the SU(4) with quantum jump method was used. This
-simulation was very computationally intensive, so that only a few points
+simulation was very computationally intensive, so that only a few values of $w$
 are included.
 
 Fig.~\ref{N40Comparison} shows that there is an excellent agreement
@@ -1099,20 +1092,7 @@ $\left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right>_{opt}$ is much
 smaller, which is why atom-atom correlations are not usually thought to
 be important in lasers.
 
-The linewidth $\Delta \nu$, however, does not show universal behavior in
-the superradiance, crossover, and lasing regimes. As seen in
-Fig.~\ref{N10000Comparison} (b), in the superradiance region, when
-$1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{opt}<1$.
-In contrast, the linewidth in the lasing regime, shown in
-Fig.\ref{N10000Comparison} (d), linearly increases with increasing
-$w_{opt}$. This is the typical Schawlow-Townes behavior, which can be
-seen by considering $\left<\hat{a}^{\dagger}\hat{a}\right>/\kappa$ using
-Eq.~(\ref{a0sqSS}). In the crossover region, shown in
-Fig.~\ref{N10000Comparison} (c), we see that for $w/w_{opt}$ small,
-$\Delta \nu/\kappa$ is flat, and as $w/w_{opt}$ approaches unity,
-$\Delta \nu/\kappa$ starts to linearly decrease as in the lasing regime.
-Therefore, a system in the crossover region displays characteristics of
-both superradiance and lasing.
+The linewidth $\Delta \nu$, however, does not show universal behavior in the superradiance, crossover, and lasing regimes. As seen in Fig.~\ref{N10000Comparison} (b), in the superradiance region, when $1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{opt}<1$. In contrast, the linewidth in the lasing regime, shown in Fig.\ref{N10000Comparison} (d), linearly decreases as $w/w_{opt}$ increases towards unity. This is the typical Schawlow-Townes behavior, which can be seen by considering $\kappa/\left<\hat{a}^{\dagger}\hat{a}\right>$ using Eq.~\ref{a0sqSS}. In the crossover region, shown in Fig.~\ref{N10000Comparison} (c), we see that for $w/w_{opt}$ small, $\Delta \nu/\kappa$ is flat, and as $w/w_{opt}$ approaches unity, $\Delta \nu/\kappa$ starts to linearly decrease as in the lasing regime. Therefore, a system in the crossover region displays characteristics of both superradiance and lasing. 
 \dmcomment{The previous sentence was commented out. Do we want this in
   the paper? Perhaps rephrase a bit?}
 
