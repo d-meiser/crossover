@@ -263,150 +263,7 @@ method \cite{JPSJ.17.1100} does not scale exponentially with $N$, and
 can therefore also be used to treat large systems. These methods are now
 described in detail.
 
-
-\subsection{SU(4) Numerical Simulation of the Master Equation}
-
-Recently, we have developed a group-theoretic method for efficiently
-simulating the quantum master equation~\cite{Holland13}. In brief, the
-master equation, Eq.~(\ref{ME1Crossover}), can be expressed in terms of
-generators of the SU(4) group, with the Hamiltonian part being,
-\begin{eqnarray}
-  &&\frac{1}{i\hbar}[H,\rho]=
-  -2i \omega_a \Sigma_3\rho -i\omega_c [ \hat{a}^{\dagger}\hat{a}, \rho]
-  \nonumber
-  \\
-  &&-i\Omega \left[a(\mathcal{M}_++\mathcal{N}_+)\rho+a^\dagger
-    (\mathcal{M}_-+\mathcal{N}_-)\rho\right]\nonumber\\
-  &&\quad{}+i\Omega\left[(\mathcal{U}_++\mathcal{V}_+)\rho a^\dagger
-    +(\mathcal{U}_-+\mathcal{V}_-)\rho a\right]\,,
-\end{eqnarray}
-and dissipation parts being,
-\begin{eqnarray}\label{liv}
- && \sum_{j=1}^N(
-   2\sigma_j^-\rho\sigma_j^+-\sigma_j^+ \sigma_j^-\rho-
-   \rho \sigma_j^+\sigma_j^-
-  )/2=-\frac{N}{2}-
-  \mathcal{Q}_3+\mathcal{Q}_{-}\,,\nonumber\\
- && \sum_{j=1}^N(
-   2\sigma_j^+\rho\sigma_j^--\sigma_j^- \sigma_j^+\rho-
-   \rho \sigma_j^-\sigma_j^+
-  )/2=-\frac{N}{2}+
-  \mathcal{Q}_3+\mathcal{Q}_{+}\,,\nonumber\\
- && \sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)}-\rho)=4\mathcal{M}_3-2
-  \mathcal{Q}_3-2\Sigma_3-N\,,
-  \label{ham}
-\end{eqnarray}
-where $\mathcal{Q}_{\pm}$, $\mathcal{M}_{\pm}$, $\mathcal{N}_{\pm}$,
-$\mathcal{U}_{\pm}$, $\mathcal{V}_{\pm}$, $\mathcal{Q}_3$, $\mathcal{M}_3$,
-and $\Sigma_3$ are superoperators~\cite{Holland13}.  As a result, we can
-expand the density matrix in terms of the fully symmetrical multiplet
-$P_{q,q_3,\sigma_3}$~\cite{Holland13} of the SU(4) group,
-\begin{equation}\label{ex}
-  \rho=\sum_{q,q_3,\sigma_3,m,n} C_{q,q_3,\sigma_3}^{m,n}
-  P_{q,q_3,\sigma_3}\bigl|m\bigr>\bigl<n\bigr|\,,
-\end{equation}
-where $C_{q,q_3,\sigma_3}^{m,n}$ are complex coefficients, and
-$|n\rangle$ is the photon Fock state. Note that the total number of
-states in the fully symmetrical multiplet is $1/6 (N+1)(N+2)(N+3)$,
-which reduces the exponential scaling of the problem to cubic in $N$.
-This has enabled us to numerically investigate large
-systems~\cite{Holland13}.
-
-However, the number of basis in Eq.~(\ref{ex}) also grows as square of
-the photon number.  This would impose great difficulties in numerical
-simulations of the laser region due to the large number of photons.
-Below, we present a method that unravels the master equation in the
-Liouville space, which enables us to remove the photon basis in the
-simulation. The essential idea behind the method is that we are able to
-deduce the photon state by keeping track of the total number of quanta
-$N_q$ in the system.
-
-\dmcomment{The following discussion should be made more precise.
-Discuss what "random" means.}
-The quantum Monte Carlo method decomposes the density operator evolution
-into a set of quantum trajectories where, between applications of random
-jumps into random channels, the system evolves under an effective
-Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. While this has
-conventionally been done with wavefunctions to reduce the numerical
-complexity, here we apply the quantum trajectory algorithm in the
-density matrix space in order to get rid of the photon basis in the
-expansion of the density operator. To construct a single trajectory, we
-first need to identify the jump operators. In our problem, there are
-four decay channels: repumping, spontaneous emission, dephasing and
-cavity decay. The corresponding jump operators $\mathcal{J}_i$ are
-\begin{eqnarray}
-\mathrm{Repumping:} \mathcal{J}_1\rho&=&
-w\sum_{j=1}^N(\sigma_j^+\rho\sigma_j^-)=w\mathcal{Q}_{+}\rho\,,
-\nonumber\\
-\mathrm{Spontaneous\,\,emission:}  \mathcal{J}_2\rho&=&
-\gamma\sum_{j=1}^N(\sigma_j^-\rho\sigma_j^+)=
-\gamma \mathcal{Q}_{-}\rho\,,\nonumber\\
-\mathrm{Dephasing:} \mathcal{J}_3\rho&=&
-\frac{1}{2T_2}\sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)})
-\nonumber\\
-&=&\frac{1}{2T_2}(4\mathcal{M}_3-2  \mathcal{Q}_3-2\Sigma_3)\rho\,,
-\nonumber\\
-\mathrm{Cavity\,\,decay:}  \mathcal{J}_4\rho&=&\kappa a\rho a^{\dagger}\,.
-\label{jumpo}
-\end{eqnarray}
-When a repumping quantum jump happens, $N_q$ is decreased by one. When a
-spontaneous emission or a cavity-decay quantum jump happens, $N_q$ is
-increased by one. The dephasing quantum jump also does not change the
-total number of quanta. Therefore, during the evolution of a single
-trajectory, one could calculate $N_q$ at every time step by tracking the
-the numbers of jumps of the different types. With the knowledge of
-$N_q$, the photon state can be easily deduced. It is shown in
-Ref.~\cite{Holland13} that
-\begin{equation}
-\begin{split}
-  \hat{J}_3P_{q,q_3,\sigma_3}^{(\mathrm{s})}&=
-  (q_3+\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},\\
-  P_{q,q_3,\sigma_3}^{(\mathrm{s})}\hat{J}_3&=
-  (q_3-\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},
-\end{split}
-\end{equation}
-where $\hat{J}_3=\sum_{j=1}^N\sigma_j^{(3)}/2$ is the collective spin
-operator. Therefore, the atomic state for a particular fully symmetrical
-atomic basis in terms of the number of excited atoms is
-$|q_3+\sigma_3+N/2\rangle\langle q_3-\sigma_3+N/2|$. And thus the
-corresponding photon state is
-\begin{equation}
-\bigl|m\bigr>\bigl<n\bigr|=
-\bigl|N_q-(q_3+\sigma_3+N/2)\bigr>
-\bigl<N_q-(q_3-\sigma_3+N/2)\bigr|.
-\end{equation}
-Therefore, by counting the quantum jumps, we have complete knowledge of
-photon states for every single trajectory. This enables us to remove the
-photon basis, which greatly improves the efficiency of the method.
-
-\dmcomment{Does the efficiency improvement rely on starting out in
-a photon number state? If so we should probably comment on that.}
-
-The simulation of jump times and jump channels is completely analogous
-to the wave-function Monte Carlo method. The effective evolution of the
-system is governed by the master equation excluding the above jump
-operators. As a result, under the effective evolution, the trace of the
-density operator is no longer conserved, but decreases as a function of
-time.  This is analogous to the decay of the norm of the wavefunction in
-the wave function Monte Carlo method. A jump occurs when the trace of
-the density operator is less than a random number uniformly distributed
-in the interval $[0,1]$. When a decay occurs we stochastically determine
-the channel $i$ into which the system decays according to the
-probability distribution,
-\begin{equation}
-\mathcal{P}_i^{\mathrm{jump}}=\frac{\mathrm{Tr}[\mathcal{J}_i\rho]}{\sum_{k=1}^4
-\mathrm{Tr}[\mathcal{J}_k\rho]}.
-\end{equation}
-
-Finally, in order to get the density operator at each time step, an
-ensemble average of many quantum trajectories is required. Then, various
-observables can be calculated according to Ref.~\cite{Holland13}. It is
-also worth noting that if one is only interested in the steady state
-density operator, a time average in the steady state can be applied
-instead of the ensemble average.
-
-
-\subsection{Langevin Theory}
+\subsection{Quantum Langevin Equations}
 
 The Langevin equations equivalent to Eq.~(\ref{ME1Crossover}) are given
 by,
@@ -468,8 +325,89 @@ where the $D^{\mu \nu} $ are calculated using the Einstein relations
 \label{OpNoise1}
 \end{eqnarray}
 
+\subsection{Mean Field Langevin Equations}
 
-\subsubsection{C-number Langevin equations for numerical simulations}
+Much of the physical insight into our system can be gained by
+considering analytical expressions in which quantum fluctuations are
+treated at varying levels of approximation. Since our system is
+composed of a large number of constituent parts, the overall effect of
+quantum fluctuations is expected to be small. To this end, we first
+look at the expectation values of Eqns.~(\ref{La}--\ref{Lsz}), whereby
+the fluctuations drop out since they have zero average. In an
+interaction picture that rotates with the frequency of atom-cavity coupled
+system $\omega$, these equations become,
+\begin{equation}
+\frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
+-\frac{i N \Omega}{2} S_0^{-},
+\label{La0}
+\end{equation}
+\begin{equation}
+\frac{d}{dt} S_0^{-} =
+-\frac{1}{2} \left(\Gamma +2 i (\omega_a-\omega) \right)  S_0^{-}
++\frac{i \Omega}{2} \hat{a} S_0^{z},
+\end{equation}
+\begin{equation}
+\frac{d}{dt} S_0^{z} = -(w+\gamma)\left( S_0^{z} - d_0\right)
++i\Omega \left( a_0^{\dagger} S_0^{-} - a_0 S_0^{+} \right).
+\label{Lsz0}
+\end{equation}
+In steady state, Eqns.~(\ref{La0}~--~\ref{Lsz0}) yield that either
+$a_0=0$, or,
+\begin{equation}
+S_0^{z}=
+\frac{(\kappa+2i(\omega_c-\omega))(\Gamma+2i(\omega_a-\omega))}{N\Omega^2}.
+\label{Sz01}
+\end{equation}
+Since $S_0^{z}$ is determined by atomic populations, it must be real,
+and this sets frequency for the atom-cavity coupled system to be
+\begin{equation}
+\omega = \frac{\kappa \omega_a + \Gamma \omega_c}{\kappa+\Gamma}.
+\label{atomcavityfrequencycenter1}
+\end{equation}
+It is assumed that $\delta = \omega_a-\omega_c$ is small, so that terms
+proportional to $\delta^2$ can be neglected. Then Eq.~\ref{Sz01} becomes,
+\begin{equation}
+S_0^{z}=\frac{1}{\mathcal{C}},
+\end{equation}
+where $\mathcal{C}\equiv \frac{N \Omega^2}{\kappa \Gamma}$ is the many-atom cooperativity. We also find,
+\begin{equation}
+|a_0|^2=\frac{N(w+\gamma)}{2 \kappa} (d_0 - \frac{1}{\mathcal{C}}).
+\label{a0sqSS}
+\end{equation}
+Eq.~(\ref{a0sqSS}) is a quadratic function of $w$ (note that $d_0$ and
+$\mathcal C$ depend on $w$), and therefore has an extremum value. By
+setting the derivative of Eq.~(\ref{a0sqSS}) with respect to w equal
+to zero, the optimum value of $w$ which gives the maximum $|a_0|^2$
+can be found:
+\begin{equation}
+w_{\mathrm{opt}} = \frac{N \Omega^2}{2\kappa} - \gamma - \frac{1}{T_2}.
+\label{wopt}
+\end{equation}
+In the limit $\frac{N\Omega^2}{2 \kappa} >> \gamma, \frac{1}{T_2}$, then,
+\begin{equation}
+(|a_0|^2)_{\mathrm{opt}}= \frac{N^2 \Omega^2}{8\kappa^2}.
+\label{adaopt}
+\end{equation}
+The first and second thresholds are defined to be the values of $w$ at
+which Eq.~(\ref{a0sqSS}) equals zero. The first threshold is defined
+to be $w_1 \ll w_{opt}$. In this case, the zero of Eq.~(\ref{a0sqSS})
+yields,
+\begin{equation}
+w_1 = \gamma.
+\label{FirstThreshold}
+\end{equation} 
+{\em i.e.}\ the first threshold occurs
+when the repumping becomes greater than the natural linewidth of the
+atoms so that coherence can establish.  The second
+threshold occurs around $w_2 \sim w_{opt}$. In this case,
+the zero of Eq.~(\ref{a0sqSS}) yields,
+\begin{equation}
+w_2 =  \frac{N \Omega^2}{\kappa}
+\end{equation} 
+At this point, $S_0^{z}$ is close to unity, and the repumping is so
+strong that it prevents coherence in the system developing.
+
+\subsection{C-number Langevin equations for numerical simulations}
 
 Eqns.~(\ref{La}~--~\ref{Lsz}) are operator equations, and are therefore
 difficult to simulate on a computer. We therefore derive c-number
@@ -640,254 +578,6 @@ gives the correct linear combination of independent Wiener processes
 that reproduces $\mathscr{D}^{\mu \nu}$.
 Eqns.~(\ref{cq1}~--~\ref{cNoise1}) are equivalent to a Fokker-Planck
 equation for the Wigner quasi-probability distribution.
-
-
-\subsubsection{Mean Field Langevin}
-
-Much of the physical insight into our system can be gained by
-considering analytical expressions in which quantum fluctuations are
-treated at varying levels of approximation. Since our system is
-composed of a large number of constituent parts, the overall effect of
-quantum fluctuations is expected to be small. To this end, we first
-look at the expectation values of Eqns.~(\ref{La}--\ref{Lsz}), whereby
-the fluctuations drop out since they have zero average. In an
-interaction picture that rotates with the frequency of atom-cavity coupled
-system $\omega$, these equations become,
-\begin{equation}
-\frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
--\frac{i N \Omega}{2} S_0^{-},
-\label{La0}
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S_0^{-} =
--\frac{1}{2} \left(\Gamma +2 i (\omega_a-\omega) \right)  S_0^{-}
-+\frac{i \Omega}{2} \hat{a} S_0^{z},
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S_0^{z} = -(w+\gamma)\left( S_0^{z} - d_0\right)
-+i\Omega \left( a_0^{\dagger} S_0^{-} - a_0 S_0^{+} \right).
-\label{Lsz0}
-\end{equation}
-In steady state, Eqns.~(\ref{La0}~--~\ref{Lsz0}) yield that either
-$a_0=0$, or,
-\begin{equation}
-S_0^{z}=
-\frac{(\kappa+2i(\omega_c-\omega))(\Gamma+2i(\omega_a-\omega))}{N\Omega^2}.
-\label{Sz01}
-\end{equation}
-Since $S_0^{z}$ is determined by atomic populations, it must be real,
-and this sets frequency for the atom-cavity coupled system to be
-\begin{equation}
-\omega = \frac{\kappa \omega_a + \Gamma \omega_c}{\kappa+\Gamma}.
-\label{atomcavityfrequencycenter1}
-\end{equation}
-It is assumed that $\delta = \omega_a-\omega_c$ is small, so that terms
-proportional to $\delta^2$ can be neglected. Then Eq.~\ref{Sz01} becomes,
-\begin{equation}
-S_0^{z}=\frac{1}{\mathcal{C}},
-\end{equation}
-where $\mathcal{C}\equiv \frac{N \Omega^2}{\kappa \Gamma}$ is the many-atom cooperativity. We also find,
-\begin{equation}
-|a_0|^2=\frac{N(w+\gamma)}{2 \kappa} (d_0 - \frac{1}{\mathcal{C}}).
-\label{a0sqSS}
-\end{equation}
-Eq.~(\ref{a0sqSS}) is a quadratic function of $w$ (note that $d_0$ and
-$\mathcal C$ depend on $w$), and therefore has an extremum value. By
-setting the derivative of Eq.~(\ref{a0sqSS}) with respect to w equal
-to zero, the optimum value of $w$ which gives the maximum $|a_0|^2$
-can be found:
-\begin{equation}
-w_{\mathrm{opt}} = \frac{N \Omega^2}{2\kappa} - \gamma - \frac{1}{T_2}.
-\label{wopt}
-\end{equation}
-In the limit $\frac{N\Omega^2}{2 \kappa} >> \gamma, \frac{1}{T_2}$, then,
-\begin{equation}
-(|a_0|^2)_{\mathrm{opt}}= \frac{N^2 \Omega^2}{8\kappa^2}.
-\label{adaopt}
-\end{equation}
-The first and second thresholds are defined to be the values of $w$ at
-which Eq.~(\ref{a0sqSS}) equals zero. The first threshold is defined
-to be $w_1 \ll w_{opt}$. In this case, the zero of Eq.~(\ref{a0sqSS})
-yields,
-\begin{equation}
-w_1 = \gamma.
-\label{FirstThreshold}
-\end{equation} 
-{\em i.e.}\ the first threshold occurs
-when the repumping becomes greater than the natural linewidth of the
-atoms so that coherence can establish.  The second
-threshold occurs around $w_2 \sim w_{opt}$. In this case,
-the zero of Eq.~(\ref{a0sqSS}) yields,
-\begin{equation}
-w_2 =  \frac{N \Omega^2}{\kappa}
-\end{equation} 
-At this point, $S_0^{z}$ is close to unity, and the repumping is so
-strong that it prevents coherence in the system developing.
-
-\subsubsection{Phase Diffusion Linewidth}
-
-\dmcomment{A bit of a rough transition here; could use some context}
-The linewidth due to the phase fluctuations of $\hat{a}$ is now derived from the quantum Langevin equations, Eqns.~(\ref{La}~--~\ref{Lsz}) .
-Following closely to the derivation done in \cite{HakenLaser,
-HakenLaserBook}, Eq.~(\ref{La}) is differentiated, and substituted into
-it Eqns.~(\ref{La}~--~\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
-arrive at an equation for $\hat{a}$ alone,
-\begin{equation}
-\ddot{\hat{a}} =
--\frac{1}{2} (\kappa+\Gamma)  \dot{\hat{a}} -
-\frac{\kappa \Gamma}{4}\hat{a}  +
-\frac{N \Omega^2 }{4} \hat{a} \hat{S}^z +\hat{F},
-\label{addeq}
-\end{equation}
-where
-\begin{eqnarray}
-\hat{S}^z &=&
-\int_0^t dt^{\prime} e^{-(w+\gamma)(t-t^{\prime})}
-\bigg( (w+\gamma) + \hat{F}^z
-\nonumber
-\\
-&&-\frac{2}{N} \left( \frac{d}{dt} (\hat{a}^{\dagger} \hat{a}) +
-\kappa \hat{a}^{\dagger} \hat{a} -\hat{a}^{\dagger} \hat{F}^a -
-\hat{F}^{a^{\dagger}} \hat{a} \right) \bigg),
-\end{eqnarray}
-and,
-\begin{equation}
-\hat{F} = \frac{\Gamma}{2} \hat{F}^a-
-\frac{i N \Omega}{2} \hat{F}^-+\dot{\hat{F}}^a.
-\end{equation}
-The annihilation operator $\hat{a}$ is decomposed according to,
-\begin{equation}
-\hat{a}= (a_0 + \hat{\rho}) e^{i\hat{\phi}}.
-\label{adecomp}
-\end{equation}
-Above threshold, amplitude fluctuations are expected to be small, so that
-\begin{equation}
-\left< \hat{a}^{\dagger}(t) \hat{a}(0) \right> =
-a_0^2 \left< e^{i(\hat{\phi}(t) - \hat{\phi}(0))} \right>.
-\end{equation}
-
-After substituting Eq.~(\ref{adecomp}) into Eq.~(\ref{addeq}), we take
-the imaginary part to first order in products of operators, and find,
-\begin{equation}
-\ddot{\hat{\phi}} =
--\frac{1}{2}(\kappa+\Gamma) \dot{\hat{\phi}} +
-\frac{1}{a_0} \text{Im} [\hat{F}],
-\label{phieq1}
-\end{equation}
-where a factor of $e^{-i\phi}$ has been absorbed into $\hat{F}$.
-Eq.~(\ref{phieq1}) is then integrateed, assuming that $(\kappa+\Gamma)$
-is large, to arrive at,
-\begin{equation}
-\hat{\phi}(t) - \hat{\phi}(0) =
-\frac{2}{a_0 (\kappa+\Gamma)}
-\int_0^t dt^{\prime} \text{Im}
-\left[ \frac{\Gamma}{2} \hat{F}^a-\frac{i N \Omega}{2} \hat{F}^-\right].
-\label{phieq2}
-\end{equation}
-Since $ \hat{F}^a$ and $\hat{F}^-$ are Gaussian, we can use
-\begin{equation}
-\left< e^{i(\hat{\phi}(t) - \hat{\phi}(0))} \right> =
-e^{-\frac{1}{2}\left< ( \hat{\phi}(t) - \hat{\phi}(0) )^2 \right>}.
-\end{equation}
-Therefore, we use Eq.~(\ref{phieq2}), along with Eqns.~(\ref{OpNoise1})
-to find,
-\begin{equation}
-\left<(\hat{\phi}(t) - \hat{\phi}(0))^2 \right> =
-\left(\frac{(C+1)}{2(Cd_0-1)} \frac{\Gamma}{(w+\gamma)}
-\frac{\Omega^2 \kappa}{(\kappa+\Gamma)^2}\right) t,
-\end{equation}
-so that the linewidth $\Delta \nu$ given by,
-\begin{equation}
-\Delta \nu =
-\frac{(C+1)}{2(Cd_0-1)} \frac{\Gamma}{(w+\gamma)}
-\frac{\Omega^2 \kappa}{(\kappa+\Gamma)^2}.
-\label{LWHaken}
-\end{equation}
-
-
-\subsection{Second Order Cumulant Theory}
-
-The cumulant theory is derived by using Eq.~(\ref{ME1Crossover}) to find
-equations for expectation values of system observables, which are
-truncated to second order in a cumulant expansion, resulting in the
-closed set of equations,
-\begin{equation}
-\frac{d}{dt} \left<\hat{\sigma}_{1}^{z}\right> =
--(w+\gamma)\left( \left<\hat{\sigma}_{1}^{z}\right> - d_0\right)
-+i\Omega \left( \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
-\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right)
-\label{szCE1}
-\end{equation}
-\begin{eqnarray}
-\frac{d}{dt} \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right>
-&=& -\frac{1}{2}(\Gamma+\kappa-2 i \delta)
-\left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right>
-+\frac{i \Omega}{2} \bigg\{
-\left<\hat{a}^{\dagger}\hat{a}\right> \left<\hat{\sigma}_{1}^{z}\right>
-\nonumber
-\\
-&&
-+ \frac{1}{2} \left(  \left<\hat{\sigma}_{1}^{z}\right> + 1 \right)
-+ (N-1) \left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right>
-\bigg\}
-\end{eqnarray}
-\begin{equation}
-\frac{d}{dt} \left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right> =
--\Gamma \left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right> +
-\frac{\Omega}{2i} \left< \hat{\sigma}_{1}^{z} \right>
-\left( \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
-\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right)
-\end{equation}
-\begin{equation}
-\frac{d}{dt} \left<\hat{a}^{\dagger}\hat{a}\right> =
--\kappa \left<\hat{a}^{\dagger}\hat{a}\right>
-+\frac{N \Omega}{2i}
-\left( \left<\hat{a}^{\dagger}\hat{\sigma}_{1}^{-}\right> -
-\left<\hat{a}\hat{\sigma}_{1}^{+}\right> \right).
-\label{adaCE1}
-\end{equation}
-\dmcomment{Steady state of cumulant eqns provide initial conditions;
-quantum regression theorem provides equations of motion for two-time
-correlation functions}  This second order cumulant expansion, along with
-the quantum regression theorem, can be used to find a closed set of
-equations for two-time expectation values,
-\begin{equation}
-\frac{d}{d\tau}
-\left[ \begin{array}{c}
-\left<\hat{a}^{\dagger}(\tau)\hat{a}(0)\right> \\
-\left<\hat{\sigma}_{1}^{+}(\tau)\hat{a}(0)\right>  \\
-\end{array} \right]
-=
-\left[ \begin{array}{cc}
--\frac{\kappa}{2} +i \delta & \frac{iN\Omega}{2}  \\
--\frac{i\Omega\left<\hat{\sigma}_{1}^{z}\right>}{2}& -\frac{\Gamma}{2}  \\
-\end{array} \right]
-\left[ \begin{array}{c}
-\left<\hat{a}^{\dagger}(\tau)\hat{a}(0)\right> \\
-\left<\hat{\sigma}_{1}^{+}(\tau)\hat{a}(0)\right>  \\
-\end{array} \right].
-\label{TwoTimeCE1}
-\end{equation}
-These equations are written in a frame rotating at the atomic frequency.
-They are important, since the Fourier transform of
-$\left<\hat{a}^{\dagger}(\tau)\hat{a}(0)\right>$ is the spectrum of the
-light inside our cavity QED system.  \dmcomment{Discussion of importance
-of this equation should be moved up}
-
-
-\dmcomment{Laplace transform is one way to solve the equations} By using
-Laplace transform methods, it is found that the solution of the
-$\left<\hat{a}^{\dagger}(\tau)\hat{a}(0)\right>$ equation, of
-Eq.~(\ref{TwoTimeCE1}) is dominated by a single exponential with decay
-constant,
-\begin{equation}
-\Delta \nu = \frac{1}{2}(\kappa+\Gamma-2i\delta) -
-\frac{1}{2} \sqrt{(-\kappa+\Gamma+2i\delta)^2 +
-4N\Omega^2 \left<\hat{\sigma}_{1}^{z}\right>},
-\label{LW1}
-\end{equation}
-and hence the spectrum is a Lorentzian with linewidth given by
-Eq.~(\ref{LW1}).
 
 \begin{figure*}
 \begin{center}
@@ -1096,21 +786,6 @@ The linewidth $\Delta \nu$, however, does not show universal behavior in the sup
 \dmcomment{The previous sentence was commented out. Do we want this in
   the paper? Perhaps rephrase a bit?}
 
-\begin{figure}
-\begin{center}
-	\includegraphics[scale =0.42] {LinewidthComparison.eps}
-	\hspace{-4.5mm} \includegraphics[scale =0.42] {adaComparison.eps}\\
-	\hspace{-3mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
-\end{center}
-		\vspace{-5mm}
-\caption{(Color online) Comparison of (a) linewidth and (b) Intracavity
-intensity for a system operated in the crossover ($\xi=1$) shown in blue
-solid, lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$)
-shown in magenta dotted, regions. $w_{opt,c}$ is the optimum $w$ value
-in the crossover region. For all systems, $N=10000$.}
-\label{LWadaComparison}
-\end{figure}
-
 When $1/T_2$ is increased to $1/T_2=w_{opt}/5$,
 Fig.~\ref{N10000Comparison} (b) shows that $\Delta \nu/\kappa$ is
 increased for $w/w_{opt}$ small, but it is not significantly affected by
@@ -1142,6 +817,21 @@ intensity, $\left<\hat{a}^{\dagger}\hat{a}\right>$, will be roughly the
 same for the crossover system operated at $w/w_{opt} = 1$ as for a laser
 system operated at  $w/w_{opt} \ll 1$.
 
+\begin{figure}
+\begin{center}
+	\includegraphics[scale =0.42] {LinewidthComparison.eps}
+	\hspace{-4.5mm} \includegraphics[scale =0.42] {adaComparison.eps}\\
+	\hspace{-3mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
+\end{center}
+		\vspace{-5mm}
+\caption{(Color online) Comparison of (a) linewidth and (b) Intracavity
+intensity for a system operated in the crossover ($\xi=1$) shown in blue
+solid, lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$)
+shown in magenta dotted, regions. $w_{opt,c}$ is the optimum $w$ value
+in the crossover region. For all systems, $N=10000$.}
+\label{LWadaComparison}
+\end{figure}
+
 
 \subsection{Effect of Cavity and Atomic Level Instabilities on the
 Spectrum}
@@ -1163,17 +853,6 @@ as to how much of an effect an instability in these frequencies will
 have on broadening the linewidth. These derivatives are plotted in
 Fig.~\ref{CavityInstability}.
 
-\begin{figure}
-\begin{center}
-	\includegraphics[scale=0.44] {CavityInstability.eps}
-	\includegraphics[scale=0.44] {AtomInstability.eps}\\
-\hspace{2mm} \textbf{(a)}\hspace{39mm}\textbf{(b)} \hspace{35mm}
-\end{center}
-\caption{(Color online) Instability in the atom-cavity system frequency
-$\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
-atomic frequency $\omega_a$ as a function of crossover parameter $\xi$}
-\label{CavityInstability}
-\end{figure}
 Fig.~\ref{CavityInstability} (a) tells us that on the lasing side of the
 crossover, $\omega$ is shifted proportionally to the shift in
 $\omega_c$, while on the superradiant side, $\omega$ is insensitive to
@@ -1186,7 +865,17 @@ in the $\omega_c$ as it is in the laser regime, and it is not as
 sensitive to a shift in the $\omega_a$, as it is on the superradiance
 side.
 
-
+\begin{figure}
+\begin{center}
+	\includegraphics[scale=0.44] {CavityInstability.eps}
+	\includegraphics[scale=0.44] {AtomInstability.eps}\\
+\hspace{2mm} \textbf{(a)}\hspace{39mm}\textbf{(b)} \hspace{35mm}
+\end{center}
+\caption{(Color online) Instability in the atom-cavity system frequency
+$\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
+atomic frequency $\omega_a$ as a function of crossover parameter $\xi$}
+\label{CavityInstability}
+\end{figure}
 \section{Conclusion}
 
 A model that is capable of describing a system operating in any
@@ -1242,6 +931,228 @@ in today's most ultrastable lasers.
 This work has been supported by JILA-NSF-PFC-1125844, DARPA, QuASAR, and
 NIST.
 
+\appendix
+
+\section{SU(4) Numerical Simulation of the Master Equation}
+
+Recently, we have developed a group-theoretic method for efficiently
+simulating the quantum master equation~\cite{Holland13}. In brief, the
+master equation, Eq.~(\ref{ME1Crossover}), can be expressed in terms of
+generators of the SU(4) group, with the Hamiltonian part being,
+\begin{eqnarray}
+  &&\frac{1}{i\hbar}[H,\rho]=
+  -2i \omega_a \Sigma_3\rho -i\omega_c [ \hat{a}^{\dagger}\hat{a}, \rho]
+  \nonumber
+  \\
+  &&-i\Omega \left[a(\mathcal{M}_++\mathcal{N}_+)\rho+a^\dagger
+    (\mathcal{M}_-+\mathcal{N}_-)\rho\right]\nonumber\\
+  &&\quad{}+i\Omega\left[(\mathcal{U}_++\mathcal{V}_+)\rho a^\dagger
+    +(\mathcal{U}_-+\mathcal{V}_-)\rho a\right]\,,
+\end{eqnarray}
+and dissipation parts being,
+\begin{eqnarray}\label{liv}
+ && \sum_{j=1}^N(
+   2\sigma_j^-\rho\sigma_j^+-\sigma_j^+ \sigma_j^-\rho-
+   \rho \sigma_j^+\sigma_j^-
+  )/2=-\frac{N}{2}-
+  \mathcal{Q}_3+\mathcal{Q}_{-}\,,\nonumber\\
+ && \sum_{j=1}^N(
+   2\sigma_j^+\rho\sigma_j^--\sigma_j^- \sigma_j^+\rho-
+   \rho \sigma_j^-\sigma_j^+
+  )/2=-\frac{N}{2}+
+  \mathcal{Q}_3+\mathcal{Q}_{+}\,,\nonumber\\
+ && \sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)}-\rho)=4\mathcal{M}_3-2
+  \mathcal{Q}_3-2\Sigma_3-N\,,
+  \label{ham}
+\end{eqnarray}
+where $\mathcal{Q}_{\pm}$, $\mathcal{M}_{\pm}$, $\mathcal{N}_{\pm}$,
+$\mathcal{U}_{\pm}$, $\mathcal{V}_{\pm}$, $\mathcal{Q}_3$, $\mathcal{M}_3$,
+and $\Sigma_3$ are superoperators~\cite{Holland13}.  As a result, we can
+expand the density matrix in terms of the fully symmetrical multiplet
+$P_{q,q_3,\sigma_3}$~\cite{Holland13} of the SU(4) group,
+\begin{equation}\label{ex}
+  \rho=\sum_{q,q_3,\sigma_3,m,n} C_{q,q_3,\sigma_3}^{m,n}
+  P_{q,q_3,\sigma_3}\bigl|m\bigr>\bigl<n\bigr|\,,
+\end{equation}
+where $C_{q,q_3,\sigma_3}^{m,n}$ are complex coefficients, and
+$|n\rangle$ is the photon Fock state. Note that the total number of
+states in the fully symmetrical multiplet is $1/6 (N+1)(N+2)(N+3)$,
+which reduces the exponential scaling of the problem to cubic in $N$.
+This has enabled us to numerically investigate large
+systems~\cite{Holland13}.
+
+However, the number of basis in Eq.~(\ref{ex}) also grows as square of
+the photon number.  This would impose great difficulties in numerical
+simulations of the laser region due to the large number of photons.
+Below, we present a method that unravels the master equation in the
+Liouville space, which enables us to remove the photon basis in the
+simulation. The essential idea behind the method is that we are able to
+deduce the photon state by keeping track of the total number of quanta
+$N_q$ in the system.
+
+\dmcomment{The following discussion should be made more precise.
+Discuss what "random" means.}
+The quantum Monte Carlo method decomposes the density operator evolution
+into a set of quantum trajectories where, between applications of random
+jumps into random channels, the system evolves under an effective
+Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. While this has
+conventionally been done with wavefunctions to reduce the numerical
+complexity, here we apply the quantum trajectory algorithm in the
+density matrix space in order to get rid of the photon basis in the
+expansion of the density operator. To construct a single trajectory, we
+first need to identify the jump operators. In our problem, there are
+four decay channels: repumping, spontaneous emission, dephasing and
+cavity decay. The corresponding jump operators $\mathcal{J}_i$ are
+\begin{eqnarray}
+\mathrm{Repumping:} \mathcal{J}_1\rho&=&
+w\sum_{j=1}^N(\sigma_j^+\rho\sigma_j^-)=w\mathcal{Q}_{+}\rho\,,
+\nonumber\\
+\mathrm{Spontaneous\,\,emission:}  \mathcal{J}_2\rho&=&
+\gamma\sum_{j=1}^N(\sigma_j^-\rho\sigma_j^+)=
+\gamma \mathcal{Q}_{-}\rho\,,\nonumber\\
+\mathrm{Dephasing:} \mathcal{J}_3\rho&=&
+\frac{1}{2T_2}\sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)})
+\nonumber\\
+&=&\frac{1}{2T_2}(4\mathcal{M}_3-2  \mathcal{Q}_3-2\Sigma_3)\rho\,,
+\nonumber\\
+\mathrm{Cavity\,\,decay:}  \mathcal{J}_4\rho&=&\kappa a\rho a^{\dagger}\,.
+\label{jumpo}
+\end{eqnarray}
+When a repumping quantum jump happens, $N_q$ is decreased by one. When a
+spontaneous emission or a cavity-decay quantum jump happens, $N_q$ is
+increased by one. The dephasing quantum jump also does not change the
+total number of quanta. Therefore, during the evolution of a single
+trajectory, one could calculate $N_q$ at every time step by tracking the
+the numbers of jumps of the different types. With the knowledge of
+$N_q$, the photon state can be easily deduced. It is shown in
+Ref.~\cite{Holland13} that
+\begin{equation}
+\begin{split}
+  \hat{J}_3P_{q,q_3,\sigma_3}^{(\mathrm{s})}&=
+  (q_3+\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},\\
+  P_{q,q_3,\sigma_3}^{(\mathrm{s})}\hat{J}_3&=
+  (q_3-\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},
+\end{split}
+\end{equation}
+where $\hat{J}_3=\sum_{j=1}^N\sigma_j^{(3)}/2$ is the collective spin
+operator. Therefore, the atomic state for a particular fully symmetrical
+atomic basis in terms of the number of excited atoms is
+$|q_3+\sigma_3+N/2\rangle\langle q_3-\sigma_3+N/2|$. And thus the
+corresponding photon state is
+\begin{equation}
+\bigl|m\bigr>\bigl<n\bigr|=
+\bigl|N_q-(q_3+\sigma_3+N/2)\bigr>
+\bigl<N_q-(q_3-\sigma_3+N/2)\bigr|.
+\end{equation}
+Therefore, by counting the quantum jumps, we have complete knowledge of
+photon states for every single trajectory. This enables us to remove the
+photon basis, which greatly improves the efficiency of the method.
+
+\dmcomment{Does the efficiency improvement rely on starting out in
+a photon number state? If so we should probably comment on that.}
+
+The simulation of jump times and jump channels is completely analogous
+to the wave-function Monte Carlo method. The effective evolution of the
+system is governed by the master equation excluding the above jump
+operators. As a result, under the effective evolution, the trace of the
+density operator is no longer conserved, but decreases as a function of
+time.  This is analogous to the decay of the norm of the wavefunction in
+the wave function Monte Carlo method. A jump occurs when the trace of
+the density operator is less than a random number uniformly distributed
+in the interval $[0,1]$. When a decay occurs we stochastically determine
+the channel $i$ into which the system decays according to the
+probability distribution,
+\begin{equation}
+\mathcal{P}_i^{\mathrm{jump}}=\frac{\mathrm{Tr}[\mathcal{J}_i\rho]}{\sum_{k=1}^4
+\mathrm{Tr}[\mathcal{J}_k\rho]}.
+\end{equation}
+
+Finally, in order to get the density operator at each time step, an
+ensemble average of many quantum trajectories is required. Then, various
+observables can be calculated according to Ref.~\cite{Holland13}. It is
+also worth noting that if one is only interested in the steady state
+density operator, a time average in the steady state can be applied
+instead of the ensemble average.
+
+\section{Phase Diffusion Linewidth}
+
+\dmcomment{A bit of a rough transition here; could use some context}
+The linewidth due to the phase fluctuations of $\hat{a}$ is now derived from the quantum Langevin equations, Eqns.~(\ref{La}~--~\ref{Lsz}) .
+Following closely to the derivation done in \cite{HakenLaser,
+HakenLaserBook}, Eq.~(\ref{La}) is differentiated, and substituted into
+it Eqns.~(\ref{La}~--~\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
+arrive at an equation for $\hat{a}$ alone,
+\begin{equation}
+\ddot{\hat{a}} =
+-\frac{1}{2} (\kappa+\Gamma)  \dot{\hat{a}} -
+\frac{\kappa \Gamma}{4}\hat{a}  +
+\frac{N \Omega^2 }{4} \hat{a} \hat{S}^z +\hat{F},
+\label{addeq}
+\end{equation}
+where
+\begin{eqnarray}
+\hat{S}^z &=&
+\int_0^t dt^{\prime} e^{-(w+\gamma)(t-t^{\prime})}
+\bigg( (w+\gamma) + \hat{F}^z
+\nonumber
+\\
+&&-\frac{2}{N} \left( \frac{d}{dt} (\hat{a}^{\dagger} \hat{a}) +
+\kappa \hat{a}^{\dagger} \hat{a} -\hat{a}^{\dagger} \hat{F}^a -
+\hat{F}^{a^{\dagger}} \hat{a} \right) \bigg),
+\end{eqnarray}
+and,
+\begin{equation}
+\hat{F} = \frac{\Gamma}{2} \hat{F}^a-
+\frac{i N \Omega}{2} \hat{F}^-+\dot{\hat{F}}^a.
+\end{equation}
+The annihilation operator $\hat{a}$ is decomposed according to,
+\begin{equation}
+\hat{a}= (a_0 + \hat{\rho}) e^{i\hat{\phi}}.
+\label{adecomp}
+\end{equation}
+Above threshold, amplitude fluctuations are expected to be small, so that
+\begin{equation}
+\left< \hat{a}^{\dagger}(t) \hat{a}(0) \right> =
+a_0^2 \left< e^{i(\hat{\phi}(t) - \hat{\phi}(0))} \right>.
+\end{equation}
+
+After substituting Eq.~(\ref{adecomp}) into Eq.~(\ref{addeq}), we take
+the imaginary part to first order in products of operators, and find,
+\begin{equation}
+\ddot{\hat{\phi}} =
+-\frac{1}{2}(\kappa+\Gamma) \dot{\hat{\phi}} +
+\frac{1}{a_0} \text{Im} [\hat{F}],
+\label{phieq1}
+\end{equation}
+where a factor of $e^{-i\phi}$ has been absorbed into $\hat{F}$.
+Eq.~(\ref{phieq1}) is then integrateed, assuming that $(\kappa+\Gamma)$
+is large, to arrive at,
+\begin{equation}
+\hat{\phi}(t) - \hat{\phi}(0) =
+\frac{2}{a_0 (\kappa+\Gamma)}
+\int_0^t dt^{\prime} \text{Im}
+\left[ \frac{\Gamma}{2} \hat{F}^a-\frac{i N \Omega}{2} \hat{F}^-\right].
+\label{phieq2}
+\end{equation}
+Since $ \hat{F}^a$ and $\hat{F}^-$ are Gaussian, we can use
+\begin{equation}
+\left< e^{i(\hat{\phi}(t) - \hat{\phi}(0))} \right> =
+e^{-\frac{1}{2}\left< ( \hat{\phi}(t) - \hat{\phi}(0) )^2 \right>}.
+\end{equation}
+Therefore, we use Eq.~(\ref{phieq2}), along with Eqns.~(\ref{OpNoise1})
+to find,
+\begin{equation}
+\left<(\hat{\phi}(t) - \hat{\phi}(0))^2 \right> =
+\left(\frac{(C+1)}{2(Cd_0-1)} \frac{\Gamma}{(w+\gamma)}
+\frac{\Omega^2 \kappa}{(\kappa+\Gamma)^2}\right) t,
+\end{equation}
+so that the linewidth $\Delta \nu$ given by,
+\begin{equation}
+\Delta \nu =
+\frac{(C+1)}{2(Cd_0-1)} \frac{\Gamma}{(w+\gamma)}
+\frac{\Omega^2 \kappa}{(\kappa+\Gamma)^2}.
+\label{LWHaken}
+\end{equation}
 
 \bibliographystyle{unsrt}
 \bibliography{CrossoverPaper}
