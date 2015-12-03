@@ -177,7 +177,7 @@ The Hamiltonian $\hat{H}$ describes the coherent evolution of the
 coupled atom cavity system, where $\omega_{a}$ is the frequency
 between the two levels of each of the atoms, and $\omega_c$ is the
 frequency of the cavity mode. The Pauli spin matrices for the atoms
-are $\hat{\sigma}_j^{+}$ ,$\hat{\sigma}_j^{-}$ and
+are $\hat{\sigma}_j^{+}$, $\hat{\sigma}_j^{-}$ and
 $\hat{\sigma}_j^{z}$, and $\hat{a}$ is the annihilation operator of
 the cavity mode. The atom-cavity coupling rate is $\Omega$. That we
 take this to be the same for all items implies assumption of the
@@ -229,8 +229,6 @@ is the inhomogeneous dephasing rate.
 Introduction to be added providing the structure of increasing number
 and increasing level of approximation....
 
-Moving each of the subsections below to individual appendices....
-
 Eq.~(\ref{ME1Crossover}) becomes increasingly complex with increasing
 atom number $N$, since the associated Hilbert space scales as $2^N$.
 Exact simulation methods, such as the quantum jump and quantum state
@@ -245,23 +243,21 @@ $N\sim100$ to be treated. However to treat this many particles, the
 cavity field basis must also be truncated to just a few photons. In
 order to treat systems which have a larger number of photons, we
 combine the SU(4) method with the quantum jump method
-\cite{Dalibard92} \cite{Dum92} \cite{Knight98}. Even with the ability
-to describe problems with larger photon number, $N\sim100$ is still
-too few particles to describe many realistic experimental situations.
+\cite{Dalibard92} \cite{Dum92} \cite{Knight98}. This method is described in Appendix~\ref{Su4Appendix}.
 
-We therefore also describe the c-number Langevin equation method
-\cite{Scully97, PhysRevA.47.1431}, which approximate the quantum
-Langevin equations that are equivalent to Eq.~(\ref{ME1Crossover}).
-These equations do not scale with $N$ in the same way, and therefore can
-often be used to treat systems with large $N$ where an exact treatment
-is not possible. Another method that does not scale with $N$ in the same
-way is the mean field solutions of the quantum Langevin equations, along
-with an analytic solution for the linewidth of the power spectrum, which
-assumes Gaussian phase fluctuations and neglects amplitude fluctuations
-\cite{HakenLaser, HakenLaserBook}. Finally, the cumulant expansion
-method \cite{JPSJ.17.1100} does not scale exponentially with $N$, and
-can therefore also be used to treat large systems. These methods are now
-described in detail.
+Even with the ability to describe problems with larger photon number, the SU(4) method can only describe systems much smaller than many realistic experimental situations. We therefore must introduce approximations in order to handle these larger systems.
+
+The method with the smallest amount of approximation is the c-number Langevin equation method
+\cite{Scully97, PhysRevA.47.1431}. Here, the quantum
+Langevin equations that are equivalent to Eq.~(\ref{ME1Crossover}) are approximated as c-numbers with Gaussian fluctuations.
+These equations do not scale with $N$ in the same way, and therefore can often be used to treat systems with large $N$ where an exact treatment is not possible. 
+
+We also use the second order cumulant theory, which consists of a set of coupled equations for system expectation values. These equations are factorized using the cumulant expansion \cite{kubo1962generalized}, and all cumulants higher than second order are dropped. The details of this method will not be discussed in this paper, since this method is described in detail for the same model in \cite{PhysRevLett.102.163601}.
+
+When the additional approximation is added that the system only exhibits phase diffusion, {\em i.e.}\ amplitude fluctuations are neglected, an analytic solution for the linewidth of the power spectrum can be obtained \cite{HakenLaser, HakenLaserBook}. This method is described in Appendix~\ref{HakenAppendix}.
+Finally, the mean field solutions of the quantum Langevin equations, neglect all fluctuations. These solutions 
+can not be used to describe the linewidth, but prove useful for other system observables.
+
 
 \subsection{Quantum Langevin Equations}
 
@@ -408,15 +404,13 @@ At this point, $S_0^{z}$ is close to unity, and the repumping is so
 strong that it prevents coherence in the system developing.
 
 \subsection{C-number Langevin equations for numerical simulations}
-
-Eqns.~(\ref{La}~--~\ref{Lsz}) are operator equations, and are therefore
-difficult to simulate on a computer. We therefore derive c-number
-Langevin equations that correspond to the operator equations.  The
-c-number equations are constructed in such a way that they reproduce the
-correct first and second moments of certain operators.
-
-Since operators do not necessarily commute, and c-numbers do, care must
-be taken in making this correspondence. We define,
+In the next level of approximation, Gaussian fluctuations are added to the mean field equations.
+%Eqns.~(\ref{La}~--~\ref{Lsz}) are operator equations, and are therefore
+%difficult to simulate on a computer. We therefore derive c-number
+%Langevin equations that correspond to the operator equations.  The
+%c-number equations are constructed in such a way that they reproduce the
+%correct first and second moments of certain operators.
+We define,
 \begin{equation}
 \frac{d}{dt} a= -\frac{1}{2}  (\kappa +2i\omega_c) a
 -\frac{i N \Omega}{2} S^{-}
@@ -435,14 +429,12 @@ be taken in making this correspondence. We define,
 +F^{z},
 \end{equation}
 where the omission of the hats over the variables signifies that they
-are c-numbers. The noise terms are correlated according to,
+are c-numbers. The Gaussian noise terms are correlated according to,
 \begin{equation}
 \left< F^{\mu}(t) F^{\nu}(t^{\prime})\right> =
-2 \mathscr{D}^{\mu \nu} \delta(t-t^{\prime}),
+2 \mathscr{D}^{\mu \nu} \delta(t-t^{\prime}).
+\label{ClassicalDiffusion1}
 \end{equation}
-where the elements of $\mathscr{D}^{\mu \nu}$ depend on the precise
-operator ordering that is chosen.
-
 The elements of $\mathscr{D}^{\mu \nu}$ are determined by calculating the
 c-number second order moments using Eqns.~(\ref{Lac}~--~\ref{Lszc}), and then making a correspondence between them and the the quantum second order moments calculated using Eqns.~(\ref{La}~--~\ref{Lsz}). This procedure determines $\mathscr{D}^{\mu \nu}$ since the c-number second order moments contain $\mathscr{D}^{\mu \nu}$ ({\em i.e.} $\mathscr{D}^{\mu \nu} =
 \left<A^{\mu}F^{\nu}\right>=\left<F^{\mu}A^{\nu}\right>$ where $A^{\mu}$
@@ -529,27 +521,25 @@ chosen since, by construction, this correspondence will always give
 $2\mathscr{D}^{\mu \nu}=D^{\mu \nu}+D^{\nu \mu}$, {\em i.e.} there are never
 any left over commutator pieces in $\mathscr{D}^{\mu \nu}$. The c-number
 equations with this symmetric noise are given by,
-\begin{equation}
-\frac{d}{dt} q= -\kappa q - 2 \omega_c p - N \Omega S^{y} + F^{q},
+\begin{eqnarray}
+\frac{d}{dt} q &=& -\kappa q - 2 \omega_c p - N \Omega S^{y} + F^{q},
 \label{cq1}
-\end{equation}
-\begin{equation}
-\frac{d}{dt} p= -\kappa p + 2 \omega_c q + N \Omega S^{x} + F^{p},
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S^{x} =
+\\
+\frac{d}{dt} p&=& -\kappa p + 2 \omega_c q + N \Omega S^{x} + F^{p},
+\\
+\frac{d}{dt} S^{x} &=&
 -\Gamma S^{x}  - 2 \omega_a S^{y} + \Omega p S^{z} + F^{x},
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S^{y} =
+\\
+\frac{d}{dt} S^{y} &=&
 -\Gamma S^{y}  + 2 \omega_a S^{x} - \Omega q S^{z} + F^{y},
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S^{z} = -(w+\gamma)\left( S^{z} - d_0\right)
+\\
+\frac{d}{dt} S^{z} &=& -(w+\gamma)\left( S^{z} - d_0\right)
 +2 \Omega \left( q S^{y} - p S^{x} \right)
 +F^{z},
-\end{equation}
-with,
+\nonumber
+\\
+\end{eqnarray}
+Where the noises are correlated according to Eq.~\ref{ClassicalDiffusion1} with,
 \begin{eqnarray}
 && 2\mathscr{D}^{q q}=
 \frac{\kappa}{4} \hspace{0.7in} 2\mathscr{D}^{p p}=
@@ -604,9 +594,9 @@ equation for the Wigner quasi-probability distribution.
 		\vspace{-5mm}
 \caption{(Color online) Comparison of the different solution methods in
 the superradiance ($\xi=0.2$), crossover ($\xi=1$), and lasing ($\xi=5$)
-regions for $N=40$ and $C=1$.  The analytic Langevin solution is shown
-in red (light gray), the 2nd order cumulant solution is shown in blue
-(dark gray), The exact SU4 solution is shown by grey triangles, and the
+regions for $N=40$ and $\frac{\Omega^2}{\kappa \gamma}=1$.  The analytic Langevin (phase diffusion and mean field) solutions are shown
+in red (light gray), the 2nd order cumulant solutions are shown in blue
+(dark gray), the exact SU4 solution is shown by grey triangles, and the
 c-number Langevin simulation results are shown by black circles. The
 observables considered are (a) the inversion
 $\left<\hat{\sigma}^{z}\right>$, (b) the correlation between atoms
@@ -671,12 +661,11 @@ regime. The region $\xi\sim1$ defines the intermediate or crossover regime.
 		\vspace{-5mm}
 \caption{(Color online) Solutions using the various methods in the
 superradiance ($\xi=0.1$), crossover ($\xi=1$), and lasing ($\xi=10$)
-regions for N=10000 and $C=0.1$. For $1/T_2=0$, the analytic Langevin
-solution is shown in solid red (solid light gray), the 2nd order
-cumulant solution is shown in solid blue (solid dark gray), and the
+regions for N=10000 and $\frac{\Omega^2}{\kappa \gamma}=0.1$. For $1/T_2=0$, the analytic Langevin (phase diffusion and mean field) solutions are shown in solid red (solid light gray), the 2nd order
+cumulant solutions are shown in solid blue (solid dark gray), and the
 c-number Langevin simulation results are shown by black circles. For
-$1/T_2=\frac{1}{5} w_{opt}$, the analytic Langevin solution is shown in
-dashed red (dashed light gray), the 2nd order cumulant solution is shown
+$1/T_2=\frac{1}{5} w_{opt}$, the analytic Langevin solutions are shown in
+dashed red (dashed light gray), the 2nd order cumulant solutions are shown
 in dashed blue (dashed dark gray), and the c-number Langevin simulation
 results are shown by black diamonds. (a) All observables considered
 except linewidth  $\Delta \nu$ show universal behavior in the
@@ -688,16 +677,14 @@ superradiance region (c) $\Delta \nu / \kappa$ in the crossover region,
  \label{N10000Comparison}
 \end{figure*}
 
-
 \subsection{Simulations with $N=40$}
 
 As mentioned previously, the SU(4) method is capable of yielding exact
 solutions to our model for $N=40$. This is a large enough number of
 atoms to expect our three solution methods to be reasonably accurate. We
-therefore first compare the analytic Langevin method, the c-number
-Langevin method, and the 2nd order cumulant method to the exact SU(4)
+therefore first compare the the mean field Langevin method, the phase diffusion method, the c-number Langevin method, and the 2nd order cumulant method to the exact SU(4)
 result for three different values of the crossover parameter:
-$\xi=0.2$, $\xi=1$, and $\xi=5$, which put the system in the
+$\xi=0.2$, $\xi=1$, and $\xi=5$, These values of $\xi$ put the system in the
 superradiance, crossover, and lasing parameter regions, respectively.
 This comparison, seen in Fig.~\ref{N40Comparison}, is made for $N=40$.
 The SU(4) method becomes more computationally intensive as $\xi$ is
@@ -713,30 +700,19 @@ parameter regions, for all of the considered observables. Therefore, the
 c-number Langevin theory can be relied upon for larger atom numbers,
 where it is not possible to apply the SU(4) theory.
 
-The analytic Langevin solution works well in the region around
-$w/w_{opt}=1$, but disagrees outside that region. That is because in
-Fig.~\ref{N40Comparison} (a) and (c), the analytic Langevin solution
-excludes all quantum fluctuations. In Fig.~\ref{N40Comparison} (d),
-while the leading order of quantum fluctuations are included, it is
-assumed that only phase fluctuations are present, which is not true away
-from $w/w_{opt}=1$.
-
 The 2nd order cumulant solution works well qualitatively in all
 parameter regions, but as seen in Fig.~\ref{N40Comparison} (b) and (c)
 in the superradiance row, and in column (d), there is a quantitative
 disagreement between this theory and the SU(4) and c-number Langevin
-theories.
-
-This quantitative disagreement is due to the fact that there is a
-difference between a Gaussian theory, one in which all moments factorize
-into products of no higher than second order moments, and a theory that
-uses Gaussian noise. This difference can be seen by considering the
+theories. This quantitative disagreement is due to the fact that a theory which factorizes all moments
+into products of no higher than second order, and a theory that
+uses Gaussian noise are not equivalent. This difference can be seen by considering the
 third order moment $\left< \hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z
 \right>$. According to the cumulant theory, $\left<
 \hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z \right>=\left<
 \hat{a}^{\dagger}\hat{a}\right> \left<\hat{\sigma}_i^z \right>$, a fact
 which was essential to use in deriving the closed the set of equations
-used to find the spectrum, Eqns.~(\ref{TwoTimeCE1}). In the Langevin
+used to find the spectrum \cite{PhysRevLett.102.163601}. In the Langevin
 theory, however, $\left< \hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z
 \right> \neq \left< \hat{a}^{\dagger}\hat{a}\right>
 \left<\hat{\sigma}_i^z \right>$, a fact we have checked with our
@@ -748,10 +724,11 @@ gives rise to the linewidth according to the cumulant theory.  Therefore
 the $25\%$ disagreement between the Langevin and cumulant theories for
 large N is not surprising.
 
-The merit of the 2nd order cumulant theory lies in its simplicity. It is
-simple to derive the cumulant equations and it is not computationally
-intensive to solve them numerically, while the theory still captures the
-correct qualitative behavior of the system.
+Seen in Fig.~\ref{N40Comparison} (a) and (c), the mean field Langevin method
+works well in the region around $w/w_{opt}=1$, but disagrees outside that region. In Fig.~\ref{N40Comparison} (d),
+it can be seen that the phase diffusion model for the linewidth also agrees in the region around $w/w_{opt}=1$, but disagrees outside that region, where the phase diffusion approximation breaks down. 
+
+Although they do not qualitatively agree with the SU(4) method, the analytic solutions yielded by the mean field, phase diffusion and second order cumulant theories capture the correct qualitative behavior of the system.
 
 
 \subsection{Simulations with $N=10000$}
@@ -759,7 +736,7 @@ correct qualitative behavior of the system.
 Now that an agreement between the c-number Langevin and exact SU(4)
 theories has been established, we study more experimentally realistic
 systems with $N=10000$ by applying c-number Langevin theory. We also
-include the analytic Langevin and 2nd order cumulant theories for
+include the mean field Langevin theory, the phase diffusion model for the linewidth, and the 2nd order cumulant theory for
 reference. The results of these simulations can be seen in
 Fig.~\ref{N10000Comparison}. Both the situation in which $1/T_2=0$ and
 in which $1/T_2=w_{opt}/5$ are considered.
@@ -819,16 +796,16 @@ system operated at  $w/w_{opt} \ll 1$.
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale =0.42] {LinewidthComparison.eps}
-	\hspace{-4.5mm} \includegraphics[scale =0.42] {adaComparison.eps}\\
-	\hspace{-3mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
+	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.pdf}
+	\hspace{-4mm} \includegraphics[scale =0.415] {adaComparisonLangevin.pdf}\\
+	\hspace{6mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
 \end{center}
 		\vspace{-5mm}
 \caption{(Color online) Comparison of (a) linewidth and (b) Intracavity
 intensity for a system operated in the crossover ($\xi=1$) shown in blue
 solid, lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$)
-shown in magenta dotted, regions. $w_{opt,c}$ is the optimum $w$ value
-in the crossover region. For all systems, $N=10000$.}
+shown in magenta dotted, regions using the analytic (phase diffusion and mean field) Langevin model. $w_{opt,c}$ is the optimum $w$ value
+in the crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa \gamma}=0.1$.}
 \label{LWadaComparison}
 \end{figure}
 
@@ -867,13 +844,13 @@ side.
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale=0.44] {CavityInstability.eps}
-	\includegraphics[scale=0.44] {AtomInstability.eps}\\
-\hspace{2mm} \textbf{(a)}\hspace{39mm}\textbf{(b)} \hspace{35mm}
+	\includegraphics[scale=0.42] {CavityInstability.eps} \hspace{2mm}
+	\includegraphics[scale=0.42] {AtomInstability.eps}\\
+\hspace{2mm} \textbf{(a)}\hspace{40mm}\textbf{(b)} \hspace{35mm}
 \end{center}
 \caption{(Color online) Instability in the atom-cavity system frequency
 $\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
-atomic frequency $\omega_a$ as a function of crossover parameter $\xi$}
+atomic frequency $\omega_a$ as a function of crossover parameter $\xi$. These results were calculated using Eq.~(\ref{atomcavityfrequencycenter1}).}
 \label{CavityInstability}
 \end{figure}
 \section{Conclusion}
@@ -934,6 +911,7 @@ NIST.
 \appendix
 
 \section{SU(4) Numerical Simulation of the Master Equation}
+\label{Su4Appendix}
 
 Recently, we have developed a group-theoretic method for efficiently
 simulating the quantum master equation~\cite{Holland13}. In brief, the
@@ -1004,18 +982,18 @@ first need to identify the jump operators. In our problem, there are
 four decay channels: repumping, spontaneous emission, dephasing and
 cavity decay. The corresponding jump operators $\mathcal{J}_i$ are
 \begin{eqnarray}
-\mathrm{Repumping:} \mathcal{J}_1\rho&=&
+\mathcal{J}_1\rho&=&
 w\sum_{j=1}^N(\sigma_j^+\rho\sigma_j^-)=w\mathcal{Q}_{+}\rho\,,
 \nonumber\\
-\mathrm{Spontaneous\,\,emission:}  \mathcal{J}_2\rho&=&
+\mathcal{J}_2\rho&=&
 \gamma\sum_{j=1}^N(\sigma_j^-\rho\sigma_j^+)=
 \gamma \mathcal{Q}_{-}\rho\,,\nonumber\\
-\mathrm{Dephasing:} \mathcal{J}_3\rho&=&
+\mathcal{J}_3\rho&=&
 \frac{1}{2T_2}\sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)})
 \nonumber\\
 &=&\frac{1}{2T_2}(4\mathcal{M}_3-2  \mathcal{Q}_3-2\Sigma_3)\rho\,,
 \nonumber\\
-\mathrm{Cavity\,\,decay:}  \mathcal{J}_4\rho&=&\kappa a\rho a^{\dagger}\,.
+\mathcal{J}_4\rho&=&\kappa a\rho a^{\dagger}\,.
 \label{jumpo}
 \end{eqnarray}
 When a repumping quantum jump happens, $N_q$ is decreased by one. When a
@@ -1075,10 +1053,9 @@ density operator, a time average in the steady state can be applied
 instead of the ensemble average.
 
 \section{Phase Diffusion Linewidth}
+\label{HakenAppendix}
 
-\dmcomment{A bit of a rough transition here; could use some context}
-The linewidth due to the phase fluctuations of $\hat{a}$ is now derived from the quantum Langevin equations, Eqns.~(\ref{La}~--~\ref{Lsz}) .
-Following closely to the derivation done in \cite{HakenLaser,
+The linewidth due to the phase fluctuations of $\hat{a}$ is derived from the quantum Langevin equations, Eqns.~(\ref{La}~--~\ref{Lsz}). Following closely to the derivation done in \cite{HakenLaser,
 HakenLaserBook}, Eq.~(\ref{La}) is differentiated, and substituted into
 it Eqns.~(\ref{La}~--~\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
 arrive at an equation for $\hat{a}$ alone,
@@ -1125,7 +1102,7 @@ the imaginary part to first order in products of operators, and find,
 \label{phieq1}
 \end{equation}
 where a factor of $e^{-i\phi}$ has been absorbed into $\hat{F}$.
-Eq.~(\ref{phieq1}) is then integrateed, assuming that $(\kappa+\Gamma)$
+Eq.~(\ref{phieq1}) is then integrated, assuming that $(\kappa+\Gamma)$
 is large, to arrive at,
 \begin{equation}
 \hat{\phi}(t) - \hat{\phi}(0) =
