@@ -140,7 +140,7 @@ operators, a semi-classical method based on {\it c}-Number Langevin
 equations, a quantum phase diffusion model for the field amplitude, a
 cumulant expansion of system expectation values, and a mean field model.
 By comparing the results from these different models we clarify the
-role played by quantum fluctuations and correlations\dmcomment{Dave: Can
+role played by quantum fluctuations and correlations \dmcomment{Dave: Can
 you put in some specifics on what role these play}.
 
 The rest of this paper is organized as follows.  In section~\ref{sec:Model}
@@ -226,9 +226,6 @@ is the inhomogeneous dephasing rate.
 \section{Solution Methods}
 \label{sec:Methods}
 
-Introduction to be added providing the structure of increasing number
-and increasing level of approximation....
-
 Eq.~(\ref{ME1Crossover}) becomes increasingly complex with increasing
 atom number $N$, since the associated Hilbert space scales as $2^N$.
 Exact simulation methods, such as the quantum jump and quantum state
@@ -247,12 +244,11 @@ combine the SU(4) method with the quantum jump method
 
 Even with the ability to describe problems with larger photon number, the SU(4) method can only describe systems much smaller than many realistic experimental situations. We therefore must introduce approximations in order to handle these larger systems.
 
-The method with the smallest amount of approximation is the c-number Langevin equation method
-\cite{Scully97, PhysRevA.47.1431}. Here, the quantum
-Langevin equations that are equivalent to Eq.~(\ref{ME1Crossover}) are approximated as c-numbers with Gaussian fluctuations.
+The {\it c}-number Langevin method \cite{Scully97, PhysRevA.47.1431} approximates the quantum
+Langevin equations which are equivalent to Eq.~(\ref{ME1Crossover}) as {\it c}-number equations with Gaussian fluctuations.
 These equations do not scale with $N$ in the same way, and therefore can often be used to treat systems with large $N$ where an exact treatment is not possible. 
 
-We also use the second order cumulant theory, which consists of a set of coupled equations for system expectation values. These equations are factorized using the cumulant expansion \cite{kubo1962generalized}, and all cumulants higher than second order are dropped. The details of this method will not be discussed in this paper, since this method is described in detail for the same model in \cite{PhysRevLett.102.163601}.
+We also use the second order cumulant theory, which consists of a set of coupled equations for system expectation values. These equations are factorized using the cumulant expansion \cite{JPSJ.17.1100}, and all cumulants higher than second order are dropped. The details of this method will not be discussed in this paper, since this method is described in detail for the same model in  \cite{PhysRevLett.102.163601}.
 
 When the additional approximation is added that the system only exhibits phase diffusion, {\em i.e.}\ amplitude fluctuations are neglected, an analytic solution for the linewidth of the power spectrum can be obtained \cite{HakenLaser, HakenLaserBook}. This method is described in Appendix~\ref{HakenAppendix}.
 Finally, the mean field solutions of the quantum Langevin equations, neglect all fluctuations. These solutions 
@@ -286,12 +282,15 @@ by,
 \end{equation}
 where $\delta=\omega_{a}-\omega_{c}$, where we have defined the collective
 operators,
-\begin{equation}
-\hat{S}^{(+,-,z)}=\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{(+,-,z)},
+\begin{eqnarray}
+\hat{S}^{-}&=&\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{-},
 \nonumber
-\end{equation}
-where $\Gamma \equiv w+\gamma+\frac{2}{T_2}$, and where $d_0 =
-\frac{w-\gamma}{w+\gamma}$. The noise terms $\hat F^\mu$ are correlated
+\\
+\hat{S}^{z}&=&\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{z},
+\nonumber
+\end{eqnarray}
+where $\Gamma \equiv w+\gamma+\frac{2}{T_2}$, $d_0 =
+\frac{w-\gamma}{w+\gamma}$ and where $\hat{S}^{+}$ and $\hat{S}^{-}$ are Hermitian conjugates, {\em i.e.}\ $\hat{S}^{+} = (\hat{S}^{-})^{\dagger}$. The noise terms $\hat F^\mu$ are correlated
 according to,
 \begin{equation}
 \left< \hat{F}^{\mu}(t) \hat{F}^{\nu}(t^{\prime})\right> =
@@ -329,9 +328,7 @@ treated at varying levels of approximation. Since our system is
 composed of a large number of constituent parts, the overall effect of
 quantum fluctuations is expected to be small. To this end, we first
 look at the expectation values of Eqns.~(\ref{La}--\ref{Lsz}), whereby
-the fluctuations drop out since they have zero average. In an
-interaction picture that rotates with the frequency of atom-cavity coupled
-system $\omega$, these equations become,
+the fluctuations drop out since they have zero average. We make the ansatz that there exists a single frequency $\omega$ at which atom-cavity coupled system oscillates, and move into a frame that rotates with this frequency. In this frame, the expectation values of Eqns.~(\ref{La}--\ref{Lsz}) become,
 \begin{equation}
 \frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
 -\frac{i N \Omega}{2} S_0^{-},
@@ -403,14 +400,9 @@ w_2 =  \frac{N \Omega^2}{\kappa}
 At this point, $S_0^{z}$ is close to unity, and the repumping is so
 strong that it prevents coherence in the system developing.
 
-\subsection{C-number Langevin equations for numerical simulations}
-In the next level of approximation, Gaussian fluctuations are added to the mean field equations.
-%Eqns.~(\ref{La}~--~\ref{Lsz}) are operator equations, and are therefore
-%difficult to simulate on a computer. We therefore derive c-number
-%Langevin equations that correspond to the operator equations.  The
-%c-number equations are constructed in such a way that they reproduce the
-%correct first and second moments of certain operators.
-We define,
+\subsection{{\it c}-number Langevin equations for numerical simulations}
+Since the mean field equations neglect quantum fluctuations entirely, these equations can not account for the spectral linewidth of the light produced by the system, which is caused by these fluctuations. Since Eqns.~(\ref{La}~--~\ref{Lsz}) are operator equations, they therefore difficult to simulate on a computer. We therefore derive {\it c}-number
+Langevin equations with Gaussian fluctuations that have a correspondence to the quantum equations \cite{Scully97}. However, since operators do not commute, this correspondence is not unique, but depends on the choice of operator ordering that is made. We define,
 \begin{equation}
 \frac{d}{dt} a= -\frac{1}{2}  (\kappa +2i\omega_c) a
 -\frac{i N \Omega}{2} S^{-}
@@ -429,21 +421,21 @@ We define,
 +F^{z},
 \end{equation}
 where the omission of the hats over the variables signifies that they
-are c-numbers. The Gaussian noise terms are correlated according to,
+are {\it c}-numbers. The Gaussian noise terms are correlated according to,
 \begin{equation}
 \left< F^{\mu}(t) F^{\nu}(t^{\prime})\right> =
 2 \mathscr{D}^{\mu \nu} \delta(t-t^{\prime}).
 \label{ClassicalDiffusion1}
 \end{equation}
 The elements of $\mathscr{D}^{\mu \nu}$ are determined by calculating the
-c-number second order moments using Eqns.~(\ref{Lac}~--~\ref{Lszc}), and then making a correspondence between them and the the quantum second order moments calculated using Eqns.~(\ref{La}~--~\ref{Lsz}). This procedure determines $\mathscr{D}^{\mu \nu}$ since the c-number second order moments contain $\mathscr{D}^{\mu \nu}$ ({\em i.e.} $\mathscr{D}^{\mu \nu} =
+{\it c}-number second order moments using Eqns.~(\ref{Lac}~--~\ref{Lszc}), and then enforcing that the quantum second order moments calculated using Eqns.~(\ref{La}~--~\ref{Lsz}) have the identical equations of motion. This procedure determines $\mathscr{D}^{\mu \nu}$ since the {\it c}-number second order moments contain $\mathscr{D}^{\mu \nu}$ ({\em i.e.}\ $\mathscr{D}^{\mu \nu} =
 \left<A^{\mu}F^{\nu}\right>=\left<F^{\mu}A^{\nu}\right>$ where $A^{\mu}$
-is a system variable), and the quantum second order moments contain $D^{\mu \nu}$. A correspondence is then made by choosing an ordering for the operators, and enforcing that the c-number second order moment equations are equal
-to the operator second order moment equations in that ordering.
+is a system variable), and the quantum second order moments contain $D^{\mu \nu}$.
 
-To illustrate the procedure, we note that since,
-$\left<S^{+}S^{-} \right> = \left<S^{-}S^{+} \right>$, they also
-have the same equations of motion,
+We choose to make the correspondence using symmetric ordering for the operators, where the symmetric expectation value of two
+operators $\hat{A}^{\mu}$ and $\hat{A}^{\nu}$ is defined by $\left< \hat{A}^{\mu} \hat{A}^{\nu}
+\right>_s=\frac{1}{2} \left( \left< \hat{A}^{\mu} \hat{A}^{\nu} \right> + \left<
+\hat{A}^{\nu} \hat{A}^{\mu} \right> \right)$. This procedure is demonstrated for the second order moment involving $\hat{S}^{+}$ and $\hat{S}^{-}$. The {\it c}-number second order moment equation is,
 \begin{eqnarray}
 \frac{d}{dt} \left<S^{+}S^{-} \right>  \hspace{-0.03in} &=&
 \hspace{-0.03in}  - \Gamma  \left< S^{+} S^{-} \right>
@@ -453,74 +445,38 @@ have the same equations of motion,
  && +\frac{i \Omega}{2} \left< a S^{+} S^{z} \right> + 2 \mathscr{D}^{+-}.
  \label{c2om1}
 \end{eqnarray}
-
-Since operators don't commute, there are several options for operator
-second order moment equations that could correspond to
-Eq.~(\ref{c2om1}). For instance,
-\begin{eqnarray}
-\frac{d}{dt} \left<\hat{S}^{+}\hat{S}^{-} \right>  \hspace{-0.03in} &=&
-\hspace{-0.03in}  - \Gamma  \left< \hat{S}^{+} \hat{S}^{-} \right>
--\frac{i \Omega}{2} \left< \hat{a}^{\dagger} \hat{S}^{z} \hat{S}^{-} \right>
-\nonumber
-\\
- &&+\frac{i \Omega}{2}  \left< \hat{a} \hat{S}^{+} \hat{S}^{z} \right>  +
- 2 D^{+-},
-\end{eqnarray}
-\begin{eqnarray}
-\frac{d}{dt} \left<\hat{S}^{-}\hat{S}^{+} \right>  \hspace{-0.03in} &=&
-\hspace{-0.03in}  - \Gamma  \left< \hat{S}^{-} \hat{S}^{+} \right>
--\frac{i \Omega}{2} \left< \hat{a}^{\dagger} \hat{S}^{z} \hat{S}^{-} \right>
-\nonumber
-\\
- &&+\frac{i \Omega}{2}  \left< \hat{a} \hat{S}^{+} \hat{S}^{z} \right>  +
- 2 D^{-+},
-\end{eqnarray}
+The operator second order moment equation in symmetric ordering is, 
 \begin{eqnarray}
 \frac{d}{dt} \left<\hat{S}^{+}\hat{S}^{-} \right>_s  \hspace{-0.03in} &=&
+\frac{1}{2} \frac{d}{dt} \left( \left<\hat{S}^{+}\hat{S}^{-} \right> + \left<\hat{S}^{-}\hat{S}^{+} \right> \right)
+\nonumber
+\\
+&=&
 \hspace{-0.03in}  - \Gamma  \left< \hat{S}^{+} \hat{S}^{-} \right>_s
 -\frac{i \Omega}{2} \left< \hat{a}^{\dagger} \hat{S}^{z} \hat{S}^{-} \right> _s
 \nonumber
 \\
- &&+\frac{i \Omega}{2}  \left< \hat{a} \hat{S}^{+} \hat{S}^{z} \right>_s +
- D^{+-} +D^{-+},
- \nonumber
-\\
+ && \hspace{-0.07in} +\frac{i \Omega}{2}  \left< \hat{a} \hat{S}^{+} \hat{S}^{z} \right>_s +
+ D^{+-} +D^{-+}.
 \end{eqnarray}
-are all equally valid, where the symmetric expectation value of two
-operators $\hat{A}$ and $\hat{B}$ is given by $\left< \hat{A} \hat{B}
-\right>_s=\frac{1}{2} \left( \left< \hat{A} \hat{B} \right> + \left<
-\hat{B} \hat{A} \right> \right)$. Therefore, depending on the ordering
-chosen, $2 \mathscr{D}^{+-}$ can either be equal to $2 D^{+-}$,  $2
-D^{-+}$ , or $D^{+-}+D^{-+}$. All orderings are equally valid, but one
-must be chosen, and consistently used. The difference lies in the
-inability of the semiclassical theory to completely describe the full
-predictions of quantum mechanics.
-\dmcomment{This discussion needs to be tightened up a bit}
-
-With this in mind, we make our correspondence, by first changing
-variables to,
-\begin{equation}
-\hspace{-0.5in} \hat{q} =
-\frac{1}{2} \left( \hat{a}^{\dagger} + \hat{a} \right)
-\hspace{0.5in} \hat{p} =
-\frac{1}{2i} \left( \hat{a}^{\dagger} - \hat{a} \right)
-\end{equation}
-\begin{equation}
-\hat{S}^x =
-\frac{1}{2} \left( \hat{S}^{+} + \hat{S}^{-} \right)
+Symmetric ordering is chosen since, by construction, this correspondence will always give
+$2\mathscr{D}^{\mu \nu}=D^{\mu \nu}+D^{\nu \mu}$, {\em i.e.}\ there are never
+any left over commutator pieces in $\mathscr{D}^{\mu \nu}$. With this in mind, before the correspondence is made, we first change variables to,
+\begin{eqnarray}
+\hspace{-0.5in} \hat{q} &=&
+\frac{1}{2} \left( \hat{a}^{\dagger} + \hat{a} \right),
+\hspace{0.48in} \hat{p} =
+\frac{1}{2i} \left( \hat{a}^{\dagger} - \hat{a} \right),
+\\
+\hat{S}^x &=&
+\frac{1}{2} \left( \hat{S}^{+} + \hat{S}^{-} \right),
 \hspace{0.2in} \hat{S}^y =
 \frac{1}{2i} \left( \hat{S}^{+} - \hat{S}^{-} \right).
-\end{equation}
+\end{eqnarray}
 This allows us to deal with real quantities only, and therefore by this
-construction, the c-number equations will have $a^{\dagger}$ complex
+construction, the {\it c}-number equations will have $a^{\dagger}$ complex
 conjugate to $a$, and $S^+$  complex conjugate to $S^-$.
-
-We choose to match the c-number second order moments to the
-symmetrically ordered quantum second order moments. This ordering is
-chosen since, by construction, this correspondence will always give
-$2\mathscr{D}^{\mu \nu}=D^{\mu \nu}+D^{\nu \mu}$, {\em i.e.} there are never
-any left over commutator pieces in $\mathscr{D}^{\mu \nu}$. The c-number
-equations with this symmetric noise are given by,
+The {\it c}-number equations with this symmetric noise are given by,
 \begin{eqnarray}
 \frac{d}{dt} q &=& -\kappa q - 2 \omega_c p - N \Omega S^{y} + F^{q},
 \label{cq1}
@@ -539,7 +495,7 @@ equations with this symmetric noise are given by,
 \nonumber
 \\
 \end{eqnarray}
-Where the noises are correlated according to Eq.~\ref{ClassicalDiffusion1} with,
+where the noises are correlated according to Eq.~(\ref{ClassicalDiffusion1}) with,
 \begin{eqnarray}
 && 2\mathscr{D}^{q q}=
 \frac{\kappa}{4} \hspace{0.7in} 2\mathscr{D}^{p p}=
@@ -597,7 +553,7 @@ the superradiance ($\xi=0.2$), crossover ($\xi=1$), and lasing ($\xi=5$)
 regions for $N=40$ and $\frac{\Omega^2}{\kappa \gamma}=1$.  The analytic Langevin (phase diffusion and mean field) solutions are shown
 in red (light gray), the 2nd order cumulant solutions are shown in blue
 (dark gray), the exact SU4 solution is shown by grey triangles, and the
-c-number Langevin simulation results are shown by black circles. The
+{\it c}-number Langevin simulation results are shown by black circles. The
 observables considered are (a) the inversion
 $\left<\hat{\sigma}^{z}\right>$, (b) the correlation between atoms
 $\left<\hat{\sigma}_{1}^{+} \hat{\sigma}_{2}^{-}\right>$, (c) the
@@ -663,10 +619,10 @@ regime. The region $\xi\sim1$ defines the intermediate or crossover regime.
 superradiance ($\xi=0.1$), crossover ($\xi=1$), and lasing ($\xi=10$)
 regions for N=10000 and $\frac{\Omega^2}{\kappa \gamma}=0.1$. For $1/T_2=0$, the analytic Langevin (phase diffusion and mean field) solutions are shown in solid red (solid light gray), the 2nd order
 cumulant solutions are shown in solid blue (solid dark gray), and the
-c-number Langevin simulation results are shown by black circles. For
+{\it c}-number Langevin simulation results are shown by black circles. For
 $1/T_2=\frac{1}{5} w_{opt}$, the analytic Langevin solutions are shown in
 dashed red (dashed light gray), the 2nd order cumulant solutions are shown
-in dashed blue (dashed dark gray), and the c-number Langevin simulation
+in dashed blue (dashed dark gray), and the {\it c}-number Langevin simulation
 results are shown by black diamonds. (a) All observables considered
 except linewidth  $\Delta \nu$ show universal behavior in the
 superradiance, crossover, and lasing regions, after appropriate scaling.
@@ -678,32 +634,27 @@ superradiance region (c) $\Delta \nu / \kappa$ in the crossover region,
 \end{figure*}
 
 \subsection{Simulations with $N=40$}
+In order to determine the validity of the approximate solution methods, we begin by comparing them to the exact solutions. This comparison is done for $N=40$, since this is a small enough number of atoms that the exact method can be used, and large enough to expect the approximate solution methods to be reasonably accurate. 
 
-As mentioned previously, the SU(4) method is capable of yielding exact
-solutions to our model for $N=40$. This is a large enough number of
-atoms to expect our three solution methods to be reasonably accurate. We
-therefore first compare the the mean field Langevin method, the phase diffusion method, the c-number Langevin method, and the 2nd order cumulant method to the exact SU(4)
-result for three different values of the crossover parameter:
-$\xi=0.2$, $\xi=1$, and $\xi=5$, These values of $\xi$ put the system in the
+Specifically, the mean field Langevin method, the phase diffusion method, the {\it c}-number Langevin method, and the 2nd order cumulant method are compared to the exact SU(4) result for three different values of the crossover parameter:
+$\xi=0.2$, $\xi=1$, and $\xi=5$. These values of $\xi$ put the system in the
 superradiance, crossover, and lasing parameter regions, respectively.
-This comparison, seen in Fig.~\ref{N40Comparison}, is made for $N=40$.
-The SU(4) method becomes more computationally intensive as $\xi$ is
-increased, since there are more photons as $\xi$ is increased, and hence
+This comparison can be seen in Fig.~\ref{N40Comparison}. We note that the SU(4) method becomes more computationally intensive as $\xi$ is increased, since there are more photons as $\xi$ is increased, and hence
 more basis states need to be tracked. Therefore, for $\xi=5$, the method
-that combines the SU(4) with quantum jump method was used. This
-simulation was very computationally intensive, so that only a few values of $w$
+that combines the SU(4) with quantum jump method was used (see Appendix~\ref{Su4Appendix}). This
+simulation is very computationally intensive, so that only a few values of $w$
 are included.
 
 Fig.~\ref{N40Comparison} shows that there is an excellent agreement
-between c-number Langevin and the exact SU(4) theory for $N=40$, in all
+between {\it c}-number Langevin and the exact SU(4) theory for $N=40$, in all
 parameter regions, for all of the considered observables. Therefore, the
-c-number Langevin theory can be relied upon for larger atom numbers,
+{\it c}-number Langevin theory can be relied upon for larger atom numbers,
 where it is not possible to apply the SU(4) theory.
 
 The 2nd order cumulant solution works well qualitatively in all
 parameter regions, but as seen in Fig.~\ref{N40Comparison} (b) and (c)
 in the superradiance row, and in column (d), there is a quantitative
-disagreement between this theory and the SU(4) and c-number Langevin
+disagreement between this theory and the SU(4) and {\it c}-number Langevin
 theories. This quantitative disagreement is due to the fact that a theory which factorizes all moments
 into products of no higher than second order, and a theory that
 uses Gaussian noise are not equivalent. This difference can be seen by considering the
@@ -733,9 +684,9 @@ Although they do not qualitatively agree with the SU(4) method, the analytic sol
 
 \subsection{Simulations with $N=10000$}
 
-Now that an agreement between the c-number Langevin and exact SU(4)
+Now that an agreement between the {\it c}-number Langevin and exact SU(4)
 theories has been established, we study more experimentally realistic
-systems with $N=10000$ by applying c-number Langevin theory. We also
+systems with $N=10000$ by applying {\it c}-number Langevin theory. We also
 include the mean field Langevin theory, the phase diffusion model for the linewidth, and the 2nd order cumulant theory for
 reference. The results of these simulations can be seen in
 Fig.~\ref{N10000Comparison}. Both the situation in which $1/T_2=0$ and
@@ -760,8 +711,6 @@ smaller, which is why atom-atom correlations are not usually thought to
 be important in lasers.
 
 The linewidth $\Delta \nu$, however, does not show universal behavior in the superradiance, crossover, and lasing regimes. As seen in Fig.~\ref{N10000Comparison} (b), in the superradiance region, when $1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{opt}<1$. In contrast, the linewidth in the lasing regime, shown in Fig.\ref{N10000Comparison} (d), linearly decreases as $w/w_{opt}$ increases towards unity. This is the typical Schawlow-Townes behavior, which can be seen by considering $\kappa/\left<\hat{a}^{\dagger}\hat{a}\right>$ using Eq.~\ref{a0sqSS}. In the crossover region, shown in Fig.~\ref{N10000Comparison} (c), we see that for $w/w_{opt}$ small, $\Delta \nu/\kappa$ is flat, and as $w/w_{opt}$ approaches unity, $\Delta \nu/\kappa$ starts to linearly decrease as in the lasing regime. Therefore, a system in the crossover region displays characteristics of both superradiance and lasing. 
-\dmcomment{The previous sentence was commented out. Do we want this in
-  the paper? Perhaps rephrase a bit?}
 
 When $1/T_2$ is increased to $1/T_2=w_{opt}/5$,
 Fig.~\ref{N10000Comparison} (b) shows that $\Delta \nu/\kappa$ is
@@ -857,23 +806,7 @@ atomic frequency $\omega_a$ as a function of crossover parameter $\xi$. These re
 
 A model that is capable of describing a system operating in any
 parameter region of the crossover between steady state superradiance and
-lasing has been introduced, and four solution methods to that model were
-demonstrated. The first method combines the SU(4) and quantum jump
-methods, and is capable of describing systems with more photons than
-just the SU(4) method alone.  We also introduced a method that solves a
-set of c-number Langevin equations that approximate the quantum Langevin
-equations that are equivalent to our model. This method was seen to have
-outstanding agreement with the exact SU(4) method. Analytic expressions
-for the expectation values of the quantum Langevin equations were then
-derived. Along with these solutions, an analytic solution for the
-linewidth of the power spectrum, which assumes Gaussian phase
-fluctuations, and neglects amplitude fluctuations was derived. It is
-demonstrated that these analytical results agree with SU(4) and c-number
-Langevin methods in the region in which the value of re-pumping is such
-that the system has the maximum number of intra-cavity photons, but
-disagree far from this region. Finally, a closed set of equations to
-second order in a cumulant expansion were derived, and shown to agree
-qualitatively with the SU(4) and c-number Langevin methods.
+lasing was introduced. Since this model can only be solved exactly for small systems, several solution methods that treat the quantum fluctuations with varying degree of approximation were introduced, since these fluctuations scale inversely with the number of particles.  First, mean field equations, which neglect all quantum fluctuations, were used to derive analytic expressions for many of the system observables. These analytic expressions were used to motivate the definition of the crossover parameter. Since the mean field equations can not describe the spectral properties of the system, the method {\it c}-number Langevin equations with Gaussian fluctuations was introduced. For small systems, where the exact SU(4) method can be applied, the {\it c}-number Langevin method showed excellent agreement with the exact SU(4) method. Therefore, the {\it c}-number Langevin method was used to treat larger systems, and a comparison of the properties of systems operating in the different parameter regions of the crossover was made. 
 
 Although a system in the lasing parameter region is capable of
 possessing the smallest linewidth, typically lasers operate with a
