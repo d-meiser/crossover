@@ -9,6 +9,7 @@ superscriptaddress,groupedaddress]{revtex4}
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage[caption=false]{subfig}
 \usepackage{subfig}
 \usepackage{mathrsfs}
 
@@ -745,8 +746,8 @@ system operated at  $w/w_{opt} \ll 1$.
 
 \begin{figure}
 \begin{center}
-	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.pdf}
-	\hspace{-4mm} \includegraphics[scale =0.415] {adaComparisonLangevin.pdf}\\
+	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.eps}
+	\hspace{-4mm} \includegraphics[scale =0.415] {adaComparisonLangevin.eps}\\
 	\hspace{6mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
 \end{center}
 		\vspace{-5mm}
@@ -757,7 +758,6 @@ shown in magenta dotted, regions using the analytic (phase diffusion and mean fi
 in the crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa \gamma}=0.1$.}
 \label{LWadaComparison}
 \end{figure}
-
 
 \subsection{Effect of Cavity and Atomic Level Instabilities on the
 Spectrum}
@@ -791,6 +791,12 @@ in the $\omega_c$ as it is in the laser regime, and it is not as
 sensitive to a shift in the $\omega_a$, as it is on the superradiance
 side.
 
+\section{Conclusion}
+
+A model that is capable of describing a system operating in any
+parameter region of the crossover between steady state superradiance and
+lasing was introduced. Since this model can only be solved exactly for small systems, several solution methods that treat the quantum fluctuations with varying degree of approximation were introduced, since these fluctuations scale inversely with the number of particles.  First, mean field equations, which neglect all quantum fluctuations, were used to derive analytic expressions for many of the system observables. These analytic expressions were used to motivate the definition of the crossover parameter. Since the mean field equations can not describe the spectral properties of the system, the method {\it c}-number Langevin equations with Gaussian fluctuations was introduced. For small systems, where the exact SU(4) method can be applied, the {\it c}-number Langevin method showed excellent agreement with the exact SU(4) method. Therefore, the {\it c}-number Langevin method was used to treat larger systems, and a comparison of the properties of systems operating in the different parameter regions of the crossover was made. 
+
 \begin{figure}
 \begin{center}
 	\includegraphics[scale=0.42] {CavityInstability.eps} \hspace{2mm}
@@ -802,11 +808,6 @@ $\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
 atomic frequency $\omega_a$ as a function of crossover parameter $\xi$. These results were calculated using Eq.~(\ref{atomcavityfrequencycenter1}).}
 \label{CavityInstability}
 \end{figure}
-\section{Conclusion}
-
-A model that is capable of describing a system operating in any
-parameter region of the crossover between steady state superradiance and
-lasing was introduced. Since this model can only be solved exactly for small systems, several solution methods that treat the quantum fluctuations with varying degree of approximation were introduced, since these fluctuations scale inversely with the number of particles.  First, mean field equations, which neglect all quantum fluctuations, were used to derive analytic expressions for many of the system observables. These analytic expressions were used to motivate the definition of the crossover parameter. Since the mean field equations can not describe the spectral properties of the system, the method {\it c}-number Langevin equations with Gaussian fluctuations was introduced. For small systems, where the exact SU(4) method can be applied, the {\it c}-number Langevin method showed excellent agreement with the exact SU(4) method. Therefore, the {\it c}-number Langevin method was used to treat larger systems, and a comparison of the properties of systems operating in the different parameter regions of the crossover was made. 
 
 Although a system in the lasing parameter region is capable of
 possessing the smallest linewidth, typically lasers operate with a
@@ -901,12 +902,10 @@ simulation. The essential idea behind the method is that we are able to
 deduce the photon state by keeping track of the total number of quanta
 $N_q$ in the system.
 
-\dmcomment{The following discussion should be made more precise.
-Discuss what "random" means.}
 The quantum Monte Carlo method decomposes the density operator evolution
 into a set of quantum trajectories where, between applications of random
 jumps into random channels, the system evolves under an effective
-Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. While this has
+Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. These random jumps are chosen with the proper weights, so that when many trajectories are averaged over, the correct density operator evolution is given. While this has
 conventionally been done with wavefunctions to reduce the numerical
 complexity, here we apply the quantum trajectory algorithm in the
 density matrix space in order to get rid of the photon basis in the
@@ -955,12 +954,9 @@ corresponding photon state is
 \bigl|N_q-(q_3+\sigma_3+N/2)\bigr>
 \bigl<N_q-(q_3-\sigma_3+N/2)\bigr|.
 \end{equation}
-Therefore, by counting the quantum jumps, we have complete knowledge of
+Therefore, if the system starts in a photon number state, by counting the quantum jumps, we have complete knowledge of
 photon states for every single trajectory. This enables us to remove the
-photon basis, which greatly improves the efficiency of the method.
-
-\dmcomment{Does the efficiency improvement rely on starting out in
-a photon number state? If so we should probably comment on that.}
+photon basis, which greatly improves the efficiency of the method. 
 
 The simulation of jump times and jump channels is completely analogous
 to the wave-function Monte Carlo method. The effective evolution of the
