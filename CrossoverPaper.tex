@@ -232,7 +232,7 @@ diffusion methods, are limited to $N\sim10$ with the cavity field basis
 truncated to just a few photons.
 
 The SU(4) solution method \cite{Hartmann:arXiv1201.1732}
-\cite{Holland13} exploits an underlying permutation symmetry in
+\cite{PhysRevA.87.062101} exploits an underlying permutation symmetry in
 Eq.~(\ref{ME1Crossover}) to drastically reduce the number of basis
 states needed to describe the problem, allowing systems with
 $N\sim100$ to be treated. However to treat this many particles, the
@@ -326,8 +326,8 @@ considering analytical expressions in which quantum fluctuations are
 treated at varying levels of approximation. Since this system is
 composed of a large number of constituent parts, the overall effect of
 quantum fluctuations is expected to be small. To this end, we first
-look at the expectation values of Eqns.~(\ref{La}--\ref{Lsz}), whereby
-the fluctuations drop out since they have zero average. We make the ansatz that there exists a single frequency~$\omega$ at which the atom-cavity coupled system oscillates, and transform into a frame that rotates with this frequency. In this frame, the expectation values of Eqns.~(\ref{La}--\ref{Lsz}) become,
+look at the expectation values of Eqns.~(\ref{La})~--~(\ref{Lsz}), whereby
+the fluctuations drop out since they have zero average. We make the ansatz that there exists a single frequency~$\omega$ at which the atom-cavity coupled system oscillates, and transform into a frame that rotates with this frequency. In this frame, the expectation values of Eqns.~(\ref{La})~--~(\ref{Lsz}) become,
 \begin{equation}
 \frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
 -\frac{i N \Omega}{2} S_0^{-},
@@ -343,7 +343,7 @@ the fluctuations drop out since they have zero average. We make the ansatz that 
 +i\Omega \left( a_0^{\dagger} S_0^{-} - a_0 S_0^{+} \right).
 \label{Lsz0}
 \end{equation}
-In steady state, Eqns.~(\ref{La0}~--~\ref{Lsz0}) yield either
+In steady state, Eqns.~(\ref{La0})~--~(\ref{Lsz0}) yield either
 $a_0=0$, or,
 \begin{equation}
 S_0^{z}=
@@ -431,7 +431,7 @@ according to,
 \label{ClassicalDiffusion1}
 \end{equation}
 The elements of $\mathscr{D}^{\mu \nu}$ are determined by calculating the
-{\it c}-number second order moments using Eqns.~(\ref{Lac}~--~\ref{Lszc}), and then enforcing that the quantum second order moments calculated using Eqns.~(\ref{La}~--~\ref{Lsz}) have the identical equations of motion. This procedure determines $\mathscr{D}^{\mu \nu}$ since the {\it c}-number second order moments contain $\mathscr{D}^{\mu \nu}$ ({\em i.e.}\ $\mathscr{D}^{\mu \nu} =
+{\it c}-number second order moments using Eqns.~(\ref{Lac})~--~(\ref{Lszc}), and then enforcing that the quantum second order moments calculated using Eqns.~(\ref{La})~--~(\ref{Lsz}) have the identical equations of motion. This procedure determines $\mathscr{D}^{\mu \nu}$ since the {\it c}-number second order moments contain $\mathscr{D}^{\mu \nu}$ ({\em i.e.}\ $\mathscr{D}^{\mu \nu} =
 \left<A^{\mu}F^{\nu}\right>=\left<F^{\mu}A^{\nu}\right>$ where $A^{\mu}$
 is a system variable), and the quantum second order moments contain $D^{\mu \nu}$.
 
@@ -852,7 +852,7 @@ NIST.
 \label{Su4Appendix}
 
 Recently, we have developed a group-theoretic method for efficiently
-simulating the quantum master equation~\cite{Holland13}. In brief, the
+simulating the quantum master equation~\cite{PhysRevA.87.062101}. In brief, the
 master equation, Eq.~(\ref{ME1Crossover}), can be expressed in terms of
 generators of the SU(4) group, with the Hamiltonian part being,
 \begin{eqnarray}
@@ -883,9 +883,9 @@ and dissipation parts being,
 \end{eqnarray}
 where $\mathcal{Q}_{\pm}$, $\mathcal{M}_{\pm}$, $\mathcal{N}_{\pm}$,
 $\mathcal{U}_{\pm}$, $\mathcal{V}_{\pm}$, $\mathcal{Q}_3$, $\mathcal{M}_3$,
-and $\Sigma_3$ are superoperators~\cite{Holland13}.  As a result, we can
+and $\Sigma_3$ are superoperators~\cite{PhysRevA.87.062101}.  As a result, we can
 expand the density matrix in terms of the fully symmetrical multiplet
-$P_{q,q_3,\sigma_3}$~\cite{Holland13} of the SU(4) group,
+$P_{q,q_3,\sigma_3}$~\cite{PhysRevA.87.062101} of the SU(4) group,
 \begin{equation}\label{ex}
   \rho=\sum_{q,q_3,\sigma_3,m,n} C_{q,q_3,\sigma_3}^{m,n}
   P_{q,q_3,\sigma_3}\bigl|m\bigr>\bigl<n\bigr|\,,
@@ -895,7 +895,7 @@ $|n\rangle$ is the photon Fock state. Note that the total number of
 states in the fully symmetrical multiplet is $1/6 (N+1)(N+2)(N+3)$,
 which reduces the exponential scaling of the problem to cubic in $N$.
 This has enabled us to numerically investigate large
-systems~\cite{Holland13}.
+systems~\cite{PhysRevA.87.062101}.
 
 However, the number of basis in Eq.~(\ref{ex}) also grows as square of
 the photon number.  This would impose great difficulties in numerical
@@ -939,7 +939,7 @@ total number of quanta. Therefore, during the evolution of a single
 trajectory, one could calculate $N_q$ at every time step by tracking the
 the numbers of jumps of the different types. With the knowledge of
 $N_q$, the photon state can be easily deduced. It is shown in
-Ref.~\cite{Holland13} that
+Ref.~\cite{PhysRevA.87.062101} that
 \begin{equation}
 \begin{split}
   \hat{J}_3P_{q,q_3,\sigma_3}^{(\mathrm{s})}&=
@@ -980,7 +980,7 @@ probability distribution,
 
 Finally, in order to get the density operator at each time step, an
 ensemble average of many quantum trajectories is required. Then, various
-observables can be calculated according to Ref.~\cite{Holland13}. It is
+observables can be calculated according to Ref.~\cite{PhysRevA.87.062101}. It is
 also worth noting that if one is only interested in the steady state
 density operator, a time average in the steady state can be applied
 instead of the ensemble average.
@@ -988,9 +988,9 @@ instead of the ensemble average.
 \section{Phase Diffusion Linewidth}
 \label{HakenAppendix}
 
-The linewidth due to the phase fluctuations of $\hat{a}$ is derived from the quantum Langevin equations, Eqns.~(\ref{La}~--~\ref{Lsz}). Following closely to the derivation done in \cite{HakenLaser,
+The linewidth due to the phase fluctuations of $\hat{a}$ is derived from the quantum Langevin equations, Eqns.~(\ref{La})~--~(\ref{Lsz}). Following closely to the derivation done in \cite{HakenLaser,
 HakenLaserBook}, Eq.~(\ref{La}) is differentiated, and substituted into
-it Eqns.~(\ref{La}~--~\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
+it Eqns.~(\ref{La})~--~(\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
 arrive at an equation for $\hat{a}$ alone,
 \begin{equation}
 \ddot{\hat{a}} =
