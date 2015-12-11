@@ -319,7 +319,7 @@ where the $D^{\mu \nu} $ are calculated using the Einstein relations
 \label{OpNoise1}
 \end{eqnarray}
 
-\subsection{Mean Field Langevin Equations}
+\subsection{Mean Field Equations}
 
 Much of the physical insight into this system can be gained by
 considering analytical expressions in which quantum fluctuations are
@@ -399,7 +399,9 @@ w_2 =  \frac{N \Omega^2}{\kappa}.
 At this point, $S_0^{z}$ is close to unity, and the repumping is so
 strong that it prevents coherence in the system developing.
 
+
 \subsection{{\it c}-number Langevin equations for numerical simulations}
+
 Since the mean field equations neglect quantum fluctuations entirely, these equations can not account for the spectral linewidth, which is caused by these fluctuations. Since Eqns.~(\ref{La})~--~(\ref{Lsz}) are operator equations, they can not be directly numerically simulated. We therefore derive {\it c}-number
 Langevin equations with Gaussian fluctuations that have a correspondence to the quantum equations \cite{Scully97}. However, as we will show later, since operators do not commute, this correspondence is not unique, but depends on the choice of operator ordering that is made. We define,
 \begin{equation}
@@ -420,7 +422,9 @@ Langevin equations with Gaussian fluctuations that have a correspondence to the 
 +F^{z},
 \end{equation}
 where the omission of the hats over the variables signifies that they
-are {\it c}-numbers. The Gaussian noise terms are correlated according to,
+are {\it c}-numbers and the noise terms should be interpreted according
+to the rules of Ito calculus.  The Gaussian noise terms are correlated
+according to,
 \begin{equation}
 \left< F^{\mu}(t) F^{\nu}(t^{\prime})\right> =
 2 \mathscr{D}^{\mu \nu} \delta(t-t^{\prime}).
@@ -596,6 +600,7 @@ atomic effects. If $\xi\ll1$, the system is in the bad cavity or superradiant
 regime. If $\xi\gg1$ the system is in the good cavity or laser
 regime. The region $\xi\sim1$ defines the intermediate or crossover regime.
 
+
 \section{Results}
 \label{sec:Results}
 
@@ -632,7 +637,9 @@ superradiance region (c) $\Delta \nu / \kappa$ in the crossover region,
  \label{N10000Comparison}
 \end{figure*}
 
+
 \subsection{Simulations with $N=40$}
+
 In order to determine the validity of the approximate solution methods, we begin by comparing them to the exact solutions. This comparison is done for $N=40$, since this is a small enough number of atoms that the exact method can be used, and large enough to expect the approximate solution methods to be reasonably accurate. 
 
 Specifically, the mean field Langevin method, the phase diffusion method, the {\it c}-number Langevin method, and the 2nd order cumulant method are compared to the exact SU(4) result for three different values of the crossover parameter:
