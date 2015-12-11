@@ -60,17 +60,16 @@ superscriptaddress,groupedaddress]{revtex4}
 Since its first demonstration in 1960~\cite{maiman1960stimulated}, the
 laser has had a profound impact on fundamental science research, and
 has also become ubiquitous in other areas of society. Lasers are
-integral to many areas of research and applications, ranging from
-atomic and molecular physics research, atomic clocks, global
+integral to many fields of research and technological applications, ranging from
+atomic and molecular physics research, atomic clocks, the global
 positioning system, nuclear fusion research, biology research,
-medicine and consumer electronics.
+medicine, and consumer electronics.
 
 Although many different types of lasers exist, with their key
-parameters spanning many orders of magnitude, all lasers share the
-same conceptual foundation.  A laser is a cavity quantum
-electrodynamics (QED) system consisting of a gain medium inside of an
+parameters spanning many orders of magnitude, all lasers share a common conceptual foundation.  A laser is a cavity quantum
+electrodynamics (QED) system consisting of a gain medium inside an
 optical cavity.  We will oftentimes refer to the gain medium as
-``atoms'' for brevity.  Lasers typically operate in the so called good
+``atoms'' for brevity.  Lasers typically operate in the good
 cavity regime of cavity QED where the linewidth of the cavity is much
 narrower than the bandwidth of the gain medium.  The atoms generate a
 coherent electromagnetic field in the cavity by means of stimulated
@@ -90,7 +89,7 @@ mechanical interference effect in which correlations between atoms
 cause them to emit collectively.  Superradiance has most commonly been
 considered as a pulsed phenomenon.  Atoms in an ensemble are prepared
 in the excited state.  Spontaneous emission into one or a few spatial
-modes is then enhanced via a quantum mechanical interference effect.
+modes is then enhanced via growth of atom-atom correlations.
 However, it has been known for some time that superradiance can also
 occur in steady state~\cite{PhysRevLett.102.163601,
   PhysRevA.81.033847, PhysRevA.81.063827,PhysRevLett.89.253003} by
@@ -109,12 +108,11 @@ An important application of lasers is as a stable local oscillator for
 optical atomic clocks and precision spectroscopy.  These lasers rely
 on stabilization against reference cavities.  The most advanced such
 lasers reach linewidths of $< 0.1 {\rm Hz}$ corresponding to quality
-factors of $Q>10^{15}$~\cite{Cole:TenfoldReductionBrownianNoise}.  The
+factors of $Q>10^{15}$~\cite{Cole:TenfoldReductionBrownianNoise}. One
 limiting factor in the way of further improvement of these local
-oscillators are thermal vibrations of the dielectric coatings in the
-cavity mirrors~\cite{PhysRevLett.101.260602}.  To overcome this
-challenge, it has been proposed to use steady state superradiance based
-on clock transitions to create an even more stable light
+oscillators is thermal vibrations of the dielectric coatings in the
+cavity mirrors~\cite{PhysRevLett.101.260602}.  To overcome this technical
+challenge, it has been proposed to use a completely alternate approach by using an active system based on a clock transition that utilizes steady state superradiance to create an even more stable light
 source~\cite{PhysRevLett.102.163601, ChenDeliciousLaser}.  However,
 this proposal has challenges of its own.  First of all, in spite of the
 enhancement that occurs due to superradiance, the produced intensity is
@@ -126,8 +124,8 @@ Balancing the advantages and disadvantages of the two systems (lasers
 and light sources based on steady state superradiance) leads to the
 following question: Why not consider a cavity QED system in which
 coherence is stored in both the light field and atoms on an equal
-footing? The linewidth of such a system should be less sensitive to
-thermal fluctuations of the cavity mirrors than a laser, and it should
+footing? The linewidth of such a system could be less sensitive to
+thermal fluctuations of the cavity mirrors than a laser, and it may
 be able to produce more output power than a device based on steady state
 superradiance.
 
@@ -181,7 +179,7 @@ frequency of the cavity mode. The Pauli spin matrices for the atoms
 are $\hat{\sigma}_j^{+}$, $\hat{\sigma}_j^{-}$ and
 $\hat{\sigma}_j^{z}$, and $\hat{a}$ is the annihilation operator of
 the cavity mode. The atom-cavity coupling rate is $\Omega$. That we
-take this to be the same for all items implies assumption of the
+take this to be constant implies the assumption of the
 equivalence of the atom-cavity coupling at the positions of all of the
 atoms. This could be achieved by strongly confining the ensemble in a
 optical lattice potential at the antinodes of the cavity modefunction.
@@ -227,7 +225,7 @@ is the inhomogeneous dephasing rate.
 \section{Solution Methods}
 \label{sec:Methods}
 
-Eq.~(\ref{ME1Crossover}) becomes increasingly complex with increasing
+Eq.~(\ref{ME1Crossover}) becomes increasingly complex to solve with increasing
 atom number $N$, since the associated Hilbert space scales as $2^N$.
 Exact simulation methods, such as the quantum jump and quantum state
 diffusion methods, are limited to $N\sim10$ with the cavity field basis
@@ -246,10 +244,10 @@ combine the SU(4) method with the quantum jump method
 Even with the ability to describe problems with larger photon number, the SU(4) method can only describe systems much smaller than many realistic experimental situations. We therefore must introduce approximations in order to handle these larger systems.
 
 The {\it c}-number Langevin method \cite{Scully97, PhysRevA.47.1431} approximates the quantum
-Langevin equations which are equivalent to Eq.~(\ref{ME1Crossover}) as {\it c}-number equations with Gaussian fluctuations.
+Langevin equations which are equivalent to Eq.~(\ref{ME1Crossover}) as complex variable equations with Gaussian fluctuations.
 These equations do not scale with $N$ in the same way, and therefore can often be used to treat systems with large $N$ where an exact treatment is not possible. 
 
-We also use the second order cumulant theory, which consists of a set of coupled equations for system expectation values. These equations are factorized using the cumulant expansion \cite{JPSJ.17.1100}, and all cumulants higher than second order are dropped. The details of this method will not be discussed in this paper, since this method is described in detail for the same model in  \cite{PhysRevLett.102.163601}.
+We also use the second order cumulant theory, which consists of a set of coupled equations for system expectation values. These equations are factorized using the cumulant expansion \cite{JPSJ.17.1100}, and all cumulants higher than second order are dropped. The details of this method will not be discussed in this paper, since this method has already been described in detail for the same model in Ref.~\cite{PhysRevLett.102.163601}.
 
 When the additional approximation is added that the system only exhibits phase diffusion, {\em i.e.}\ amplitude fluctuations are neglected, an analytic solution for the linewidth of the power spectrum can be obtained \cite{HakenLaser, HakenLaserBook}. This method is described in Appendix~\ref{HakenAppendix}.
 Finally, the mean field solutions of the quantum Langevin equations, neglect all fluctuations. These solutions 
@@ -323,13 +321,13 @@ where the $D^{\mu \nu} $ are calculated using the Einstein relations
 
 \subsection{Mean Field Langevin Equations}
 
-Much of the physical insight into our system can be gained by
+Much of the physical insight into this system can be gained by
 considering analytical expressions in which quantum fluctuations are
-treated at varying levels of approximation. Since our system is
+treated at varying levels of approximation. Since this system is
 composed of a large number of constituent parts, the overall effect of
 quantum fluctuations is expected to be small. To this end, we first
 look at the expectation values of Eqns.~(\ref{La}--\ref{Lsz}), whereby
-the fluctuations drop out since they have zero average. We make the ansatz that there exists a single frequency $\omega$ at which atom-cavity coupled system oscillates, and move into a frame that rotates with this frequency. In this frame, the expectation values of Eqns.~(\ref{La}--\ref{Lsz}) become,
+the fluctuations drop out since they have zero average. We make the ansatz that there exists a single frequency~$\omega$ at which the atom-cavity coupled system oscillates, and transform into a frame that rotates with this frequency. In this frame, the expectation values of Eqns.~(\ref{La}--\ref{Lsz}) become,
 \begin{equation}
 \frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
 -\frac{i N \Omega}{2} S_0^{-},
@@ -345,7 +343,7 @@ the fluctuations drop out since they have zero average. We make the ansatz that 
 +i\Omega \left( a_0^{\dagger} S_0^{-} - a_0 S_0^{+} \right).
 \label{Lsz0}
 \end{equation}
-In steady state, Eqns.~(\ref{La0}~--~\ref{Lsz0}) yield that either
+In steady state, Eqns.~(\ref{La0}~--~\ref{Lsz0}) yield either
 $a_0=0$, or,
 \begin{equation}
 S_0^{z}=
@@ -353,13 +351,13 @@ S_0^{z}=
 \label{Sz01}
 \end{equation}
 Since $S_0^{z}$ is determined by atomic populations, it must be real,
-and this sets frequency for the atom-cavity coupled system to be
+and this sets the frequency for the atom-cavity coupled system to be
 \begin{equation}
 \omega = \frac{\kappa \omega_a + \Gamma \omega_c}{\kappa+\Gamma}.
 \label{atomcavityfrequencycenter1}
 \end{equation}
 It is assumed that $\delta = \omega_a-\omega_c$ is small, so that terms
-proportional to $\delta^2$ can be neglected. Then Eq.~\ref{Sz01} becomes,
+proportional to $\delta^2$ can be neglected. Then Eq.~(\ref{Sz01}) becomes,
 \begin{equation}
 S_0^{z}=\frac{1}{\mathcal{C}},
 \end{equation}
@@ -377,7 +375,7 @@ can be found:
 w_{\mathrm{opt}} = \frac{N \Omega^2}{2\kappa} - \gamma - \frac{1}{T_2}.
 \label{wopt}
 \end{equation}
-In the limit $\frac{N\Omega^2}{2 \kappa} >> \gamma, \frac{1}{T_2}$, then,
+In the limit $\frac{N\Omega^2}{2 \kappa} \gg \gamma, \frac{1}{T_2}$, then,
 \begin{equation}
 (|a_0|^2)_{\mathrm{opt}}= \frac{N^2 \Omega^2}{8\kappa^2}.
 \label{adaopt}
@@ -387,7 +385,7 @@ which Eq.~(\ref{a0sqSS}) equals zero. The first threshold is defined
 to be $w_1 \ll w_{opt}$. In this case, the zero of Eq.~(\ref{a0sqSS})
 yields,
 \begin{equation}
-w_1 = \gamma.
+w_1 = \gamma,
 \label{FirstThreshold}
 \end{equation} 
 {\em i.e.}\ the first threshold occurs
@@ -396,14 +394,14 @@ atoms so that coherence can establish.  The second
 threshold occurs around $w_2 \sim w_{opt}$. In this case,
 the zero of Eq.~(\ref{a0sqSS}) yields,
 \begin{equation}
-w_2 =  \frac{N \Omega^2}{\kappa}
+w_2 =  \frac{N \Omega^2}{\kappa}.
 \end{equation} 
 At this point, $S_0^{z}$ is close to unity, and the repumping is so
 strong that it prevents coherence in the system developing.
 
 \subsection{{\it c}-number Langevin equations for numerical simulations}
-Since the mean field equations neglect quantum fluctuations entirely, these equations can not account for the spectral linewidth of the light produced by the system, which is caused by these fluctuations. Since Eqns.~(\ref{La}~--~\ref{Lsz}) are operator equations, they therefore difficult to simulate on a computer. We therefore derive {\it c}-number
-Langevin equations with Gaussian fluctuations that have a correspondence to the quantum equations \cite{Scully97}. However, since operators do not commute, this correspondence is not unique, but depends on the choice of operator ordering that is made. We define,
+Since the mean field equations neglect quantum fluctuations entirely, these equations can not account for the spectral linewidth, which is caused by these fluctuations. Since Eqns.~(\ref{La})~--~(\ref{Lsz}) are operator equations, they can not be directly numerically simulated. We therefore derive {\it c}-number
+Langevin equations with Gaussian fluctuations that have a correspondence to the quantum equations \cite{Scully97}. However, as we will show later, since operators do not commute, this correspondence is not unique, but depends on the choice of operator ordering that is made. We define,
 \begin{equation}
 \frac{d}{dt} a= -\frac{1}{2}  (\kappa +2i\omega_c) a
 -\frac{i N \Omega}{2} S^{-}
@@ -474,7 +472,7 @@ any left over commutator pieces in $\mathscr{D}^{\mu \nu}$. With this in mind, b
 \hspace{0.2in} \hat{S}^y =
 \frac{1}{2i} \left( \hat{S}^{+} - \hat{S}^{-} \right).
 \end{eqnarray}
-This allows us to deal with real quantities only, and therefore by this
+This allows us to deal with real quantities only, and therefore by
 construction, the {\it c}-number equations will have $a^{\dagger}$ complex
 conjugate to $a$, and $S^+$  complex conjugate to $S^-$.
 The {\it c}-number equations with this symmetric noise are given by,
@@ -523,7 +521,7 @@ then applying the inverse transformation to the product of the square
 root of each of its eigenvalues with an independent Wiener process. This
 gives the correct linear combination of independent Wiener processes
 that reproduces $\mathscr{D}^{\mu \nu}$.
-Eqns.~(\ref{cq1}~--~\ref{cNoise1}) are equivalent to a Fokker-Planck
+We point out that in this formulation, Eqns.~(\ref{cq1})~--~(\ref{cNoise1}) are equivalent to a Fokker-Planck
 equation for the Wigner quasi-probability distribution.
 
 \begin{figure*}
@@ -643,7 +641,7 @@ superradiance, crossover, and lasing parameter regions, respectively.
 This comparison can be seen in Fig.~\ref{N40Comparison}. We note that the SU(4) method becomes more computationally intensive as $\xi$ is increased, since there are more photons as $\xi$ is increased, and hence
 more basis states need to be tracked. Therefore, for $\xi=5$, the method
 that combines the SU(4) with quantum jump method was used (see Appendix~\ref{Su4Appendix}). This
-simulation is very computationally intensive, so that only a few values of $w$
+simulation is computationally intensive, so that only a few values of $w$
 are included.
 
 Fig.~\ref{N40Comparison} shows that there is an excellent agreement
@@ -701,15 +699,14 @@ the intensity correlation function $G^{(2)}(0)$ all show universal
 behavior in the superradiance, crossover, and lasing regimes after
 appropriate scaling. When $1/T_2$ is large, $1/T_2=w_{opt}/5$, these
 observables still show universal behavior after appropriate scaling, and
-do not change their values significantly from the $1/T_2=0$ case.
+the values do not change significantly from the $1/T_2=0$ case.
 
 It is worth noting that even though  $\left<\hat{\sigma}_{1}^{+}
 \hat{\sigma}_{2}^{-}\right>$ has universal behavior throughout the
 crossover, typical lasers are operated just above threshold at $w \ll
 w_{opt}$, where the resulting value of
 $\left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right>_{opt}$ is much
-smaller, which is why atom-atom correlations are not usually thought to
-be important in lasers.
+smaller, so that atom-atom correlations are not important in lasers operating in the conventional regime.
 
 The linewidth $\Delta \nu$, however, does not show universal behavior in the superradiance, crossover, and lasing regimes. As seen in Fig.~\ref{N10000Comparison} (b), in the superradiance region, when $1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{opt}<1$. In contrast, the linewidth in the lasing regime, shown in Fig.\ref{N10000Comparison} (d), linearly decreases as $w/w_{opt}$ increases towards unity. This is the typical Schawlow-Townes behavior, which can be seen by considering $\kappa/\left<\hat{a}^{\dagger}\hat{a}\right>$ using Eq.~\ref{a0sqSS}. In the crossover region, shown in Fig.~\ref{N10000Comparison} (c), we see that for $w/w_{opt}$ small, $\Delta \nu/\kappa$ is flat, and as $w/w_{opt}$ approaches unity, $\Delta \nu/\kappa$ starts to linearly decrease as in the lasing regime. Therefore, a system in the crossover region displays characteristics of both superradiance and lasing. 
 
@@ -795,7 +792,7 @@ side.
 
 A model that is capable of describing a system operating in any
 parameter region of the crossover between steady state superradiance and
-lasing was introduced. Since this model can only be solved exactly for small systems, several solution methods that treat the quantum fluctuations with varying degree of approximation were introduced, since these fluctuations scale inversely with the number of particles.  First, mean field equations, which neglect all quantum fluctuations, were used to derive analytic expressions for many of the system observables. These analytic expressions were used to motivate the definition of the crossover parameter. Since the mean field equations can not describe the spectral properties of the system, the method {\it c}-number Langevin equations with Gaussian fluctuations was introduced. For small systems, where the exact SU(4) method can be applied, the {\it c}-number Langevin method showed excellent agreement with the exact SU(4) method. Therefore, the {\it c}-number Langevin method was used to treat larger systems, and a comparison of the properties of systems operating in the different parameter regions of the crossover was made. 
+lasing was introduced. Since this model can only be solved exactly for small systems, several solution methods that treat the quantum fluctuations with varying degree of approximation were introduced, based on the property that in these systems, fluctuations scale inversely with the number of particles.  First, mean field equations, which neglect all quantum fluctuations, were used to derive analytic expressions for many of the system observables. These analytic expressions were used to motivate the definition of the crossover parameter. Since the mean field equations cannot describe the spectral properties of the system, the method {\it c}-number Langevin equations with Gaussian fluctuations was introduced. For small systems, where the exact SU(4) method can be applied, the {\it c}-number Langevin method showed excellent agreement with the exact SU(4) method. Therefore, the {\it c}-number Langevin method was used to treat larger systems, and a comparison of the properties of systems operating in the different parameter regions of the crossover was made. 
 
 \begin{figure}
 \begin{center}
@@ -813,7 +810,7 @@ Although a system in the lasing parameter region is capable of
 possessing the smallest linewidth, typically lasers operate with a
 re-pumping rate that puts them just above threshold, which does not
 allow the smallest linewidth for the system to be realized. For the same
-re-pumping rate, a system operating in the crossover region will be much
+re-pumping rate, a system operating in the crossover region will be
 farther above threshold, potentially allowing for a linewidth orders of
 magnitude smaller than in the laser region. Also, a crossover system
 will have a larger intracavity intensity than a superradiant system,
@@ -1002,7 +999,7 @@ where
 \bigg( (w+\gamma) + \hat{F}^z
 \nonumber
 \\
-&&-\frac{2}{N} \left( \frac{d}{dt} (\hat{a}^{\dagger} \hat{a}) +
+&&\hspace{-3mm}-\frac{2}{N} \left( \frac{d}{dt} (\hat{a}^{\dagger} \hat{a}) +
 \kappa \hat{a}^{\dagger} \hat{a} -\hat{a}^{\dagger} \hat{F}^a -
 \hat{F}^{a^{\dagger}} \hat{a} \right) \bigg),
 \end{eqnarray}
