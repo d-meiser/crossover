@@ -574,7 +574,7 @@ at frequency $\omega$.
 
 The mean field equations can be solved in closed form in steady state.
 The steady state equations are obtained by setting the time derivatives
-in Eqns.~(\ref{La0})~--~(\ref{Lsz0}) to zero.  We find
+in Eqns.~(\ref{La0}-\ref{Lsz0}) to zero.  We find
 \begin{equation}
 S_0^{z}=
 \frac{(\kappa+2i(\omega_c-\omega))(\Gamma+2i(\omega_a-\omega))}{N\Omega^2}
@@ -589,11 +589,18 @@ we find that oscillation frequency of the atom-cavity coupled system is
 When $\delta = \omega_a-\omega_c \ll \Gamma,\kappa$ the inversion can be
 simplified to
 \begin{equation}
-S_0^{z}\approx frac{1}{\mathcal{C}}\;,
+S_0^{z}\approx \frac{1}{\mathcal{C}}\;,
 \end{equation}
 where $\mathcal{C}\equiv \frac{N \Omega^2}{\kappa \Gamma}$ is the
-many-atom cooperativity parameter.  In the same limit of small detuning
-we find for the steady state photon number
+many-atom cooperativity parameter.
+
+\dmcomment{There might be a slight problem here.  $\Gamma$ contains the
+repumping rate.  Conventionally, the cooperativity is defined in terms
+of intrinsic decay rates.  I think some of these results should be
+rewritten in terms of the cooperativity without $w$.}
+
+In the same limit of small detuning we find for the steady state photon
+number
 \begin{equation}
 |a_0|^2=\frac{N(w+\gamma)}{2 \kappa} (d_0 - \frac{1}{\mathcal{C}})\;.
 \label{a0sqSS}
