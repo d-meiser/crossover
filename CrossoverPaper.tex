@@ -43,16 +43,16 @@ superscriptaddress,groupedaddress]{revtex4}
   paper, we develop a quantum theory that connects smoothly between
   these two extreme limits by showing that coherence can be
   simultaneously stored in both atoms and light. The properties of
-  systems that lie in the superradiance, lasing and crossover
-  parameter regions are contrasted and compared. We find that a
-  crossover system can operate much farther above threshold than a
+  systems that lie in the superradiance, lasing, and crossover parameter
+  regions are contrasted and compared. We find that a system in the
+  crossover region can operate much farther above threshold than a
   typical laser system, and that this can allow the linewidth of the
   output light to be orders of magnitude smaller. Importantly for
   precision metrology applications, we find that in the superradiant
   limit, the linewidth is insensitive to fluctuations in the cavity
   length, while a system in the lasing limit produces light with the
-  linewidth that is insensitive to fluctuations in the atomic
-  transition energy.
+  linewidth that is insensitive to fluctuations and perturbations of the
+  atomic transition frequency.
 \end{abstract}
 \maketitle
 
@@ -65,22 +65,23 @@ atomic and molecular physics research, atomic clocks, the global
 positioning system, nuclear fusion research, biology research,
 medicine, and consumer electronics.
 
-Although many different types of lasers exist, with their key
-parameters spanning many orders of magnitude, all lasers share a common conceptual foundation.  A laser is a cavity quantum
-electrodynamics (QED) system consisting of a gain medium inside an
-optical cavity.  We will oftentimes refer to the gain medium as
-``atoms'' for brevity.  Lasers typically operate in the good
-cavity regime of cavity QED where the linewidth of the cavity is much
-narrower than the bandwidth of the gain medium.  The atoms generate a
-coherent electromagnetic field in the cavity by means of stimulated
-emission~\cite{PhysRev.112.1940}. Stimulated emission is a quantum
-mechanical interference effect in which the presence of a large number
-of photons in a certain mode of a light field increases the
-probability that an atom will emit into that mode. The energy emitted
-into the cavity field has to be replenished by some repumping
-mechanism to achieve steady state operation. In a laser, the
-macroscopic phase information that is associated with the coherence of
-the generated radiation is stored in the light field.
+Although many different types of lasers exist, with their characteristic
+parameters (such as intensity, power, linewidth, physical size) spanning
+many orders of magnitude, all lasers share a common conceptual
+foundation.  A laser is a cavity quantum electrodynamics (QED) system
+consisting of a gain medium inside an optical cavity.  We will
+oftentimes refer to the gain medium as ``atoms'' for brevity.  Lasers
+typically operate in the good cavity regime of cavity QED where the
+linewidth of the cavity is much narrower than the bandwidth of the gain
+medium.  The atoms generate a coherent electromagnetic field in the
+cavity by means of stimulated emission~\cite{PhysRev.112.1940}.
+Stimulated emission is a quantum mechanical interference effect in which
+the presence of a large number of photons in a particular mode of a
+light field increases the probability that an atom will emit into that
+mode. The energy emitted into the cavity field has to be replenished by
+some repumping mechanism to achieve steady state operation. In a laser,
+the macroscopic phase information that is associated with the coherence
+of the generated radiation is stored in the light field.
 
 Around the same time as the laser was first demonstrated, the effect
 of superradiance was predicted~\cite{PhysRev.93.99}, and soon
@@ -94,59 +95,76 @@ However, it has been known for some time that superradiance can also
 occur in steady state~\cite{PhysRevLett.102.163601,
   PhysRevA.81.033847, PhysRevA.81.063827,PhysRevLett.89.253003} by
 placing the atomic ensemble inside a cavity.  In contrast to lasers,
-superradiance in steady-state requires a cavity with a much broader
+superradiance in steady-state occurs in a cavity with a much broader
 linewidth than the atomic linewidth.  This regime is referred to as
 the bad-cavity limit of cavity QED~\cite{PhysRevA.51.809,
   PhysRevLett.72.3815, ChenDeliciousLaser, HakenLaser,
   HakenLaserBook}.  The radiation produced in steady state
 superradiance is also coherent.  However, in contrast to a laser, the
 coherence is stored in the atomic medium.  Progress has recently been
-made towards the experimental verification~\cite{ThompsonPaper} of
-this proposal.
+made towards the experimental
+verification~\cite{ThompsonPaper,bohnet2012relaxation} of this proposal.
 
 An important application of lasers is as a stable local oscillator for
-optical atomic clocks and precision spectroscopy.  These lasers rely
-on stabilization against reference cavities.  The most advanced such
-lasers reach linewidths of $< 0.1 {\rm Hz}$ corresponding to quality
-factors of $Q>10^{15}$~\cite{Cole:TenfoldReductionBrownianNoise}. One
+optical atomic clocks and precision spectroscopy.  These lasers rely on
+stabilization against reference cavities.  The most advanced such lasers
+reach linewidths of $< 0.1 {\rm Hz}$ corresponding to quality factors of
+$Q>10^{15}$~\cite{Cole:TenfoldReductionBrownianNoise}. The principal
 limiting factor in the way of further improvement of these local
 oscillators is thermal vibrations of the dielectric coatings in the
-cavity mirrors~\cite{PhysRevLett.101.260602}.  To overcome this technical
-challenge, it has been proposed to use a completely alternate approach by using an active system based on a clock transition that utilizes steady state superradiance to create an even more stable light
-source~\cite{PhysRevLett.102.163601, ChenDeliciousLaser}.  However,
-this proposal has challenges of its own.  First of all, in spite of the
+cavity mirrors~\cite{PhysRevLett.101.260602}.  To overcome this
+technical challenge, it has been proposed to use a completely alternate
+approach by using an active system based on a clock transition that
+utilizes steady state superradiance to create an even more stable light
+source~\cite{PhysRevLett.102.163601, ChenDeliciousLaser}.  However, this
+proposal has challenges of its own.  First of all, in spite of the
 enhancement that occurs due to superradiance, the produced intensity is
-typically much lower than a conventional laser.  Second of all,
+orders of magnitude lower than for a conventional laser.  Second of all,
 perturbations of atomic transition frequencies can potentially lead to
 phase and frequency perturbations in the generated field.
 
-Balancing the advantages and disadvantages of the two systems (lasers
-and light sources based on steady state superradiance) leads to the
-following question: Why not consider a cavity QED system in which
-coherence is stored in both the light field and atoms on an equal
-footing? The linewidth of such a system could be less sensitive to
-thermal fluctuations of the cavity mirrors than a laser, and it may
-be able to produce more output power than a device based on steady state
-superradiance.
+In this paper we develop a unified theory for lasers and steady state
+superradiance.  In this unified theory, lasers and steady state
+superradiance are the extreme limits of a continuous crossover and the
+theory continuously interpolates between the two.  This allows us to
+directly compare and contrast lasers, steady state superradiant systems,
+and systems in the crossover region using the same language.  Our
+analysis thus further clarifies the qualitative and quantitative
+differences between lasing and steady state superradiance.  From the
+perspective of applications the unified theory enables us to determine
+the optimal system for ultra stable local oscillators and precision
+measurement applications.
 
-The focus of this paper is to consider the properties of such a hybrid
-system, and to compare and contrast them to the properties of systems
-based purely on lasing and systems based purely on steady state
-superradiance.  To this end we develop a theoretical model that is
-applicable throughout the entire crossover.  We analyze the model using
-different levels of approximation: An exact method using SU(4)
-operators, a semi-classical method based on {\it c}-Number Langevin
-equations, a quantum phase diffusion model for the field amplitude, a
-cumulant expansion of system expectation values, and a mean field model.
-By comparing the results from these different models we clarify the
-role played by quantum fluctuations and correlations \dmcomment{Dave: Can
-you put in some specifics on what role these play}.
+We analyze the model using different levels of approximation: An exact
+method using SU(4) operators, a semi-classical method based on {\it
+c}-number Langevin equations, a quantum phase diffusion model for the
+field amplitude, a cumulant expansion of system expectation values, and
+a mean field model.  The different approaches provide insight into
+different aspects of the problem.  Highly simplified models like the
+mean field equations and phase diffusion yield a qualitative
+understanding of the general characteristics of systems throughout the
+crossover.  By comparison between the approximations we can
+differentiate between truly critical physical effects and less important
+details.  We find that fluctuations and correlations are essential for
+the noise properties of the system (e.g. the linewidth of the generated
+light) but that the fluctuations and correlations can be modelled
+semi-classically.  Comparison with the exact SU(4) method for small
+numbers of atoms shows that {\it c}-number Langevin equations provide an
+accurate description of the system.  Due to their much smaller
+computational complexity, we are then able to use the {\it c}-number
+Langevin equations to quantitatively study much larger systems relevant
+for experiment.
 
-The rest of this paper is organized as follows.  In section~\ref{sec:Model}
-we summarize the physical model upon which our analysis is based. In
-\ref{sec:Methods} we discuss the different levels of approximation
-and to what extent they are able to capture the various physical
-signatures. In section \ref{sec:CrossoverCharacterization} we define a crossover parameter which characterizes the relative importance of stimulated emission to collective atomic effects in a cavity QED system. In section~\ref{sec:Results} we discuss our results on the crossover.  Details of the computation are presented in appendices.
+The rest of this paper is organized as follows.  In
+section~\ref{sec:Model} we summarize the physical model upon which our
+analysis is based. In \ref{sec:Methods} we discuss several approximation
+methods.  We compare the approximations with one another to determine
+their accuracy and to evaluate their ability to capture the various
+physical signatures. In section \ref{sec:CrossoverCharacterization} we
+define a crossover parameter which characterizes the relative importance
+of stimulated emission to collective atomic effects in a cavity QED
+system.  In section~\ref{sec:Results} we discuss our results on the
+crossover.  Details of the computation are contained in appendices.
 
 
 \section{Model}
