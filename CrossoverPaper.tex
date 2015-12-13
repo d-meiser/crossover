@@ -639,36 +639,39 @@ in the cavity and of a macroscopic dipole in the atomic ensemble.
 \section{Characterization of the Crossover}
 \label{sec:CrossoverCharacterization}
 
-A characterization of the parameter space of a cavity QED system can
-now be given. Since the repumping rate $w$ is varied in a typical
-experiment, the system is characterized by considering the value
-$w=w_{opt}$, at which there is a maximum number of intra-cavity
-photons. We define a crossover parameter $\xi$ to be the ratio of the
-modified atomic linewidth (including repumping $w$ and dephasing
-$1/T_2$) evaluated at the optimum repump rate $w=w_{opt}$, to the
-cavity linewidth $\kappa$,
+\dmcomment{This section is still kind of weak.  Why should I think of
+Eqn (\ref{CrossoverParameter}) as the crossover parameter?  Is the
+reasoning backwards?  Perhaps we should start from $\xi=a_0^2/N$?  $\xi$
+just doesn't seem well motivated the way it's presented here.}
+
+The mean field equations allow us to formulate and discuss one of the
+central results of this paper, a characterization of the crossover from
+lasing to superradiance.  One way to look at the crossover is as the
+transition from a good cavity to a bad cavity system.  This suggests the
+crossover parameter $\xi$ to be the ratio of the maximum atomic decay
+rate (including repumping $w$ and dephasing $1/T_2$) to the cavity
+linewidth $\kappa$,
 \begin{equation}
 \xi\equiv\frac{ w_{opt}+\gamma+\frac{1}{T_2}}{4\kappa}.
 \label{CrossoverParameter}
 \end{equation}
-Inserting Eq.~(\ref{wopt}) into  Eq.~(\ref{CrossoverParameter}) yields,
+We can write $\xi$ more concisely by inserting Eq.~(\ref{wopt}),
 \begin{equation}
-\xi\equiv \frac{N \Omega^2}{8\kappa^2}.
+\xi\equiv \frac{N \Omega^2}{8\kappa^2}\;.
 \label{CrossoverParameter2}
 \end{equation}
-Eq.~(\ref{adaopt}) can then be used to rewrite $\xi$ in terms of
-$(|a_0|^2)_{opt}$. We do this since it provides an alternative
-interpretation of $\xi$ as a parameter that characterizes the
-crossover, since,
+In this form it is apparent that $\xi$ is given by the ratio of the
+collective atomic decay rate to the cavity decay rate.  This
+interpretation can be made more explicit by inserting the maximum photon
+number to write
 \begin{equation}
 \xi = \frac{(|a_0|^2)_{opt}}{N},
 \end{equation}
-{\em i.e.}\ it is proportional to the ratio of the intra-cavity photon
-number to atom number. Thus one may interpret $\xi$ as a quantity that
-expresses the relative importance of stimulated emission to collective
-atomic effects. If $\xi\ll1$, the system is in the bad cavity or superradiant
-regime. If $\xi\gg1$ the system is in the good cavity or laser
-regime. The region $\xi\sim1$ defines the intermediate or crossover regime.
+The dimensionless parameter $\xi$ quantifies the relative importance of
+stimulated emission to collective atomic effects. If $\xi\ll1$, the
+system is in the bad cavity or superradiant regime. If $\xi\gg1$ the
+system is in the good cavity or laser regime. The region $\xi\sim1$
+defines the intermediate or crossover regime.
 
 
 \section{Results}
