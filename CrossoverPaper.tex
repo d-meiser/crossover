@@ -170,9 +170,21 @@ crossover.  Details of the computation are contained in appendices.
 \section{Model}
 \label{sec:Model}
 
-We model our system as a collection of $N$ two-level atoms inside a
-single mode optical cavity using the quantum Born-Markov master equation
-to describe the open quantum system,
+As noted in the introduction, the fundamental ingredients of lasers and
+superradiance systems are an electromagnetic field and atoms serving as
+a gain medium.  A minimal model consists of a single mode cavity field
+and an ensemble of two level atoms.  The atoms couple to the
+cavity field via the dipole interaction.  Energy is supplied to the
+system by means of a continuous repumping mechanisms that transfers
+atoms from the ground state to the excited state.  In practice, this
+optical pumping necessitates a third atomic level.  But we assume that
+atoms quickly decay from that third level to the atomic excited state
+allowing the third level to be eliminated from the model.  The
+repumping and atomic and cavity relaxation processes make the system an
+open quantum system.
+
+Mathematically, our model is described by the quantum Born-Markov master
+equation,
 \begin{equation}
   \frac{d}{dt} \hat{\rho} =
   \frac{1}{i \hbar} \left[ \hat{H}, \hat{\rho} \right] +
@@ -185,22 +197,24 @@ where,
 + \hbar \omega_c \hat{a}^{\dagger}\hat{a}
 + \frac{\hbar \Omega}{2}  \sum_{j=1}^{N} \left(
     \hat{a}^{\dagger} \hat{\sigma}^{-}_{j} +
-    \hat{\sigma}^{+}_{j} \hat{a} \right),
+    \hat{\sigma}^{+}_{j} \hat{a} \right)\;.
 \end{equation}
-and $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$ denotes the
-Liouvillian superoperator.
+The Liouvillian superoperator $\hat{\mathcal{L}}\left[ \hat{\rho}
+\right]$ describes the various decay and noise processes as well as the
+repumping.
 
 The Hamiltonian $\hat{H}$ describes the coherent evolution of the
-coupled atom cavity system, where $\omega_{a}$ is the frequency
-between the two levels of each of the atoms, and $\omega_c$ is the
-frequency of the cavity mode. The Pauli spin matrices for the atoms
-are $\hat{\sigma}_j^{+}$, $\hat{\sigma}_j^{-}$ and
-$\hat{\sigma}_j^{z}$, and $\hat{a}$ is the annihilation operator of
-the cavity mode. The atom-cavity coupling rate is $\Omega$. That we
-take this to be constant implies the assumption of the
-equivalence of the atom-cavity coupling at the positions of all of the
-atoms. This could be achieved by strongly confining the ensemble in a
-optical lattice potential at the antinodes of the cavity modefunction.
+coupled atom cavity system, where $\omega_{a}$ is the atomic transition
+frequency and $\omega_c$ is the frequency of the cavity mode. The Pauli
+spin matrices for the atoms are $\hat{\sigma}_j^{+}$,
+$\hat{\sigma}_j^{-}$ and $\hat{\sigma}_j^{z}$, and $\hat{a}$ is the
+annihilation operator of the cavity mode. The atom-cavity coupling rate
+is $\Omega$.  In general, the atom-cavity coupling depends on the
+location of the atom in the cavity field.  To simplify the discussion, we ignore
+such spatial effects because they are known to result in only minor
+quantitative changes.  In principle, a constant $\Omega$ could be
+realized experimentally by confining the atoms to locations of equal
+amplitude of the cavity mode by means of an optical lattice.
 
 The incoherent evolution is described by the Liouvillian
 $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$,
@@ -236,9 +250,10 @@ $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$,
   \right),
 \end{eqnarray}
 where $\hat{\rho}$ is the system's density matrix, $\kappa$ is the decay
-rate of the cavity, $\gamma$ is the incoherent decay rate of the atoms,
-$w$ is the incoherent repumping rate of the atoms, and $\frac{1}{T_2}$
-is the inhomogeneous dephasing rate.
+rate of the cavity, $\gamma$ is the natural decay rate of the atoms, $w$
+is the repumping rate, and $\frac{1}{T_2}$ is the inhomogeneous
+dephasing rate.
+
 
 \section{Solution Methods}
 \label{sec:Methods}
