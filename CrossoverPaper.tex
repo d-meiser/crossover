@@ -528,17 +528,17 @@ computing an ensemble average.
 		\vspace{-5mm}
 \caption{(Color online) Comparison of the different solution methods in
 the superradiance ($\xi=0.2$), crossover ($\xi=1$), and lasing ($\xi=5$)
-regions for $N=40$ and $\frac{\Omega^2}{\kappa \gamma}=1$.  The analytic Langevin (phase diffusion and mean field) solutions are shown
-in red (light gray), the 2nd order cumulant solutions are shown in blue
-(dark gray), the exact SU(4) solution is shown by grey triangles, and the
-{\it c}-number Langevin simulation results are shown by black circles. The
+regions for $N=40$ and $\frac{\Omega^2}{\kappa \gamma}=1$.  The analytic
+Langevin (phase diffusion and mean field) solutions are shown in red
+(light gray), the 2nd order cumulant solutions are shown in blue (dark
+gray), the exact SU(4) solution is shown by grey triangles, and the {\it
+c}-number Langevin simulation results are shown by black circles. The
 observables considered are (a) the inversion
 $\left<\hat{\sigma}^{z}\right>$, (b) the correlation between the atoms'
-dipoles
-$\left<\hat{\sigma}_{1}^{+} \hat{\sigma}_{2}^{-}\right>$, (c) the
-intracavity photon number  $\left<\hat{a}^{\dagger}\hat{a}\right>$, (d)
-the linewidth $\Delta \nu$, and (e) the intensity correlation function
-$G^{(2)}(0)$.}
+dipoles $\left<\hat{\sigma}_{1}^{+} \hat{\sigma}_{2}^{-}\right>$, (c)
+the intracavity photon number  $\left<\hat{a}^{\dagger}\hat{a}\right>$,
+(d) the linewidth $\Delta \nu$, and (e) the intensity correlation
+function $G^{(2)}(0)$.}
 \label{N40Comparison}
 \end{figure*}
 
@@ -677,6 +677,22 @@ defines the intermediate or crossover regime.
 \section{Results}
 \label{sec:Results}
 
+In this section we present numerical results for field intensity,
+inversion, line widths, and correlations throughout the crossover from
+lasing to superradiance.  We begin by considering the different solution
+methods for small numbers of atoms were we can compare with the exact
+SU(4) Monte-Carlo results.  This comparison shows that the semi-classical
+theory gives an accurate description of first and second moments of the
+system operators.  This is an interesting result in itself besides
+verifying the semi-classical methods because it demonstrates that the
+system is not strongly correlated and we don't need to account for
+genuinely quantum fluctuations.
+
+With the validity of the semi-classical method established we then
+consider systems with large numbers of atoms.  These systems are
+experimentally relevant and allow us to more clearly understand the
+behavior of the system in the large $N$ limit.
+
 \begin{figure*}
 \begin{center}
 	\includegraphics[scale =0.445] {N10000SZ.eps}
@@ -694,42 +710,54 @@ defines the intermediate or crossover regime.
 		\vspace{-5mm}
 \caption{(Color online) Solutions using the various methods in the
 superradiance ($\xi=0.1$), crossover ($\xi=1$), and lasing ($\xi=10$)
-regions for N=10000 and $\frac{\Omega^2}{\kappa \gamma}=0.1$. For $1/T_2=0$, the analytic Langevin (phase diffusion and mean field) solutions are shown in solid red (solid light gray), the 2nd order
+regions for N=10000 and $\frac{\Omega^2}{\kappa \gamma}=0.1$. For
+$1/T_2=0$, the analytic Langevin (phase diffusion and mean field)
+solutions are shown in solid red (solid light gray), the 2nd order
 cumulant solutions are shown in solid blue (solid dark gray), and the
-{\it c}-number Langevin simulation results are shown by black circles. For
-$1/T_2=\frac{1}{5} w_{opt}$, the analytic Langevin solutions are shown in
-dashed red (dashed light gray), the 2nd order cumulant solutions are shown
-in dashed blue (dashed dark gray), and the {\it c}-number Langevin simulation
-results are shown by black diamonds. (a) All observables considered
-except linewidth  $\Delta \nu$ show universal behavior in the
-superradiance, crossover, and lasing regions, after appropriate scaling.
-The red (light gray) curves have been artificially widened in order to
-be seen underneath the blue curves. (b)  $\Delta \nu / \kappa$ in the
-superradiance region (c) $\Delta \nu / \kappa$ in the crossover region,
-(d) $\Delta \nu / \kappa$ in the lasing region.}
+{\it c}-number Langevin simulation results are shown by black circles.
+For $1/T_2=\frac{1}{5} w_{opt}$, the analytic Langevin solutions are
+shown in dashed red (dashed light gray), the 2nd order cumulant
+solutions are shown in dashed blue (dashed dark gray), and the {\it
+c}-number Langevin simulation results are shown by black diamonds. (a)
+All observables considered except linewidth  $\Delta \nu$ show universal
+behavior in the superradiance, crossover, and lasing regions, after
+appropriate scaling.  (b)  $\Delta \nu / \kappa$ in the superradiance
+region (c) $\Delta \nu / \kappa$ in the crossover region, (d) $\Delta
+\nu / \kappa$ in the lasing region.}
  \label{N10000Comparison}
 \end{figure*}
 
 
-\subsection{Simulations with $N=40$}
+\subsection{Simulations with small atom numbers
 
-In order to determine the validity of the approximate solution methods, we begin by comparing them to the exact solutions. This comparison is done for $N=40$, since this is a small enough number of atoms that the exact method can be used, and large enough to expect the approximate solution methods to be reasonably accurate. 
+In order to determine the validity of the approximate solution methods,
+we begin by comparing them to the exact solutions.  We use $N=40$ atoms
+for the comparison.  This is a small enough to still be tractable by
+exact SU(4) Monte-Carlo simulations and at the same time it is large
+enough to expect the approximate solution methods to be reasonably
+accurate. 
 
-Specifically, the mean field Langevin method, the phase diffusion method, the {\it c}-number Langevin method, and the 2nd order cumulant method are compared to the exact SU(4) result for three different values of the crossover parameter:
+\dmcomment{Can we cut the cumulant expansion stuff?}
+
+Specifically, Fig.~\ref{N40Comparison} shows several observables
+obtained using the mean field Langevin method, the phase diffusion
+method, the {\it c}-number Langevin method, and exact SU(4)
+Monte-Carlo simulations for three different values of the crossover parameter:
 $\xi=0.2$, $\xi=1$, and $\xi=5$. These values of $\xi$ put the system in the
 superradiance, crossover, and lasing parameter regions, respectively.
-This comparison can be seen in Fig.~\ref{N40Comparison}. We note that the SU(4) method becomes more computationally intensive as $\xi$ is increased, since there are more photons as $\xi$ is increased, and hence
-more basis states need to be tracked. Therefore, for $\xi=5$, the method
-that combines the SU(4) with quantum jump method was used (see Appendix~\ref{Su4Appendix}). This
-simulation is computationally intensive, so that only a few values of $w$
-are included.
+We note that the SU(4) method becomes more computationally intensive as $\xi$ is increased, since there are more photons as $\xi$ is increased, and hence
+more basis states need to be tracked. Therefore, for $\xi=5$, we used a
+method that combines the SU(4) approach with the quantum jump method (see Appendix~\ref{Su4Appendix}).
 
-Fig.~\ref{N40Comparison} shows that there is an excellent agreement
-between {\it c}-number Langevin and the exact SU(4) theory for $N=40$, in all
-parameter regions, for all of the considered observables. Therefore, the
-{\it c}-number Langevin theory can be relied upon for larger atom numbers,
-where it is not possible to apply the SU(4) theory.
+Fig.~\ref{N40Comparison} shows excellent agreement between {\it
+c}-number Langevin and the exact SU(4) theory in all parameter regions
+for all of the considered observables. Therefore, the {\it c}-number
+Langevin theory can be relied upon for larger atom numbers inaccessible
+to direct numerical simulation.
 
+\dmcomment{I vote for getting rid of the cumulant solution discussion.
+I find it distracting from the main message.}
+\if 0
 The 2nd order cumulant solution works well qualitatively in all
 parameter regions, but as seen in Fig.~\ref{N40Comparison} (b) and (c)
 in the superradiance row, and in column (d), there is a quantitative
@@ -753,23 +781,30 @@ decreases as $\frac{1}{N}$, it is precisely the $\frac{1}{N}$ terms that
 gives rise to the linewidth according to the cumulant theory.  Therefore
 the $25\%$ disagreement between the Langevin and cumulant theories for
 large N is not surprising.
+\fi
 
-Seen in Fig.~\ref{N40Comparison} (a) and (c), the mean field Langevin method
-works well in the region around $w/w_{opt}=1$, but disagrees outside that region. In Fig.~\ref{N40Comparison} (d),
-it can be seen that the phase diffusion model for the linewidth also agrees in the region around $w/w_{opt}=1$, but disagrees outside that region, where the phase diffusion approximation breaks down. 
+Figures~\ref{N40Comparison} (a) and (c) show that the mean field
+equations are accurate near the collective emission peak, $w/w_{opt}=1$,
+but they are less accurate outside that region.
+Figure~\ref{N40Comparison} (d), shows that the phase diffusion model for
+the linewidth also agrees in the region around $w/w_{opt}=1$, but
+disagrees outside that region, where the phase diffusion approximation
+breaks down.  Although they do not quantitatively agree with the exact
+SU(4) method, the analytic solutions obtained by the mean field and
+phase diffusion models capture the correct qualitative behavior of the
+system.
 
-Although they do not qualitatively agree with the SU(4) method, the analytic solutions yielded by the mean field, phase diffusion and second order cumulant theories capture the correct qualitative behavior of the system.
 
+\subsection{Simulations with large atom numbers}
 
-\subsection{Simulations with $N=10000$}
-
-Now that an agreement between the {\it c}-number Langevin and exact SU(4)
-theories has been established, we study more experimentally realistic
-systems with $N=10000$ by applying {\it c}-number Langevin theory. We also
-include the mean field Langevin theory, the phase diffusion model for the linewidth, and the 2nd order cumulant theory for
-reference. The results of these simulations can be seen in
-Fig.~\ref{N10000Comparison}. Both the situation in which $1/T_2=0$ and
-in which $1/T_2=w_{opt}/5$ are considered.
+Now that an agreement between the {\it c}-number Langevin and exact
+SU(4) theories has been established, we study more experimentally
+realistic systems with $N=10000$ using the semi-classical theory based
+on the {\it c}-number Langevin equations. We also include the mean field
+Langevin theory, the phase diffusion model for the linewidth. The
+results of these simulations are shown in Fig.~\ref{N10000Comparison}.
+We consider both the case of vanishing inhomogeneous broadening,
+$1/T_2=0$, as well as $1/T_2=w_{opt}/5$.
 
 As seen in Fig.~\ref{N10000Comparison} (a), when $1/T_2=0$, the
 inversion $\left<\hat{\sigma}^{z}\right>$, the correlation between atoms
@@ -777,49 +812,69 @@ $\left<\hat{\sigma}_{1}^{+} \hat{\sigma}_{2}^{-}\right>$, the
 intracavity photon number  $\left<\hat{a}^{\dagger}\hat{a}\right>$,  and
 the intensity correlation function $G^{(2)}(0)$ all show universal
 behavior in the superradiance, crossover, and lasing regimes after
-appropriate scaling. When $1/T_2$ is large, $1/T_2=w_{opt}/5$, these
-observables still show universal behavior after appropriate scaling, and
-the values do not change significantly from the $1/T_2=0$ case.
+appropriate scaling.  For $1/T_2=w_{opt}/5$ these observables still show
+universal behavior after appropriate scaling, and the values do not
+change significantly from the $1/T_2=0$ case.
 
-It is worth noting that even though  $\left<\hat{\sigma}_{1}^{+}
+It is worth noting that, even though  $\left<\hat{\sigma}_{1}^{+}
 \hat{\sigma}_{2}^{-}\right>$ has universal behavior throughout the
-crossover, typical lasers are operated just above threshold at $w \ll
-w_{opt}$, where the resulting value of
-$\left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right>_{opt}$ is much
-smaller, so that atom-atom correlations are not important in lasers operating in the conventional regime.
+crossover, typical lasers operate just above threshold in terms of the
+scaled quantities, i.e. $w \ll w_{opt}$.  Just above threshold the
+atom-atom correlations are typically very small,
+\begin{equation}
+\left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right>_{opt} \ll 1\;.
+\end{equation}
+Thus atom-atom correlations are usually not important in lasers.
 
-The linewidth $\Delta \nu$, however, does not show universal behavior in the superradiance, crossover, and lasing regimes. As seen in Fig.~\ref{N10000Comparison} (b), in the superradiance region, when $1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{opt}<1$. In contrast, the linewidth in the lasing regime, shown in Fig.\ref{N10000Comparison} (d), linearly decreases as $w/w_{opt}$ increases towards unity. This is the typical Schawlow-Townes behavior, which can be seen by considering $\kappa/\left<\hat{a}^{\dagger}\hat{a}\right>$ using Eq.~\ref{a0sqSS}. In the crossover region, shown in Fig.~\ref{N10000Comparison} (c), we see that for $w/w_{opt}$ small, $\Delta \nu/\kappa$ is flat, and as $w/w_{opt}$ approaches unity, $\Delta \nu/\kappa$ starts to linearly decrease as in the lasing regime. Therefore, a system in the crossover region displays characteristics of both superradiance and lasing. 
+The linewidth $\Delta \nu$, however, does not show universal behavior in
+the superradiance, crossover, and lasing regimes. As seen in
+Fig.~\ref{N10000Comparison} (b), in the superradiance region, when
+$1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{opt}<1$.
+In contrast, the linewidth in the lasing regime, shown in
+Fig.\ref{N10000Comparison} (d), linearly decreases as $w/w_{opt}$
+increases towards unity. This is the typical Schawlow-Townes behavior,
+which can be seen by considering
+$\kappa/\left<\hat{a}^{\dagger}\hat{a}\right>$ using Eq.~\ref{a0sqSS}.
+In the crossover region, shown in Fig.~\ref{N10000Comparison} (c), we
+see that for $w/w_{opt}\ll 1$ , $\Delta \nu/\kappa$ is flat, and as
+$w/w_{opt}$ approaches unity, $\Delta \nu/\kappa$ starts to linearly
+decrease as in the lasing regime. Therefore, a system in the crossover
+region displays characteristics of both superradiance and lasing. 
 
 When $1/T_2$ is increased to $1/T_2=w_{opt}/5$,
-Fig.~\ref{N10000Comparison} (b) shows that $\Delta \nu/\kappa$ is
-increased for $w/w_{opt}$ small, but it is not significantly affected by
-$1/T_2$ as $w/w_{opt}$ approaches unity. In any case, this is the region
-in which a superradiant system should be operated, since this is the
-region of maximum intracavity intensity.
+Fig.~\ref{N10000Comparison} (b) shows that $\Delta \nu/\kappa$ increases
+for $w/w_{opt}\ll 1$, but it is not significantly affected by $1/T_2$ as
+$w/w_{opt}$ approaches unity.  Note that the latter is the pumping
+region where the emitted light intensity is largest.  Near $w\sim w_{\rm
+opt}$ we obtain both the largest intensity and the best frequency
+stability.
 
 In the crossover region, seen in Fig.~\ref{N10000Comparison} (c), when
-$1/T_2=w_{opt}/5$, $\Delta \nu/\kappa$ is increased for $w/w_{opt}$
-small, where the system is displaying superradiant behavior, but is
-completely insensitive to $w/w_{opt}$ approaching unity, where the
-system starts to display lasing behavior.
+$1/T_2=w_{opt}/5$, $\Delta \nu/\kappa$ increase for $w/w_{opt}\ll 1$,
+where the system is displaying superradiant behavior.  On the other
+hand, when $w \sim w_{opt}$ where the
+system starts to display lasing behavior, $\Delta\nu/\kappa$ is
+insensitive to the inhomogeneous broadening of the atomic line.
 
-As seen in Fig.~\ref{N10000Comparison} (d), in the lasing region, when
-$1/T_2=w_{opt}/5$, $\Delta \nu/\kappa$ is not increased, but actually
-decreased in the region slightly below $w/w_{opt}=1$, when compared to
-the $1/T_2=0$ case. This reduction has also been observed for smaller
-atom numbers using the exact SU(4) code. It can be shown that the value
-of $1/T_2$ that maximally reduces the linewidth is
+Figure~\ref{N10000Comparison} (d) shows that $\Delta \nu/\kappa$ does
+not increase in the lasing region when $1/T_2=w_{opt}/5$.  Rather the
+linewidth decrease in the region slightly below $w/w_{opt}=1$, when
+compared to the $1/T_2=0$ case. This reduction has also been observed
+for smaller atom numbers using the exact SU(4) code. It can be shown
+that the value of $1/T_2$ that maximally reduces the linewidth is
 $1/T_2=\frac{w_{opt}}{1+\sqrt{2}}$.
+\dmcomment{Do we have an intuitive explanation of this result?}
 
-A typical laser is operated just above threshold, where $w/w_{opt} \ll
-1$. As seen in Fig.~\ref{LWadaComparison} (a), for the same pump
-strength $w$, and a fixed $N$, a system in the crossover region could be
-operated with $w/w_{opt} = 1$, allowing the crossover system to have a
-linewidth orders of magnitude smaller than the linewidth of the lasing
-system. Fig.~\ref{LWadaComparison} (b) shows that the intracavity
-intensity, $\left<\hat{a}^{\dagger}\hat{a}\right>$, will be roughly the
-same for the crossover system operated at $w/w_{opt} = 1$ as for a laser
-system operated at  $w/w_{opt} \ll 1$.
+As mentioned previous, a laser normally operates just above threshold,
+where $w/w_{opt} \ll 1$. As seen in Fig.~\ref{LWadaComparison} (a), for
+the same pump strength $w$, and a fixed $N$, a system in the crossover
+region can operate with $w/w_{opt} = 1$, allowing the crossover system
+to have a linewidth orders of magnitude smaller than the linewidth of
+the lasing system.  Fig.~\ref{LWadaComparison} (b) shows that this
+improvement in linewidth can be achieved without paying the penalty of a
+reduced output intensity.  Another way of saying this is that, for the
+same output intensity, one can achieve greater brightness of the light
+source by using atoms with a smaller linewidth.
 
 \begin{figure}
 \begin{center}
@@ -828,13 +883,16 @@ system operated at  $w/w_{opt} \ll 1$.
 	\hspace{6mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
 \end{center}
 		\vspace{-5mm}
-\caption{(Color online) Comparison of (a) linewidth and (b) Intracavity
-intensity for a system operated in the crossover ($\xi=1$) shown in blue
-solid, lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$)
-shown in magenta dotted, regions using the analytic (phase diffusion and mean field) Langevin model. $w_{opt,c}$ is the optimum $w$ value
-in the crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa \gamma}=0.1$.}
+\caption{(Color online) Comparison of (a) linewidth and (b) intra-cavity
+intensity for a system in the crossover ($\xi=1$) shown in blue solid,
+lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$) shown
+in magenta dotted, regions using the analytic (phase diffusion and mean
+field) Langevin model. $w_{opt,c}$ is the optimum $w$ value in the
+crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
+\gamma}=0.1$.}
 \label{LWadaComparison}
 \end{figure}
+
 
 \subsection{Effect of Cavity and Atomic Level Instabilities on the
 Spectrum}
