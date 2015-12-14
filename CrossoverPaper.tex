@@ -138,8 +138,7 @@ measurement applications.
 We analyze the model using different levels of approximation: An exact
 method using SU(4) operators, a semi-classical method based on {\it
 c}-number Langevin equations, a quantum phase diffusion model for the
-field amplitude, a cumulant expansion of system expectation values, and
-a mean field model.  The different approaches provide insight into
+field amplitude, and a mean field model.  The different approaches provide insight into
 different aspects of the problem.  Highly simplified models like the
 mean field equations and phase diffusion yield a qualitative
 understanding of the general characteristics of systems throughout the
@@ -265,7 +264,7 @@ introduce several solution methods and approximations to overcome the
 exponential scaling of the size of the Hilbert space.  They can be
 grouped into three categories: Exact methods (SU(4) method with
 Monte-Carlo simulation); semi-classical methods ({\it c}-number Langevin
-equations, phase diffusion, cumulant expansions); and mean field
+equations, phase diffusion); and mean field
 treatment.  The exact solution methods solve the quantum mechanical
 problem directly without further approximations.  But of course they are
 only practical for small numbers of atoms.  Semi-classical methods aim
@@ -293,8 +292,6 @@ Even with the ability to describe problems with larger photon number, the SU(4) 
 The {\it c}-number Langevin method \cite{Scully97, PhysRevA.47.1431} approximates the quantum
 Langevin equations which are equivalent to Eq.~(\ref{ME1Crossover}) as complex variable equations with Gaussian fluctuations.
 These equations do not scale with $N$ in the same way, and therefore can often be used to treat systems with large $N$ where an exact treatment is not possible. 
-
-We also use the second order cumulant theory, which consists of a set of coupled equations for system expectation values. These equations are factorized using the cumulant expansion \cite{JPSJ.17.1100}, and all cumulants higher than second order are dropped. The details of this method will not be discussed in this paper, since this method has already been described in detail for the same model in Ref.~\cite{PhysRevLett.102.163601}.
 
 When the additional approximation is added that the system only exhibits phase diffusion, {\em i.e.}\ amplitude fluctuations are neglected, an analytic solution for the linewidth of the power spectrum can be obtained \cite{HakenLaser, HakenLaserBook}. This method is described in Appendix~\ref{HakenAppendix}.
 Finally, the mean field solutions of the quantum Langevin equations, neglect all fluctuations. These solutions 
@@ -435,6 +432,8 @@ The equations of motion in terms of these variables are
 \frac{d}{dt} S^{z} &=& -(w+\gamma)\left( S^{z} - d_0\right)
 +2 \Omega \left( q S^{y} - p S^{x} \right)
 +F^{z}\;.
+\nonumber
+\\
 \label{eqn:cnumberlangevin}
 \end{eqnarray}
 
@@ -530,8 +529,7 @@ computing an ensemble average.
 the superradiance ($\xi=0.2$), crossover ($\xi=1$), and lasing ($\xi=5$)
 regions for $N=40$ and $\frac{\Omega^2}{\kappa \gamma}=1$.  The analytic
 Langevin (phase diffusion and mean field) solutions are shown in red
-(light gray), the 2nd order cumulant solutions are shown in blue (dark
-gray), the exact SU(4) solution is shown by grey triangles, and the {\it
+(light gray), the exact SU(4) solution is shown by grey triangles, and the {\it
 c}-number Langevin simulation results are shown by black circles. The
 observables considered are (a) the inversion
 $\left<\hat{\sigma}^{z}\right>$, (b) the correlation between the atoms'
@@ -712,12 +710,10 @@ behavior of the system in the large $N$ limit.
 superradiance ($\xi=0.1$), crossover ($\xi=1$), and lasing ($\xi=10$)
 regions for N=10000 and $\frac{\Omega^2}{\kappa \gamma}=0.1$. For
 $1/T_2=0$, the analytic Langevin (phase diffusion and mean field)
-solutions are shown in solid red (solid light gray), the 2nd order
-cumulant solutions are shown in solid blue (solid dark gray), and the
+solutions are shown in solid red (solid light gray), and the
 {\it c}-number Langevin simulation results are shown by black circles.
 For $1/T_2=\frac{1}{5} w_{opt}$, the analytic Langevin solutions are
-shown in dashed red (dashed light gray), the 2nd order cumulant
-solutions are shown in dashed blue (dashed dark gray), and the {\it
+shown in dashed red (dashed light gray), and the {\it
 c}-number Langevin simulation results are shown by black diamonds. (a)
 All observables considered except linewidth  $\Delta \nu$ show universal
 behavior in the superradiance, crossover, and lasing regions, after
@@ -737,8 +733,6 @@ exact SU(4) Monte-Carlo simulations and at the same time it is large
 enough to expect the approximate solution methods to be reasonably
 accurate. 
 
-\dmcomment{Can we cut the cumulant expansion stuff?}
-
 Specifically, Fig.~\ref{N40Comparison} shows several observables
 obtained using the mean field Langevin method, the phase diffusion
 method, the {\it c}-number Langevin method, and exact SU(4)
@@ -754,34 +748,6 @@ c}-number Langevin and the exact SU(4) theory in all parameter regions
 for all of the considered observables. Therefore, the {\it c}-number
 Langevin theory can be relied upon for larger atom numbers inaccessible
 to direct numerical simulation.
-
-\dmcomment{I vote for getting rid of the cumulant solution discussion.
-I find it distracting from the main message.}
-\if 0
-The 2nd order cumulant solution works well qualitatively in all
-parameter regions, but as seen in Fig.~\ref{N40Comparison} (b) and (c)
-in the superradiance row, and in column (d), there is a quantitative
-disagreement between this theory and the SU(4) and {\it c}-number Langevin
-theories. This quantitative disagreement is due to the fact that a theory which factorizes all moments
-into products of no higher than second order, and a theory that
-uses Gaussian noise are not equivalent. This difference can be seen by considering the
-third order moment $\left< \hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z
-\right>$. According to the cumulant theory, $\left<
-\hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z \right>=\left<
-\hat{a}^{\dagger}\hat{a}\right> \left<\hat{\sigma}_i^z \right>$, a fact
-which was essential to use in deriving the closed the set of equations
-used to find the spectrum \cite{PhysRevLett.102.163601}. In the Langevin
-theory, however, $\left< \hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z
-\right> \neq \left< \hat{a}^{\dagger}\hat{a}\right>
-\left<\hat{\sigma}_i^z \right>$, a fact we have checked with our
-Langevin simulations. Even though the difference between $\left<
-\hat{a}^{\dagger}\hat{a}\hat{\sigma}_i^z \right>$ and $\left<
-\hat{a}^{\dagger}\hat{a}\right> \left<\hat{\sigma}_i^z \right>$
-decreases as $\frac{1}{N}$, it is precisely the $\frac{1}{N}$ terms that
-gives rise to the linewidth according to the cumulant theory.  Therefore
-the $25\%$ disagreement between the Langevin and cumulant theories for
-large N is not surprising.
-\fi
 
 Figures~\ref{N40Comparison} (a) and (c) show that the mean field
 equations are accurate near the collective emission peak, $w/w_{opt}=1$,
@@ -876,6 +842,19 @@ reduced output intensity.  Another way of saying this is that, for the
 same output intensity, one can achieve greater brightness of the light
 source by using atoms with a smaller linewidth.
 
+
+\subsection{Effect of Cavity and Atomic Level Instabilities on the
+Spectrum}
+
+The effect of instabilities in the cavity frequency and atomic frequency
+on the linewidth is now investigated. Cavity frequency instability can
+be caused by fluctuations in cavity length due to the thermal
+fluctuations of the cavity mirrors, which are unavoidable in an
+experiment. The energy levels in an atom can also be shifted by stray
+electromagnetic fields. The frequency of the combined atom-cavity system
+$\omega$ lies somewhere between the bare atom and cavity frequencies,
+and is given by Eq.~(\ref{atomcavityfrequencycenter1}).
+
 \begin{figure}
 \begin{center}
 	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.eps}
@@ -892,19 +871,6 @@ crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
 \gamma}=0.1$.}
 \label{LWadaComparison}
 \end{figure}
-
-
-\subsection{Effect of Cavity and Atomic Level Instabilities on the
-Spectrum}
-
-The effect of instabilities in the cavity frequency and atomic frequency
-on the linewidth is now investigated. Cavity frequency instability can
-be caused by fluctuations in cavity length due to the thermal
-fluctuations of the cavity mirrors, which are unavoidable in an
-experiment. The energy levels in an atom can also be shifted by stray
-electromagnetic fields. The frequency of the combined atom-cavity system
-$\omega$ lies somewhere between the bare atom and cavity frequencies,
-and is given by Eq.~(\ref{atomcavityfrequencycenter1}).
 
 If $\omega$ is varied, the resultant time averaged linewidth will be an
 average over these values, and will hence be much broader than the
