@@ -1,7 +1,7 @@
 \documentclass[aps,
 %prl,
 twocolumn,
-%showpacs,
+showpacs,
 superscriptaddress,groupedaddress]{revtex4}
 
 
@@ -22,11 +22,11 @@ superscriptaddress,groupedaddress]{revtex4}
 \affiliation{JILA, University of Colorado, Boulder}
 \author{Minghui Xu}
 \affiliation{JILA, University of Colorado, Boulder}
-\author{J. Cooper}
-\affiliation{JILA, University of Colorado, Boulder}
 \author{D. Meiser}
 \affiliation{Tech-X Corporation, 5621 Arapahoe Avenue,
              Boulder, Colorado 80303, USA.}
+\author{J. Cooper}
+\affiliation{JILA, University of Colorado, Boulder}
 \author{M. J. Holland}
 \affiliation{JILA, University of Colorado, Boulder}
 \date{\today}
@@ -54,6 +54,10 @@ superscriptaddress,groupedaddress]{revtex4}
   linewidth that is insensitive to fluctuations and perturbations of the
   atomic transition frequency.
 \end{abstract}
+
+\pacs{42.50.Nn, 06.30.Ft, 37.30.+i, 42.50.Ct}
+
+
 \maketitle
 
 \section{Introduction}
@@ -485,9 +489,9 @@ calculation yields
 \end{eqnarray}
 
 We solve the stochastic differential equations
-(\ref{eqn:cnumberlangevin}) by means of the Monte-Carlo method.
-\dmcomment{Is this a first order integrator? Euler? Or something more
-complicated?} We find the noises $F^\mu$ by means of
+(\ref{eqn:cnumberlangevin}) by means of the explicit second order weak scheme \cite{kloeden2011numerical}.
+ \dmcomment{DT Comment: A slight issue here I wanted to bring up: I originally used expectation values in the noise by evolving 1000 trajectories at the same time. In that case, the noise is additive, so a simpler integrator specialized for additive noise can be used \cite{kloeden2011numerical}. I later switched to using the single trajectory values in the noise, which I justified because they gave me the same answer as the expectation value case. However, it seems to me now that I always used the integrator specialized for additive noise, and that I should have used the general integrator for multiplicitave noise in the when single trajectory values are in the noise. But I still get good agreement with the SU4. Do you think this is an issue? I could re run everything using the expectation values in the noise, but that would be a real pain and I think the curves would look the same.}
+The noises $F^\mu$ are found by means of
 \begin{equation}
 F^\mu=\sum_\nu \sqrt{\lambda_\nu} M_{\mu,\nu}^T f^\nu\;,
 \end{equation}
@@ -496,49 +500,10 @@ diagonalizes the diffusion matrix, $\lambda_\nu$ are its eigenvalues,
 and $f^\nu$ are independent normalized Wiener processes.
 \dmcomment{Is the Diffusion matrix just symmetric or is it also
 positive? If it's not positive, what happens if the $\lambda_\nu$ are
-negative?}
+negative? DT Answer: I found that the diffusion matrix is positive when the system is above threshold, below threshold I remember getting divergent trajectories every once in a while. And since I was most interested in studying systems operating around the optimum where the linewidth is smallest and photon number is largest, I didn't study systems below threshold}
 The expectation values in the diffusion matrix elements are computed by
 simulating a whole ensemble of stochastic trajectories at once and by
-computing an ensemble average.
-\dmcomment{How large are your ensembles?}
-
-\begin{figure*}
-\begin{center}
-	\rotatebox{90}{\hspace{4mm} \textbf{Superradiance}}
-	\includegraphics[scale =0.38] {N40SuperradianceSZ.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40SuperradianceSPSM.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40Superradianceada.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40SuperradianceLW.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40SuperradianceG2.eps}\\ \vspace{0mm}
-	\rotatebox{90}{ \hspace{7mm} \textbf{Crossover}}
-	\includegraphics[scale =0.38] {N40CrossoverSZ.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40CrossoverSPSM.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40Crossoverada.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40CrossoverLW.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40CrossoverG2.eps}\\ \vspace{0mm}
-	\rotatebox{90}{ \hspace{10mm} \textbf{Lasing}}
-	\includegraphics[scale =0.38] {N40LaserSZ.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40LaserSPSM.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40Laserada.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40LaserLW.eps}
-	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40LaserG2.eps}\\ \vspace{1mm}
-	\hspace{5mm}(a)\hspace{30mm}(b) \hspace{30mm}(c) \hspace{30mm}(d) \hspace{30mm}(e)
-\end{center}
-		\vspace{-5mm}
-\caption{(Color online) Comparison of the different solution methods in
-the superradiance ($\xi=0.2$), crossover ($\xi=1$), and lasing ($\xi=5$)
-regions for $N=40$ and $\frac{\Omega^2}{\kappa \gamma}=1$.  The analytic
-Langevin (phase diffusion and mean field) solutions are shown in red
-(light gray), the exact SU(4) solution is shown by grey triangles, and the {\it
-c}-number Langevin simulation results are shown by black circles. The
-observables considered are (a) the inversion
-$\left<\hat{\sigma}^{z}\right>$, (b) the correlation between the atoms'
-dipoles $\left<\hat{\sigma}_{1}^{+} \hat{\sigma}_{2}^{-}\right>$, (c)
-the intracavity photon number  $\left<\hat{a}^{\dagger}\hat{a}\right>$,
-(d) the linewidth $\Delta \nu$, and (e) the intensity correlation
-function $G^{(2)}(0)$.}
-\label{N40Comparison}
-\end{figure*}
+computing an ensemble average. \dmcomment{How large are your ensembles? DT Answer: Typically, an ensemble of 1000 trajectories can be used to achieve convergence to within a few percent.}
 
 
 \subsection{Mean Field Equations}
@@ -595,7 +560,7 @@ many-atom cooperativity parameter.
 \dmcomment{There might be a slight problem here.  $\Gamma$ contains the
 repumping rate.  Conventionally, the cooperativity is defined in terms
 of intrinsic decay rates.  I think some of these results should be
-rewritten in terms of the cooperativity without $w$.}
+rewritten in terms of the cooperativity without $w$. DT Answer: I agree that there is a problem; the quantity I am defining as $\mathcal{C}$ should not be called the cooperativity parameter. To make the figures, I fix the quantity ($\Omega^2/(\kappa \gamma)$) , but I dont define it as the cooperativity parameter. Which quantities should be re-written in terms of the cooperativity parameter?}
 
 In the same limit of small detuning we find for the steady state photon
 number
@@ -633,6 +598,44 @@ At this point, $S_0^{z}$ is close to unity, and the noise due to the
 strong repumping prevents the formation of a macroscopic coherent state
 in the cavity and of a macroscopic dipole in the atomic ensemble.
 
+\begin{figure*}
+\begin{center}
+	\rotatebox{90}{\hspace{4mm} \textbf{Superradiance}}
+	\includegraphics[scale =0.38] {N40SuperradianceSZ.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40SuperradianceSPSM.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40Superradianceada.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40SuperradianceLW.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40SuperradianceG2.eps}\\ \vspace{0mm}
+	\rotatebox{90}{ \hspace{7mm} \textbf{Crossover}}
+	\includegraphics[scale =0.38] {N40CrossoverSZ.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40CrossoverSPSM.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40Crossoverada.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40CrossoverLW.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40CrossoverG2.eps}\\ \vspace{0mm}
+	\rotatebox{90}{ \hspace{10mm} \textbf{Lasing}}
+	\includegraphics[scale =0.38] {N40LaserSZ.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40LaserSPSM.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40Laserada.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40LaserLW.eps}
+	\hspace{-5.0mm} \includegraphics[scale =0.38] {N40LaserG2.eps}\\ \vspace{1mm}
+	\hspace{5mm}(a)\hspace{30mm}(b) \hspace{30mm}(c) \hspace{30mm}(d) \hspace{30mm}(e)
+\end{center}
+		\vspace{-5mm}
+\caption{(Color online) Comparison of the different solution methods in
+the superradiance ($\xi=0.2$), crossover ($\xi=1$), and lasing ($\xi=5$)
+regions for $N=40$ and $\frac{\Omega^2}{\kappa \gamma}=1$.  The analytic
+Langevin (phase diffusion and mean field) solutions are shown in red
+(light gray), the exact SU(4) solution is shown by grey triangles, and the {\it
+c}-number Langevin simulation results are shown by black circles. The
+observables considered are (a) the inversion
+$\left<\hat{\sigma}^{z}\right>$, (b) the correlation between the atoms'
+dipoles $\left<\hat{\sigma}_{1}^{+} \hat{\sigma}_{2}^{-}\right>$, (c)
+the intracavity photon number  $\left<\hat{a}^{\dagger}\hat{a}\right>$,
+(d) the linewidth $\Delta \nu$, and (e) the intensity correlation
+function $G^{(2)}(0)$.}
+\label{N40Comparison}
+\end{figure*}
+
 
 \section{Characterization of the Crossover}
 \label{sec:CrossoverCharacterization}
@@ -640,7 +643,7 @@ in the cavity and of a macroscopic dipole in the atomic ensemble.
 \dmcomment{This section is still kind of weak.  Why should I think of
 Eqn (\ref{CrossoverParameter}) as the crossover parameter?  Is the
 reasoning backwards?  Perhaps we should start from $\xi=a_0^2/N$?  $\xi$
-just doesn't seem well motivated the way it's presented here.}
+just doesn't seem well motivated the way it's presented here. DT Answer: Im happy to reverse the motivation if it more clear that way.}
 
 The mean field equations allow us to formulate and discuss one of the
 central results of this paper, a characterization of the crossover from
@@ -829,7 +832,7 @@ compared to the $1/T_2=0$ case. This reduction has also been observed
 for smaller atom numbers using the exact SU(4) code. It can be shown
 that the value of $1/T_2$ that maximally reduces the linewidth is
 $1/T_2=\frac{w_{opt}}{1+\sqrt{2}}$.
-\dmcomment{Do we have an intuitive explanation of this result?}
+\dmcomment{Do we have an intuitive explanation of this result? DT Answer: I do not have an intuitive understanding of this result. I included it just incase it sparked the interest of someone else.}
 
 As mentioned previous, a laser normally operates just above threshold,
 where $w/w_{opt} \ll 1$. As seen in Fig.~\ref{LWadaComparison} (a), for
