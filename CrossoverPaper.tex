@@ -285,8 +285,23 @@ Eq.~(\ref{ME1Crossover}) by exploiting an underlying permutation
 symmetry to drastically reduce the Hilbert space
 dimension~\cite{Hartmann:arXiv1201.1732, PhysRevA.87.062101}.  The
 resulting master equation is solved using the quantum jump
-method~\cite{Dalibard92,Dum92,Knight98}.
+method~\cite{Dalibard92,Dum92,Knight98}.  Details of the method have
+been described previously in~\cite{PhysRevA.87.062101} and we summarize
+the main results in Appendix~\ref{Su4Appendix} to make this paper self
+contained.
 
+\if 0
+Even with the ability to describe problems with larger photon number, the SU(4) method can only describe systems much smaller than many realistic experimental situations. We therefore must introduce approximations in order to handle these larger systems.
+
+The {\it c}-number Langevin method \cite{Scully97, PhysRevA.47.1431} approximates the quantum
+Langevin equations which are equivalent to Eq.~(\ref{ME1Crossover}) as complex variable equations with Gaussian fluctuations.
+These equations do not scale with $N$ in the same way, and therefore can often be used to treat systems with large $N$ where an exact treatment is not possible. 
+
+When the additional approximation is added that the system only exhibits phase diffusion, {\em i.e.}\ amplitude fluctuations are neglected, an analytic solution for the linewidth of the power spectrum can be obtained \cite{HakenLaser, HakenLaserBook}. This method is described in Appendix~\ref{HakenAppendix}.
+Finally, the mean field solutions of the quantum Langevin equations, neglect all fluctuations. These solutions 
+can not be used to describe the linewidth, but prove useful for other system observables.
+
+\fi
 
 \subsection{Quantum Langevin Equations}
 
@@ -489,9 +504,9 @@ It was found empirically that the symmetrically ordered diffusion matrix is posi
 \subsection{Mean Field Equations}
 \label{MFE}
 
-By taking expectation values of the semi-classical equations
-(\ref{cq1}-\ref{eqn:cnumberlangevin}) we obtain the so called mean field
-equations
+By taking expectation values of the semi-classical
+Eqns.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) we obtain the so called
+mean field equations
 
 \begin{equation}
 \frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
@@ -508,24 +523,25 @@ equations
 +i\Omega \left( a_0^{\dagger} S_0^{-} - a_0 S_0^{+} \right)\;.
 \label{Lsz0}
 \end{equation}
-The noise terms drop out because they have zero mean.
-The mean field equations capture many of the most important features of the
-physical system because the noise terms scale as $\sqrt{N}$ while the
-expectation values scale as $N$.  In the limit of large numbers of atoms
-the noise terms are therefore less important.  In equations
-(\ref{La0}-\ref{Lsz0}) we have gone over to a reference frame rotating
-at frequency $\omega$.
+The noise terms drop out because they have zero mean.  The mean field
+equations capture many of the most important features of the physical
+system because the noise terms scale as $\sqrt{N}$ while the
+expectation values scale as~$N$.  In the limit of large numbers of
+atoms the noise terms are therefore less important.  Note that
+Eqns.~(\ref{La0})--(\ref{Lsz0}) are written in the reference frame
+rotating at frequency $\omega$.
 
-The mean field equations can be solved in closed form in steady state.
-The steady state equations are obtained by setting the time derivatives
-in Eqns.~(\ref{La0}-\ref{Lsz0}) to zero.  We find
+Eqns.~(\ref{La0})--(\ref{Lsz0}) can be written in steady-state by
+setting the left hand sides to zero and then solved in closed form.
+We find
 \begin{equation}
 S_0^{z}=
 \frac{(\kappa+2i(\omega_c-\omega))(\Gamma+2i(\omega_a-\omega))}{N\Omega^2}
 \label{Sz01}
 \end{equation}
-for the steady state inversion.  Because $S_0^{z}$ must be real,
-we find that oscillation frequency of the atom-cavity coupled system is
+for the steady state inversion. From this, the oscillation frequency
+of the atom-cavity coupled system $w$ can be determined using the
+condition that $S_0^{z}$ must be real, giving
 \begin{equation}
 \omega = \frac{\kappa \omega_a + \Gamma \omega_c}{\kappa+\Gamma}\;.
 \label{atomcavityfrequencycenter1}
@@ -536,12 +552,9 @@ simplified to
 S_0^{z}\approx \frac{1}{\mathcal{C}}\;,
 \end{equation}
 where $\mathcal{C}\equiv \frac{N \Omega^2}{\kappa \Gamma}$ is the
-many-atom cooperativity parameter.
-
-\dmcomment{There might be a slight problem here.  $\Gamma$ contains the
-repumping rate.  Conventionally, the cooperativity is defined in terms
-of intrinsic decay rates.  I think some of these results should be
-rewritten in terms of the cooperativity without $w$. DT Answer: I agree that there is a problem; the quantity I am defining as $\mathcal{C}$ should not be called the cooperativity parameter. To make the figures, I fix the quantity ($\Omega^2/(\kappa \gamma)$) , but I dont define it as the cooperativity parameter. Which quantities should be re-written in terms of the cooperativity parameter?}
+generalized many-atom cooperativity parameter (generalized since here
+the effective linewidth $\Gamma$ includes the incoherent repumping $w$
+as well as the single atom linewidth $\gamma$ and dephasing $1/T_2$).
 
 In the same limit of small detuning we find for the steady state photon
 number
@@ -554,8 +567,8 @@ The photon number has a maximum at
 w=w_{\mathrm{opt}} = \frac{N \Omega^2}{2\kappa} - \gamma - \frac{1}{T_2}.
 \label{wopt}
 \end{equation}
-In the limit where the collective decay rate $\mathcal{C}\gamma$ is much
-larger than the single atom decay rates $\gamma$ and $\frac{1}{T_2}$ we
+In the limit where the collective decay rate $\mathcal{C}\Gamma$ is
+much larger than the single atom rates $\gamma$ and $\frac{1}{T_2}$ we
 find a simple expression for the maximum photon number,
 \begin{equation}
 (|a_0|^2)_{\mathrm{opt}}= \frac{N^2 \Omega^2}{8\kappa^2}\;.
@@ -576,8 +589,9 @@ collective atomic dipole.  A second threshold occurs at
 w_2 =  \frac{N \Omega^2}{\kappa}\;.
 \end{equation} 
 At this point, $S_0^{z}$ is close to unity, and the noise due to the
-strong repumping prevents the formation of a macroscopic coherent state
-in the cavity and of a macroscopic dipole in the atomic ensemble.
+strong repumping prevents the formation of either a macroscopic
+coherent state in the cavity or a macroscopic dipole in the atomic
+ensemble.
 
 \begin{figure*}
 \begin{center}
@@ -621,40 +635,40 @@ function $G^{(2)}(0)$.}
 \section{Characterization of the Crossover}
 \label{sec:CrossoverCharacterization}
 
-\dmcomment{This section is still kind of weak.  Why should I think of
-Eqn (\ref{CrossoverParameter}) as the crossover parameter?  Is the
-reasoning backwards?  Perhaps we should start from $\xi=a_0^2/N$?  $\xi$
-just doesn't seem well motivated the way it's presented here. DT Answer: Im happy to reverse the motivation if it more clear that way.}
-
-The mean field equations allow us to formulate and discuss one of the
-central results of this paper, a characterization of the crossover from
-lasing to superradiance.  One way to look at the crossover is as the
-transition from a good cavity to a bad cavity system.  This suggests the
-crossover parameter $\xi$ to be the ratio of the maximum atomic decay
-rate (including repumping $w$ and dephasing $1/T_2$) to the cavity
-linewidth $\kappa$,
+The crossover from superradiance to lasing is characterized by a
+transition from coherence stored in an atomic ensemble to coherence
+stored in the light field. The key parameter in identifying the regime
+is the ratio of the number of photons to the number of atoms when the
+system is operated at its most efficient point in terms of output
+intensity and spectral frequency width. With this motivation, we
+introduce a crossover parameter as
 \begin{equation}
-\xi\equiv\frac{ w_{opt}+\gamma+\frac{1}{T_2}}{4\kappa}.
-\label{CrossoverParameter}
+\xi \equiv \frac{(|a_0|^2)_{opt}}{N},
+\label{crossoverparam}
 \end{equation}
-We can write $\xi$ more concisely by inserting Eq.~(\ref{wopt}),
+that is, the dimensionless ratio of the intracavity photon number to
+the number of atoms. The parameter $\xi$ quantifies the relative
+importance of stimulated emission to collective atomic spontaneous
+emission. If $\xi\ll1$, the system is in the bad cavity or
+superradiant regime. If $\xi\gg1$ the system is in the good cavity or
+laser regime. In the crossover or intermediate region, $\xi\sim1$, and
+the system possesses features of both.
+
+The mean field equations allow us to rewrite this expression in an
+alternate way the illuminates the role of the system parameters in
+determining the operating regime. From Eq.~(\ref{adaopt}), which is
+applicable when the optimal repump rate $w_{\rm opt}$ is much larger
+than the single atom decay $\gamma$ and dephasing $1/T_2$,
+Eq.~(\ref{crossoverparam}) can be rewritten as an approximately
+equivalent definition
 \begin{equation}
-\xi\equiv \frac{N \Omega^2}{8\kappa^2}\;.
+\xi\approx \frac{N \Omega^2}{8\kappa^2}\;.
 \label{CrossoverParameter2}
 \end{equation}
-In this form it is apparent that $\xi$ is given by the ratio of the
-collective atomic decay rate to the cavity decay rate.  This
-interpretation can be made more explicit by inserting the maximum photon
-number to write
-\begin{equation}
-\xi = \frac{(|a_0|^2)_{opt}}{N},
-\end{equation}
-The dimensionless parameter $\xi$ quantifies the relative importance of
-stimulated emission to collective atomic effects. If $\xi\ll1$, the
-system is in the bad cavity or superradiant regime. If $\xi\gg1$ the
-system is in the good cavity or laser regime. The region $\xi\sim1$
-defines the intermediate or crossover regime.
-
+The interpretation of this is that the crossover is also characterized
+by the ratio of the collective coupling between the many atom ensemble
+and the cavity mode, {\em i.e.}\ $N\Omega^2$, to the cavity mode decay
+rate $\kappa$.
 
 \section{Results}
 \label{sec:Results}
@@ -674,6 +688,11 @@ With the validity of the semi-classical method established we then
 consider systems with large numbers of atoms.  These systems are
 experimentally relevant and allow us to more clearly understand the
 behavior of the system in the large $N$ limit.
+
+For simplicity, in all of these simulation results, we consider the
+parameter regime in which the single atom rates $\gamma$ and $1/T_2$
+are negligible compared to the cavity loss rate $\kappa$ and use
+Eq.~(\ref{CrossoverParameter2}) to define $\xi$.
 
 \begin{figure*}
 \begin{center}
@@ -719,16 +738,13 @@ accurate.
 
 Specifically, Fig.~\ref{N40Comparison} shows several observables
 obtained using the mean field Langevin method, the phase diffusion
-method, the {\it c}-number Langevin method, and exact SU(4) Monte-Carlo
-simulations for three different values of the crossover parameter:
-$\xi=0.2$, $\xi=1$, and $\xi=5$. These values of $\xi$ put the system in
-the superradiance, crossover, and lasing parameter regions,
-respectively.  We note that the SU(4) method becomes more
-computationally intensive as $\xi$ is increased, since there are more
-photons as $\xi$ is increased, and hence more basis states need to be
-tracked. Therefore, for $\xi=5$, we used a method that combines the
-SU(4) approach with the quantum jump method,
-see~\cite{PhysRevA.87.062101} for details.
+method, the {\it c}-number Langevin method, and exact SU(4)
+Monte-Carlo simulations for three different values of the crossover parameter:
+$\xi=0.2$, $\xi=1$, and $\xi=5$. These values of $\xi$ put the system in the
+superradiance, crossover, and lasing parameter regions, respectively.
+We note that the SU(4) method becomes more computationally intensive as $\xi$ is increased, since there are more photons as $\xi$ is increased, and hence
+more basis states need to be tracked. Therefore, for $\xi=5$, we used a
+method that combines the SU(4) approach with the quantum jump method (see Appendix~\ref{Su4Appendix}).
 
 Fig.~\ref{N40Comparison} shows excellent agreement between {\it
 c}-number Langevin and the exact SU(4) theory in all parameter regions
@@ -808,22 +824,6 @@ where the system is displaying superradiant behavior.  On the other
 hand, when $w \sim w_{opt}$ where the
 system starts to display lasing behavior, $\Delta\nu/\kappa$ is
 insensitive to the inhomogeneous broadening of the atomic line.
-\begin{figure}
-\begin{center}
-	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.eps}
-	\hspace{-4mm} \includegraphics[scale =0.415] {adaComparisonLangevin.eps}\\
-	\hspace{6mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
-\end{center}
-		\vspace{-5mm}
-\caption{(Color online) Comparison of (a) linewidth and (b) intra-cavity
-intensity for a system in the crossover ($\xi=1$) shown in blue solid,
-lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$) shown
-in magenta dotted, regions using the analytic (phase diffusion and mean
-field) Langevin model. $w_{opt,c}$ is the optimum $w$ value in the
-crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
-\gamma}=0.1$.}
-\label{LWadaComparison}
-\end{figure}
 
 Figure~\ref{N10000Comparison} (d) shows that $\Delta \nu/\kappa$ does
 not increase in the lasing region when $1/T_2=w_{opt}/5$.  Rather the
@@ -846,18 +846,61 @@ same output intensity, one can achieve greater brightness of the light
 source by using atoms with a smaller linewidth.
 
 
-\subsection{Robustness against level shifts}
+\subsection{Effect of Cavity and Atomic Level Instabilities on the
+Spectrum}
 
-The sensitivity to systematic level shifts is another key figure of
-merit of this light source, especially in the context of precision
-measurements and for applications as a local oscillator.  The intrinsic
-linewidth discussed so far assumes a perfectly stable cavity and atomic
-resonance frequency.  However, in real world systems these resonance
-frequencies are subject to temporal variations.  For example, thermal
-fluctuations of the dielectric coatings of the cavity mirrors cause
-fluctuations of the cavity resonance frequency.  Stray electric and
-magnetic fields cause atomic level shifts.  An important special case of
-the latter are black body shifts.
+The effect of instabilities in the cavity frequency and atomic frequency
+on the linewidth is now investigated. Cavity frequency instability can
+be caused by fluctuations in cavity length due to the thermal
+fluctuations of the cavity mirrors, which are unavoidable in an
+experiment. The energy levels in an atom can also be shifted by stray
+electromagnetic fields. The frequency of the combined atom-cavity system
+$\omega$ lies somewhere between the bare atom and cavity frequencies,
+and is given by Eq.~(\ref{atomcavityfrequencycenter1}).
+
+\begin{figure}
+\begin{center}
+	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.eps}
+	\hspace{-4mm} \includegraphics[scale =0.415] {adaComparisonLangevin.eps}\\
+	\hspace{6mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
+\end{center}
+		\vspace{-5mm}
+\caption{(Color online) Comparison of (a) linewidth and (b) intra-cavity
+intensity for a system in the crossover ($\xi=1$) shown in blue solid,
+lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$) shown
+in magenta dotted, regions using the analytic (phase diffusion and mean
+field) Langevin model. $w_{opt,c}$ is the optimum $w$ value in the
+crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
+\gamma}=0.1$.}
+\label{LWadaComparison}
+\end{figure}
+
+If $\omega$ is varied, the resultant time averaged linewidth will be an
+average over these values, and will hence be much broader than the
+quantum limited linewidth. Therefore, the derivative of  $\omega$ with
+respect to $\omega_c$, and with respect to $\omega_a$, gives us an idea
+as to how much of an effect an instability in these frequencies will
+have on broadening the linewidth. These derivatives are plotted in
+Fig.~\ref{CavityInstability}.
+
+Fig.~\ref{CavityInstability} (a) tells us that on the lasing side of the
+crossover, $\omega$ is shifted proportionally to the shift in
+$\omega_c$, while on the superradiant side, $\omega$ is insensitive to
+shifts in $\omega_c$.  Conversely, in Fig.~\ref{CavityInstability} (b)
+it can be seen $\omega$ is shifted proportionally to the shift in
+$\omega_a$ on the superradiance side of the crossover, while on the
+lasing side, $\omega$ is insensitive to shifts in $\omega_a$. In the
+intermediate regime ($\xi=1$), $\omega$ is not as sensitive to a shift
+in the $\omega_c$ as it is in the laser regime, and it is not as
+sensitive to a shift in the $\omega_a$, as it is on the superradiance
+side.
+
+\section{Conclusion}
+
+A model that is capable of describing a system operating in any
+parameter region of the crossover between steady state superradiance and
+lasing was introduced. Since this model can only be solved exactly for small systems, several solution methods that treat the quantum fluctuations with varying degree of approximation were introduced, based on the property that in these systems, fluctuations scale inversely with the number of particles.  First, mean field equations, which neglect all quantum fluctuations, were used to derive analytic expressions for many of the system observables. These analytic expressions were used to motivate the definition of the crossover parameter. Since the mean field equations cannot describe the spectral properties of the system, the method {\it c}-number Langevin equations with Gaussian fluctuations was introduced. For small systems, where the exact SU(4) method can be applied, the {\it c}-number Langevin method showed excellent agreement with the exact SU(4) method. Therefore, the {\it c}-number Langevin method was used to treat larger systems, and a comparison of the properties of systems operating in the different parameter regions of the crossover was made. 
+
 \begin{figure}
 \begin{center}
 	\includegraphics[scale=0.42] {CavityInstability.eps} \hspace{2mm}
@@ -866,67 +909,189 @@ the latter are black body shifts.
 \end{center}
 \caption{(Color online) Instability in the atom-cavity system frequency
 $\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
-atomic frequency $\omega_a$ as a function of the crossover parameter
-$\xi$.}
+atomic frequency $\omega_a$ as a function of crossover parameter $\xi$. These results were calculated using Eq.~(\ref{atomcavityfrequencycenter1}).}
 \label{CavityInstability}
 \end{figure}
 
-In the limit where the atomic and cavity frequencies vary slowly
-\dmcomment{Compared to what? Is this the important limit? What is the
-spectrum of the fluctuations?} we find the sensitivity of the coupled
-atom-cavity system from Eq.~(\ref{atomcavityfrequencycenter1}).  The
-derivatives of the emission frequency with respect to $\omega_c$ and
-$\omega_a$ is shown in Fig.~\ref{CavityInstability}.  On the
-superradiance side of the crossover, $\xi \ll 1$, the system is
-sensitive to fluctuations of the atomic resonance frequency but
-sensitivity to fluctuations of the cavity resonance frequency is
-suppressed by a factor $\xi$.  On the lasers side of the resonance the
-situation is reversed.  The steady state superradiance regime thus holds
-promise for the development of light sources that overcome the $1/f$
-noise due to thermal fluctuations in the mirror substrates.
+Although a system in the lasing parameter region is capable of
+possessing the smallest linewidth, typically lasers operate with a
+re-pumping rate that puts them just above threshold, which does not
+allow the smallest linewidth for the system to be realized. For the same
+re-pumping rate, a system operating in the crossover region will be
+farther above threshold, potentially allowing for a linewidth orders of
+magnitude smaller than in the laser region. Also, a crossover system
+will have a larger intracavity intensity than a superradiant system,
+making the former more experimentally accessible.
 
+It was also demonstrated that a system in all regions of the crossover
+is insensitive to atomic dephasing as long as the re-pumping rate is
+smaller than the dephasing rate. Also, as the crossover is traversed
+into the lasing region, atomic dephasing can actually cause a reduction
+in the linewidth.
 
-\section{Conclusion}
-
-In this paper we have theoretically studied the continuous crossover
-from steady state superradiance to lasing.  We have developed a
-semi-classical approximation based on $c$-number Langevin equations and
-we have verified the accuracy of this model by comparison with a direct
-numerical solution of the open quantum system dynamics using quantum
-Monte-Carlo simulations.  We have introduced a dimensionless parameter
-that characterizes the crossover.  One interpretation of the crossover
-parameter is as the ratio of the intracavity photon and atom numbers or,
-equivalently, the relative importance of stimulated emission and
-collective interference, respectively.
-
-We have systematically investigated the generated intensity, the
-linewidth of the light source, intensity correlations, and the
-sensitivity to systematic perturbations of the cavity resonance
-frequency and the atomic transition frequency.  We find that, for a given
-output intensity, the system has a smaller intrinsic linewidth and is
-less sensitive to cavity pulling by operating closer to the
-superradiance  regime.
-
-Throughout the crossover the system is insensitive to atomic dephasing
-provided that the re-pumping rate is larger than the dephasing rate.
-Surprisingly, on the laser side, atomic dephasing can even lead to a
-reduction of the linewidth of the emitted light.
+Finally, it was shown that the linewidth on the superradiance side is
+insensitive to fluctuations in cavity length, and that these
+fluctuations become more important as the crossover is traversed toward
+the laser side. Conversely, it was shown that the linewidth on the
+lasing side is insensitive to fluctuations in the atomic energy levels,
+and that these fluctuations become more important on the superradiance
+side. A system in the crossover region will be less sensitive to cavity
+frequency fluctuations than a lasing system, and it will be less
+sensitive to atomic frequency instabilities than a superradiant system.
+Both of these fluctuations cause a broadening of the linewidth. These
+conclusions are significant since fluctuations in the cavity frequency
+are a principal limitation preventing further reduction of the linewidth
+in today's most ultrastable lasers.
 
 This work has been supported by JILA-NSF-PFC-1125844, DARPA, QuASAR, and
 NIST.
 
 \appendix
 
+\section{SU(4) Numerical Simulation of the Master Equation}
+\label{Su4Appendix}
+
+Recently, we have developed a group-theoretic method for efficiently
+simulating the quantum master equation~\cite{PhysRevA.87.062101}. In brief, the
+master equation, Eq.~(\ref{ME1Crossover}), can be expressed in terms of
+generators of the SU(4) group, with the Hamiltonian part being,
+\begin{eqnarray}
+  &&\frac{1}{i\hbar}[H,\rho]=
+  -2i \omega_a \Sigma_3\rho -i\omega_c [ \hat{a}^{\dagger}\hat{a}, \rho]
+  \nonumber
+  \\
+  &&-i\Omega \left[a(\mathcal{M}_++\mathcal{N}_+)\rho+a^\dagger
+    (\mathcal{M}_-+\mathcal{N}_-)\rho\right]\nonumber\\
+  &&\quad{}+i\Omega\left[(\mathcal{U}_++\mathcal{V}_+)\rho a^\dagger
+    +(\mathcal{U}_-+\mathcal{V}_-)\rho a\right]\,,
+\end{eqnarray}
+and dissipation parts being,
+\begin{eqnarray}\label{liv}
+ && \sum_{j=1}^N(
+   2\sigma_j^-\rho\sigma_j^+-\sigma_j^+ \sigma_j^-\rho-
+   \rho \sigma_j^+\sigma_j^-
+  )/2=-\frac{N}{2}-
+  \mathcal{Q}_3+\mathcal{Q}_{-}\,,\nonumber\\
+ && \sum_{j=1}^N(
+   2\sigma_j^+\rho\sigma_j^--\sigma_j^- \sigma_j^+\rho-
+   \rho \sigma_j^-\sigma_j^+
+  )/2=-\frac{N}{2}+
+  \mathcal{Q}_3+\mathcal{Q}_{+}\,,\nonumber\\
+ && \sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)}-\rho)=4\mathcal{M}_3-2
+  \mathcal{Q}_3-2\Sigma_3-N\,,
+  \label{ham}
+\end{eqnarray}
+where $\mathcal{Q}_{\pm}$, $\mathcal{M}_{\pm}$, $\mathcal{N}_{\pm}$,
+$\mathcal{U}_{\pm}$, $\mathcal{V}_{\pm}$, $\mathcal{Q}_3$, $\mathcal{M}_3$,
+and $\Sigma_3$ are superoperators~\cite{PhysRevA.87.062101}.  As a result, we can
+expand the density matrix in terms of the fully symmetrical multiplet
+$P_{q,q_3,\sigma_3}$~\cite{PhysRevA.87.062101} of the SU(4) group,
+\begin{equation}\label{ex}
+  \rho=\sum_{q,q_3,\sigma_3,m,n} C_{q,q_3,\sigma_3}^{m,n}
+  P_{q,q_3,\sigma_3}\bigl|m\bigr>\bigl<n\bigr|\,,
+\end{equation}
+where $C_{q,q_3,\sigma_3}^{m,n}$ are complex coefficients, and
+$|n\rangle$ is the photon Fock state. Note that the total number of
+states in the fully symmetrical multiplet is $1/6 (N+1)(N+2)(N+3)$,
+which reduces the exponential scaling of the problem to cubic in $N$.
+This has enabled us to numerically investigate large
+systems~\cite{PhysRevA.87.062101}.
+
+However, the number of basis in Eq.~(\ref{ex}) also grows as square of
+the photon number.  This would impose great difficulties in numerical
+simulations of the laser region due to the large number of photons.
+Below, we present a method that unravels the master equation in the
+Liouville space, which enables us to remove the photon basis in the
+simulation. The essential idea behind the method is that we are able to
+deduce the photon state by keeping track of the total number of quanta
+$N_q$ in the system.
+
+The quantum Monte Carlo method decomposes the density operator evolution
+into a set of quantum trajectories where, between applications of random
+jumps into random channels, the system evolves under an effective
+Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. These random jumps are chosen with the proper weights, so that when many trajectories are averaged over, the correct density operator evolution is given. While this has
+conventionally been done with wavefunctions to reduce the numerical
+complexity, here we apply the quantum trajectory algorithm in the
+density matrix space in order to get rid of the photon basis in the
+expansion of the density operator. To construct a single trajectory, we
+first need to identify the jump operators. In our problem, there are
+four decay channels: repumping, spontaneous emission, dephasing and
+cavity decay. The corresponding jump operators $\mathcal{J}_i$ are
+\begin{eqnarray}
+\mathcal{J}_1\rho&=&
+w\sum_{j=1}^N(\sigma_j^+\rho\sigma_j^-)=w\mathcal{Q}_{+}\rho\,,
+\nonumber\\
+\mathcal{J}_2\rho&=&
+\gamma\sum_{j=1}^N(\sigma_j^-\rho\sigma_j^+)=
+\gamma \mathcal{Q}_{-}\rho\,,\nonumber\\
+\mathcal{J}_3\rho&=&
+\frac{1}{2T_2}\sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)})
+\nonumber\\
+&=&\frac{1}{2T_2}(4\mathcal{M}_3-2  \mathcal{Q}_3-2\Sigma_3)\rho\,,
+\nonumber\\
+\mathcal{J}_4\rho&=&\kappa a\rho a^{\dagger}\,.
+\label{jumpo}
+\end{eqnarray}
+When a repumping quantum jump happens, $N_q$ is decreased by one. When a
+spontaneous emission or a cavity-decay quantum jump happens, $N_q$ is
+increased by one. The dephasing quantum jump also does not change the
+total number of quanta. Therefore, during the evolution of a single
+trajectory, one could calculate $N_q$ at every time step by tracking the
+the numbers of jumps of the different types. With the knowledge of
+$N_q$, the photon state can be easily deduced. It is shown in
+Ref.~\cite{PhysRevA.87.062101} that
+\begin{equation}
+\begin{split}
+  \hat{J}_3P_{q,q_3,\sigma_3}^{(\mathrm{s})}&=
+  (q_3+\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},\\
+  P_{q,q_3,\sigma_3}^{(\mathrm{s})}\hat{J}_3&=
+  (q_3-\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},
+\end{split}
+\end{equation}
+where $\hat{J}_3=\sum_{j=1}^N\sigma_j^{(3)}/2$ is the collective spin
+operator. Therefore, the atomic state for a particular fully symmetrical
+atomic basis in terms of the number of excited atoms is
+$|q_3+\sigma_3+N/2\rangle\langle q_3-\sigma_3+N/2|$. And thus the
+corresponding photon state is
+\begin{equation}
+\bigl|m\bigr>\bigl<n\bigr|=
+\bigl|N_q-(q_3+\sigma_3+N/2)\bigr>
+\bigl<N_q-(q_3-\sigma_3+N/2)\bigr|.
+\end{equation}
+Therefore, if the system starts in a photon number state, by counting the quantum jumps, we have complete knowledge of
+photon states for every single trajectory. This enables us to remove the
+photon basis, which greatly improves the efficiency of the method. 
+
+The simulation of jump times and jump channels is completely analogous
+to the wave-function Monte Carlo method. The effective evolution of the
+system is governed by the master equation excluding the above jump
+operators. As a result, under the effective evolution, the trace of the
+density operator is no longer conserved, but decreases as a function of
+time.  This is analogous to the decay of the norm of the wavefunction in
+the wave function Monte Carlo method. A jump occurs when the trace of
+the density operator is less than a random number uniformly distributed
+in the interval $[0,1]$. When a decay occurs we stochastically determine
+the channel $i$ into which the system decays according to the
+probability distribution,
+\begin{equation}
+\mathcal{P}_i^{\mathrm{jump}}=\frac{\mathrm{Tr}[\mathcal{J}_i\rho]}{\sum_{k=1}^4
+\mathrm{Tr}[\mathcal{J}_k\rho]}.
+\end{equation}
+
+Finally, in order to get the density operator at each time step, an
+ensemble average of many quantum trajectories is required. Then, various
+observables can be calculated according to Ref.~\cite{PhysRevA.87.062101}. It is
+also worth noting that if one is only interested in the steady state
+density operator, a time average in the steady state can be applied
+instead of the ensemble average.
 
 \section{Phase Diffusion Linewidth}
 \label{HakenAppendix}
 
-In this appendix we derive a closed form expression for the linewidth
-based on a phase diffusion model.  Our analysis closely follows the
-derivation in~\cite{HakenLaser, HakenLaserBook}.
-
-Differentiating Eq.~(\ref{La}) with respect to time and substituting 
-Eqns.~(\ref{La})~--~(\ref{Lsm}) we obtain
+The linewidth due to the phase fluctuations of $\hat{a}$ is derived from the quantum Langevin equations, Eqns.~(\ref{La})~--~(\ref{Lsz}). Following closely to the derivation done in \cite{HakenLaser,
+HakenLaserBook}, Eq.~(\ref{La}) is differentiated, and substituted into
+it Eqns.~(\ref{La})~--~(\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
+arrive at an equation for $\hat{a}$ alone,
 \begin{equation}
 \ddot{\hat{a}} =
 -\frac{1}{2} (\kappa+\Gamma)  \dot{\hat{a}} -
@@ -945,20 +1110,17 @@ where
 \kappa \hat{a}^{\dagger} \hat{a} -\hat{a}^{\dagger} \hat{F}^a -
 \hat{F}^{a^{\dagger}} \hat{a} \right) \bigg),
 \end{eqnarray}
-and
+and,
 \begin{equation}
 \hat{F} = \frac{\Gamma}{2} \hat{F}^a-
 \frac{i N \Omega}{2} \hat{F}^-+\dot{\hat{F}}^a.
 \end{equation}
-
 The annihilation operator $\hat{a}$ is decomposed according to,
 \begin{equation}
 \hat{a}= (a_0 + \hat{\rho}) e^{i\hat{\phi}}.
 \label{adecomp}
 \end{equation}
-Above threshold, amplitude fluctuations are small so that $\hat\rho$
-can be neglected.  We then obtain for the two time correlation function
-of the field amplitude
+Above threshold, amplitude fluctuations are expected to be small, so that
 \begin{equation}
 \left< \hat{a}^{\dagger}(t) \hat{a}(0) \right> =
 a_0^2 \left< e^{i(\hat{\phi}(t) - \hat{\phi}(0))} \right>.
@@ -979,7 +1141,7 @@ is large, to arrive at,
 \hat{\phi}(t) - \hat{\phi}(0) =
 \frac{2}{a_0 (\kappa+\Gamma)}
 \int_0^t dt^{\prime} \text{Im}
-\left[ \frac{\Gamma}{2} \hat{F}^a-\frac{i N \Omega}{2} \hat{F}^-\right]\;.
+\left[ \frac{\Gamma}{2} \hat{F}^a-\frac{i N \Omega}{2} \hat{F}^-\right].
 \label{phieq2}
 \end{equation}
 Since $ \hat{F}^a$ and $\hat{F}^-$ are Gaussian, we can use
