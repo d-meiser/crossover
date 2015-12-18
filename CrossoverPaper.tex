@@ -474,8 +474,8 @@ calculation yields
 \end{eqnarray}
 
 We solve the stochastic differential equations
-(\ref{eqn:cnumberlangevin}) by means of the explicit second order weak scheme \cite{kloeden2011numerical}.
- \dmcomment{DT Comment: A slight issue here I wanted to bring up: I originally used expectation values in the noise by evolving 1000 trajectories at the same time. In that case, the noise is additive, so a simpler integrator specialized for additive noise can be used \cite{kloeden2011numerical}. I later switched to using the single trajectory values in the noise, which I justified because they gave me the same answer as the expectation value case. However, it seems to me now that I always used the integrator specialized for additive noise, and that I should have used the general integrator for multiplicitave noise in the when single trajectory values are in the noise. But I still get good agreement with the SU4. Do you think this is an issue? I could re run everything using the expectation values in the noise, but that would be a real pain and I think the curves would look the same.}
+(\ref{eqn:cnumberlangevin}) by means of the explicit second order weak scheme \cite{kloeden2011numerical}. An ensemble of trajectories can be evolved simultaneously and the expectation values appearing in Eq.~(\ref{cNoise1}) can be calculated from the ensemble. This allows the additive form of the explicit second order weak scheme to be used, which is simpler than the general form.
+
 The noises $F^\mu$ are found by means of
 \begin{equation}
 F^\mu=\sum_\nu \sqrt{\lambda_\nu} M_{\mu,\nu}^T f^\nu\;,
@@ -483,15 +483,11 @@ F^\mu=\sum_\nu \sqrt{\lambda_\nu} M_{\mu,\nu}^T f^\nu\;,
 where $M_{\mu,\nu}$ is the orthogonal matrix that
 diagonalizes the diffusion matrix, $\lambda_\nu$ are its eigenvalues,
 and $f^\nu$ are independent normalized Wiener processes.
-\dmcomment{Is the Diffusion matrix just symmetric or is it also
-positive? If it's not positive, what happens if the $\lambda_\nu$ are
-negative? DT Answer: I found that the diffusion matrix is positive when the system is above threshold, below threshold I remember getting divergent trajectories every once in a while. And since I was most interested in studying systems operating around the optimum where the linewidth is smallest and photon number is largest, I didn't study systems below threshold}
-The expectation values in the diffusion matrix elements are computed by
-simulating a whole ensemble of stochastic trajectories at once and by
-computing an ensemble average. \dmcomment{How large are your ensembles? DT Answer: Typically, an ensemble of 1000 trajectories can be used to achieve convergence to within a few percent.}
+It was found empirically that the symmetrically ordered diffusion matrix is positive definite when the system is above the first threshold (defined in Sec.~(\ref{MFE})). Below this threshold, the symmetrically ordered diffusion matrix is not positive definite, and divergent trajectories can occur. Typically, an ensemble of 1000 trajectories can be used to achieve convergence to within a few percent.
 
 
 \subsection{Mean Field Equations}
+\label{MFE}
 
 By taking expectation values of the semi-classical equations
 (\ref{cq1}-\ref{eqn:cnumberlangevin}) we obtain the so called mean field
