@@ -843,17 +843,32 @@ same output intensity, one can achieve greater brightness of the light
 source by using atoms with a smaller linewidth.
 
 
-\subsection{Effect of Cavity and Atomic Level Instabilities on the
-Spectrum}
+\subsection{Robustness against level shifts}
 
-The effect of instabilities in the cavity frequency and atomic frequency
-on the linewidth is now investigated. Cavity frequency instability can
-be caused by fluctuations in cavity length due to the thermal
-fluctuations of the cavity mirrors, which are unavoidable in an
-experiment. The energy levels in an atom can also be shifted by stray
-electromagnetic fields. The frequency of the combined atom-cavity system
-$\omega$ lies somewhere between the bare atom and cavity frequencies,
-and is given by Eq.~(\ref{atomcavityfrequencycenter1}).
+The sensitivity to systematic level shifts is another key figure of
+merit of this light source, especially in the context of precision
+measurements and for applications as a local oscillator.  The intrinsic
+linewidth discussed so far assumes a perfectly stable cavity and atomic
+resonance frequency.  However, in real world systems these resonance
+frequencies are subject to temporal variations.  For example, thermal
+fluctuations of the dielectric coatings of the cavity mirrors cause
+fluctuations of the cavity resonance frequency.  Stray electric and
+magnetic fields cause atomic level shifts.  An important special case of
+the latter are black body shifts.
+
+In the limit where the atomic and cavity frequencies vary slowly
+\dmcomment{Compared to what? Is this the important limit? What is the
+spectrum of the fluctuations?} we find the sensitivity of the coupled
+atom-cavity system from Eq.~(\ref{atomcavityfrequencycenter1}).  The
+derivatives of the emission frequency with respect to $\omega_c$ and
+$\omega_a$ is shown in Fig.~\ref{CavityInstability}.  On the
+superradiance side of the crossover, $\xi \ll 1$, the system is
+sensitive to fluctuations of the atomic resonance frequency but
+sensitivity to fluctuations of the cavity resonance frequency is
+suppressed by a factor $\xi$.  On the lasers side of the resonance the
+situation is reversed.  The steady state superradiance regime thus holds
+promise for the development of light sources that overcome the $1/f$
+noise due to thermal fluctuations in the mirror substrates.
 
 \begin{figure}
 \begin{center}
@@ -872,25 +887,6 @@ crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
 \label{LWadaComparison}
 \end{figure}
 
-If $\omega$ is varied, the resultant time averaged linewidth will be an
-average over these values, and will hence be much broader than the
-quantum limited linewidth. Therefore, the derivative of  $\omega$ with
-respect to $\omega_c$, and with respect to $\omega_a$, gives us an idea
-as to how much of an effect an instability in these frequencies will
-have on broadening the linewidth. These derivatives are plotted in
-Fig.~\ref{CavityInstability}.
-
-Fig.~\ref{CavityInstability} (a) tells us that on the lasing side of the
-crossover, $\omega$ is shifted proportionally to the shift in
-$\omega_c$, while on the superradiant side, $\omega$ is insensitive to
-shifts in $\omega_c$.  Conversely, in Fig.~\ref{CavityInstability} (b)
-it can be seen $\omega$ is shifted proportionally to the shift in
-$\omega_a$ on the superradiance side of the crossover, while on the
-lasing side, $\omega$ is insensitive to shifts in $\omega_a$. In the
-intermediate regime ($\xi=1$), $\omega$ is not as sensitive to a shift
-in the $\omega_c$ as it is in the laser regime, and it is not as
-sensitive to a shift in the $\omega_a$, as it is on the superradiance
-side.
 
 \section{Conclusion}
 
@@ -906,7 +902,8 @@ lasing was introduced. Since this model can only be solved exactly for small sys
 \end{center}
 \caption{(Color online) Instability in the atom-cavity system frequency
 $\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
-atomic frequency $\omega_a$ as a function of crossover parameter $\xi$. These results were calculated using Eq.~(\ref{atomcavityfrequencycenter1}).}
+atomic frequency $\omega_a$ as a function of the crossover parameter
+$\xi$.}
 \label{CavityInstability}
 \end{figure}
 
