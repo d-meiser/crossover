@@ -821,6 +821,22 @@ where the system is displaying superradiant behavior.  On the other
 hand, when $w \sim w_{opt}$ where the
 system starts to display lasing behavior, $\Delta\nu/\kappa$ is
 insensitive to the inhomogeneous broadening of the atomic line.
+\begin{figure}
+\begin{center}
+	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.eps}
+	\hspace{-4mm} \includegraphics[scale =0.415] {adaComparisonLangevin.eps}\\
+	\hspace{6mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
+\end{center}
+		\vspace{-5mm}
+\caption{(Color online) Comparison of (a) linewidth and (b) intra-cavity
+intensity for a system in the crossover ($\xi=1$) shown in blue solid,
+lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$) shown
+in magenta dotted, regions using the analytic (phase diffusion and mean
+field) Langevin model. $w_{opt,c}$ is the optimum $w$ value in the
+crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
+\gamma}=0.1$.}
+\label{LWadaComparison}
+\end{figure}
 
 Figure~\ref{N10000Comparison} (d) shows that $\Delta \nu/\kappa$ does
 not increase in the lasing region when $1/T_2=w_{opt}/5$.  Rather the
@@ -855,6 +871,18 @@ fluctuations of the dielectric coatings of the cavity mirrors cause
 fluctuations of the cavity resonance frequency.  Stray electric and
 magnetic fields cause atomic level shifts.  An important special case of
 the latter are black body shifts.
+\begin{figure}
+\begin{center}
+	\includegraphics[scale=0.42] {CavityInstability.eps} \hspace{2mm}
+	\includegraphics[scale=0.42] {AtomInstability.eps}\\
+\hspace{2mm} \textbf{(a)}\hspace{40mm}\textbf{(b)} \hspace{35mm}
+\end{center}
+\caption{(Color online) Instability in the atom-cavity system frequency
+$\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
+atomic frequency $\omega_a$ as a function of the crossover parameter
+$\xi$.}
+\label{CavityInstability}
+\end{figure}
 
 In the limit where the atomic and cavity frequencies vary slowly
 \dmcomment{Compared to what? Is this the important limit? What is the
@@ -870,42 +898,27 @@ situation is reversed.  The steady state superradiance regime thus holds
 promise for the development of light sources that overcome the $1/f$
 noise due to thermal fluctuations in the mirror substrates.
 
-\begin{figure}
-\begin{center}
-	\includegraphics[scale =0.415] {LinewidthComparisonLangevin.eps}
-	\hspace{-4mm} \includegraphics[scale =0.415] {adaComparisonLangevin.eps}\\
-	\hspace{6mm}\textbf{(a)}\hspace{37mm}\textbf{(b)} \hspace{35mm}
-\end{center}
-		\vspace{-5mm}
-\caption{(Color online) Comparison of (a) linewidth and (b) intra-cavity
-intensity for a system in the crossover ($\xi=1$) shown in blue solid,
-lasing ($\xi=10$) shown in red dashed, and far lasing ($\xi=100$) shown
-in magenta dotted, regions using the analytic (phase diffusion and mean
-field) Langevin model. $w_{opt,c}$ is the optimum $w$ value in the
-crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
-\gamma}=0.1$.}
-\label{LWadaComparison}
-\end{figure}
-
 
 \section{Conclusion}
 
 A model that is capable of describing a system operating in any
 parameter region of the crossover between steady state superradiance and
-lasing was introduced. Since this model can only be solved exactly for small systems, several solution methods that treat the quantum fluctuations with varying degree of approximation were introduced, based on the property that in these systems, fluctuations scale inversely with the number of particles.  First, mean field equations, which neglect all quantum fluctuations, were used to derive analytic expressions for many of the system observables. These analytic expressions were used to motivate the definition of the crossover parameter. Since the mean field equations cannot describe the spectral properties of the system, the method {\it c}-number Langevin equations with Gaussian fluctuations was introduced. For small systems, where the exact SU(4) method can be applied, the {\it c}-number Langevin method showed excellent agreement with the exact SU(4) method. Therefore, the {\it c}-number Langevin method was used to treat larger systems, and a comparison of the properties of systems operating in the different parameter regions of the crossover was made. 
-
-\begin{figure}
-\begin{center}
-	\includegraphics[scale=0.42] {CavityInstability.eps} \hspace{2mm}
-	\includegraphics[scale=0.42] {AtomInstability.eps}\\
-\hspace{2mm} \textbf{(a)}\hspace{40mm}\textbf{(b)} \hspace{35mm}
-\end{center}
-\caption{(Color online) Instability in the atom-cavity system frequency
-$\omega$ with respect to (a) the cavity frequency $\omega_c$ and (b)
-atomic frequency $\omega_a$ as a function of the crossover parameter
-$\xi$.}
-\label{CavityInstability}
-\end{figure}
+lasing was introduced. Since this model can only be solved exactly for
+small systems, several solution methods that treat the quantum
+fluctuations with varying degree of approximation were introduced, based
+on the property that in these systems, fluctuations scale inversely with
+the number of particles.  First, mean field equations, which neglect all
+quantum fluctuations, were used to derive analytic expressions for many
+of the system observables. These analytic expressions were used to
+motivate the definition of the crossover parameter. Since the mean field
+equations cannot describe the spectral properties of the system, the
+method {\it c}-number Langevin equations with Gaussian fluctuations was
+introduced. For small systems, where the exact SU(4) method can be
+applied, the {\it c}-number Langevin method showed excellent agreement
+with the exact SU(4) method. Therefore, the {\it c}-number Langevin
+method was used to treat larger systems, and a comparison of the
+properties of systems operating in the different parameter regions of
+the crossover was made. 
 
 Although a system in the lasing parameter region is capable of
 possessing the smallest linewidth, typically lasers operate with a
