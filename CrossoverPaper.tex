@@ -285,10 +285,7 @@ Eq.~(\ref{ME1Crossover}) by exploiting an underlying permutation
 symmetry to drastically reduce the Hilbert space
 dimension~\cite{Hartmann:arXiv1201.1732, PhysRevA.87.062101}.  The
 resulting master equation is solved using the quantum jump
-method~\cite{Dalibard92,Dum92,Knight98}.  Details of the method have
-been described previously in~\cite{PhysRevA.87.062101} and we summarize
-the main results in Appendix~\ref{Su4Appendix} to make this paper self
-contained.
+method~\cite{Dalibard92,Dum92,Knight98}.
 
 \if 0
 Even with the ability to describe problems with larger photon number, the SU(4) method can only describe systems much smaller than many realistic experimental situations. We therefore must introduce approximations in order to handle these larger systems.
@@ -738,13 +735,16 @@ accurate.
 
 Specifically, Fig.~\ref{N40Comparison} shows several observables
 obtained using the mean field Langevin method, the phase diffusion
-method, the {\it c}-number Langevin method, and exact SU(4)
-Monte-Carlo simulations for three different values of the crossover parameter:
-$\xi=0.2$, $\xi=1$, and $\xi=5$. These values of $\xi$ put the system in the
-superradiance, crossover, and lasing parameter regions, respectively.
-We note that the SU(4) method becomes more computationally intensive as $\xi$ is increased, since there are more photons as $\xi$ is increased, and hence
-more basis states need to be tracked. Therefore, for $\xi=5$, we used a
-method that combines the SU(4) approach with the quantum jump method (see Appendix~\ref{Su4Appendix}).
+method, the {\it c}-number Langevin method, and exact SU(4) Monte-Carlo
+simulations for three different values of the crossover parameter:
+$\xi=0.2$, $\xi=1$, and $\xi=5$. These values of $\xi$ put the system in
+the superradiance, crossover, and lasing parameter regions,
+respectively.  We note that the SU(4) method becomes more
+computationally intensive as $\xi$ is increased, since there are more
+photons as $\xi$ is increased, and hence more basis states need to be
+tracked. Therefore, for $\xi=5$, we used a method that combines the
+SU(4) approach with the quantum jump method,
+see~\cite{PhysRevA.87.062101} for details.
 
 Fig.~\ref{N40Comparison} shows excellent agreement between {\it
 c}-number Langevin and the exact SU(4) theory in all parameter regions
@@ -932,150 +932,6 @@ This work has been supported by JILA-NSF-PFC-1125844, DARPA, QuASAR, and
 NIST.
 
 \appendix
-
-\section{SU(4) Numerical Simulation of the Master Equation}
-\label{Su4Appendix}
-
-\dmcomment{I think we can cut this.}
-
-In this appendix we provide a short summary of the method we're using
-for the direct direct numerical simulation of the open quantum.  
-For details we refer the reader to reference~\cite{PhysRevA.87.062101}.
-
-The key insight that makes the master equation tractable for moderate
-numbers of atoms is to exploit the invariance of the
-master equation~(\ref{ME1Crossover}) under particle exchange.  This
-permutation symmetry allows to write the equations of motion in terms of
-generators of the SU(4) group.  The Hamiltonian becomes
-\begin{eqnarray}
-  &&\frac{1}{i\hbar}[H,\rho]=
-  -2i \omega_a \Sigma_3\rho -i\omega_c [ \hat{a}^{\dagger}\hat{a}, \rho]
-  \nonumber
-  \\
-  &&-i\Omega \left[a(\mathcal{M}_++\mathcal{N}_+)\rho+a^\dagger
-    (\mathcal{M}_-+\mathcal{N}_-)\rho\right]\nonumber\\
-  &&\quad{}+i\Omega\left[(\mathcal{U}_++\mathcal{V}_+)\rho a^\dagger
-    +(\mathcal{U}_-+\mathcal{V}_-)\rho a\right]\,,
-\end{eqnarray}
-and the dissipation terms become
-\begin{eqnarray}\label{liv}
- && \sum_{j=1}^N(
-   2\sigma_j^-\rho\sigma_j^+-\sigma_j^+ \sigma_j^-\rho-
-   \rho \sigma_j^+\sigma_j^-
-  )/2=-\frac{N}{2}-
-  \mathcal{Q}_3+\mathcal{Q}_{-}\,,\nonumber\\
- && \sum_{j=1}^N(
-   2\sigma_j^+\rho\sigma_j^--\sigma_j^- \sigma_j^+\rho-
-   \rho \sigma_j^-\sigma_j^+
-  )/2=-\frac{N}{2}+
-  \mathcal{Q}_3+\mathcal{Q}_{+}\,,\nonumber\\
- && \sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)}-\rho)=4\mathcal{M}_3-2
-  \mathcal{Q}_3-2\Sigma_3-N\,.
-  \label{ham}
-\end{eqnarray}
-In these equations, $\mathcal{Q}_{\pm}$, $\mathcal{M}_{\pm}$, $\mathcal{N}_{\pm}$,
-$\mathcal{U}_{\pm}$, $\mathcal{V}_{\pm}$, $\mathcal{Q}_3$, $\mathcal{M}_3$,
-and $\Sigma_3$ are superoperators~\cite{PhysRevA.87.062101}.
-
-We expand the density matrix in terms of the fully symmetrical multiplet
-$P_{q,q_3,\sigma_3}$~\cite{PhysRevA.87.062101} of the SU(4) group,
-\begin{equation}\label{ex}
-  \rho=\sum_{q,q_3,\sigma_3,m,n} C_{q,q_3,\sigma_3}^{m,n}
-  P_{q,q_3,\sigma_3}\bigl|m\bigr>\bigl<n\bigr|\,,
-\end{equation}
-where $C_{q,q_3,\sigma_3}^{m,n}$ are complex coefficients, and
-$|n\rangle$ is the photon Fock state. Note that the total number of
-states in the fully symmetrical multiplet is $1/6 (N+1)(N+2)(N+3)$,
-which reduces the exponential scaling of the problem to cubic in $N$.
-\dmcomment{Is this $N^3$ for the density matrix or $N^6$?}
-
-However, the dimension of the density matrix grows as square of
-the photon number.  This would impose great difficulties in numerical
-simulations of the laser region due to the large number of photons.
-Below, we present a method that unravels the master equation in the
-Liouville space, which enables us to remove the photon basis in the
-simulation. The essential idea behind the method is that we are able to
-deduce the photon state by keeping track of the total number of quanta
-$N_q$ in the system.
-
-The quantum Monte Carlo method decomposes the density operator evolution
-into a set of quantum trajectories where, between applications of random
-jumps into random channels, the system evolves under an effective
-Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. These random jumps are chosen with the proper weights, so that when many trajectories are averaged over, the correct density operator evolution is given. While this has
-conventionally been done with wavefunctions to reduce the numerical
-complexity, here we apply the quantum trajectory algorithm in the
-density matrix space in order to get rid of the photon basis in the
-expansion of the density operator. To construct a single trajectory, we
-first need to identify the jump operators. In our problem, there are
-four decay channels: repumping, spontaneous emission, dephasing and
-cavity decay. The corresponding jump operators $\mathcal{J}_i$ are
-\begin{eqnarray}
-\mathcal{J}_1\rho&=&
-w\sum_{j=1}^N(\sigma_j^+\rho\sigma_j^-)=w\mathcal{Q}_{+}\rho\,,
-\nonumber\\
-\mathcal{J}_2\rho&=&
-\gamma\sum_{j=1}^N(\sigma_j^-\rho\sigma_j^+)=
-\gamma \mathcal{Q}_{-}\rho\,,\nonumber\\
-\mathcal{J}_3\rho&=&
-\frac{1}{2T_2}\sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)})
-\nonumber\\
-&=&\frac{1}{2T_2}(4\mathcal{M}_3-2  \mathcal{Q}_3-2\Sigma_3)\rho\,,
-\nonumber\\
-\mathcal{J}_4\rho&=&\kappa a\rho a^{\dagger}\,.
-\label{jumpo}
-\end{eqnarray}
-When a repumping quantum jump happens, $N_q$ is decreased by one. When a
-spontaneous emission or a cavity-decay quantum jump happens, $N_q$ is
-increased by one. The dephasing quantum jump also does not change the
-total number of quanta. Therefore, during the evolution of a single
-trajectory, one could calculate $N_q$ at every time step by tracking the
-the numbers of jumps of the different types. With the knowledge of
-$N_q$, the photon state can be easily deduced. It is shown in
-Ref.~\cite{PhysRevA.87.062101} that
-\begin{equation}
-\begin{split}
-  \hat{J}_3P_{q,q_3,\sigma_3}^{(\mathrm{s})}&=
-  (q_3+\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},\\
-  P_{q,q_3,\sigma_3}^{(\mathrm{s})}\hat{J}_3&=
-  (q_3-\sigma_3)P_{q,q_3,\sigma_3}^{(\mathrm{s})},
-\end{split}
-\end{equation}
-where $\hat{J}_3=\sum_{j=1}^N\sigma_j^{(3)}/2$ is the collective spin
-operator. Therefore, the atomic state for a particular fully symmetrical
-atomic basis in terms of the number of excited atoms is
-$|q_3+\sigma_3+N/2\rangle\langle q_3-\sigma_3+N/2|$. And thus the
-corresponding photon state is
-\begin{equation}
-\bigl|m\bigr>\bigl<n\bigr|=
-\bigl|N_q-(q_3+\sigma_3+N/2)\bigr>
-\bigl<N_q-(q_3-\sigma_3+N/2)\bigr|.
-\end{equation}
-Therefore, if the system starts in a photon number state, by counting the quantum jumps, we have complete knowledge of
-photon states for every single trajectory. This enables us to remove the
-photon basis, which greatly improves the efficiency of the method. 
-
-The simulation of jump times and jump channels is completely analogous
-to the wave-function Monte Carlo method. The effective evolution of the
-system is governed by the master equation excluding the above jump
-operators. As a result, under the effective evolution, the trace of the
-density operator is no longer conserved, but decreases as a function of
-time.  This is analogous to the decay of the norm of the wavefunction in
-the wave function Monte Carlo method. A jump occurs when the trace of
-the density operator is less than a random number uniformly distributed
-in the interval $[0,1]$. When a decay occurs we stochastically determine
-the channel $i$ into which the system decays according to the
-probability distribution,
-\begin{equation}
-\mathcal{P}_i^{\mathrm{jump}}=\frac{\mathrm{Tr}[\mathcal{J}_i\rho]}{\sum_{k=1}^4
-\mathrm{Tr}[\mathcal{J}_k\rho]}.
-\end{equation}
-
-Finally, in order to get the density operator at each time step, an
-ensemble average of many quantum trajectories is required. Then, various
-observables can be calculated according to Ref.~\cite{PhysRevA.87.062101}. It is
-also worth noting that if one is only interested in the steady state
-density operator, a time average in the steady state can be applied
-instead of the ensemble average.
 
 
 \section{Phase Diffusion Linewidth}
