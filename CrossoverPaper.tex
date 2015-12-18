@@ -936,10 +936,17 @@ NIST.
 \section{SU(4) Numerical Simulation of the Master Equation}
 \label{Su4Appendix}
 
-Recently, we have developed a group-theoretic method for efficiently
-simulating the quantum master equation~\cite{PhysRevA.87.062101}. In brief, the
-master equation, Eq.~(\ref{ME1Crossover}), can be expressed in terms of
-generators of the SU(4) group, with the Hamiltonian part being,
+\dmcomment{I think we can cut this.}
+
+In this appendix we provide a short summary of the method we're using
+for the direct direct numerical simulation of the open quantum.  
+For details we refer the reader to reference~\cite{PhysRevA.87.062101}.
+
+The key insight that makes the master equation tractable for moderate
+numbers of atoms is to exploit the invariance of the
+master equation~(\ref{ME1Crossover}) under particle exchange.  This
+permutation symmetry allows to write the equations of motion in terms of
+generators of the SU(4) group.  The Hamiltonian becomes
 \begin{eqnarray}
   &&\frac{1}{i\hbar}[H,\rho]=
   -2i \omega_a \Sigma_3\rho -i\omega_c [ \hat{a}^{\dagger}\hat{a}, \rho]
@@ -950,7 +957,7 @@ generators of the SU(4) group, with the Hamiltonian part being,
   &&\quad{}+i\Omega\left[(\mathcal{U}_++\mathcal{V}_+)\rho a^\dagger
     +(\mathcal{U}_-+\mathcal{V}_-)\rho a\right]\,,
 \end{eqnarray}
-and dissipation parts being,
+and the dissipation terms become
 \begin{eqnarray}\label{liv}
  && \sum_{j=1}^N(
    2\sigma_j^-\rho\sigma_j^+-\sigma_j^+ \sigma_j^-\rho-
@@ -963,13 +970,14 @@ and dissipation parts being,
   )/2=-\frac{N}{2}+
   \mathcal{Q}_3+\mathcal{Q}_{+}\,,\nonumber\\
  && \sum_{j=1}^N(\sigma_j^{(3)}\rho\sigma_j^{(3)}-\rho)=4\mathcal{M}_3-2
-  \mathcal{Q}_3-2\Sigma_3-N\,,
+  \mathcal{Q}_3-2\Sigma_3-N\,.
   \label{ham}
 \end{eqnarray}
-where $\mathcal{Q}_{\pm}$, $\mathcal{M}_{\pm}$, $\mathcal{N}_{\pm}$,
+In these equations, $\mathcal{Q}_{\pm}$, $\mathcal{M}_{\pm}$, $\mathcal{N}_{\pm}$,
 $\mathcal{U}_{\pm}$, $\mathcal{V}_{\pm}$, $\mathcal{Q}_3$, $\mathcal{M}_3$,
-and $\Sigma_3$ are superoperators~\cite{PhysRevA.87.062101}.  As a result, we can
-expand the density matrix in terms of the fully symmetrical multiplet
+and $\Sigma_3$ are superoperators~\cite{PhysRevA.87.062101}.
+
+We expand the density matrix in terms of the fully symmetrical multiplet
 $P_{q,q_3,\sigma_3}$~\cite{PhysRevA.87.062101} of the SU(4) group,
 \begin{equation}\label{ex}
   \rho=\sum_{q,q_3,\sigma_3,m,n} C_{q,q_3,\sigma_3}^{m,n}
@@ -979,10 +987,9 @@ where $C_{q,q_3,\sigma_3}^{m,n}$ are complex coefficients, and
 $|n\rangle$ is the photon Fock state. Note that the total number of
 states in the fully symmetrical multiplet is $1/6 (N+1)(N+2)(N+3)$,
 which reduces the exponential scaling of the problem to cubic in $N$.
-This has enabled us to numerically investigate large
-systems~\cite{PhysRevA.87.062101}.
+\dmcomment{Is this $N^3$ for the density matrix or $N^6$?}
 
-However, the number of basis in Eq.~(\ref{ex}) also grows as square of
+However, the dimension of the density matrix grows as square of
 the photon number.  This would impose great difficulties in numerical
 simulations of the laser region due to the large number of photons.
 Below, we present a method that unravels the master equation in the
@@ -1070,13 +1077,16 @@ also worth noting that if one is only interested in the steady state
 density operator, a time average in the steady state can be applied
 instead of the ensemble average.
 
+
 \section{Phase Diffusion Linewidth}
 \label{HakenAppendix}
 
-The linewidth due to the phase fluctuations of $\hat{a}$ is derived from the quantum Langevin equations, Eqns.~(\ref{La})~--~(\ref{Lsz}). Following closely to the derivation done in \cite{HakenLaser,
-HakenLaserBook}, Eq.~(\ref{La}) is differentiated, and substituted into
-it Eqns.~(\ref{La})~--~(\ref{Lsm}) and the integral of Eq.~(\ref{Lsz}), to
-arrive at an equation for $\hat{a}$ alone,
+In this appendix we derive a closed form expression for the linewidth
+based on a phase diffusion model.  Our analysis closely follows the derivation in~\cite{HakenLaser,
+HakenLaserBook}.
+
+Differentiating Eq.~(\ref{La}) with respect to time and substituting 
+Eqns.~(\ref{La})~--~(\ref{Lsm}) we obtain
 \begin{equation}
 \ddot{\hat{a}} =
 -\frac{1}{2} (\kappa+\Gamma)  \dot{\hat{a}} -
@@ -1095,17 +1105,20 @@ where
 \kappa \hat{a}^{\dagger} \hat{a} -\hat{a}^{\dagger} \hat{F}^a -
 \hat{F}^{a^{\dagger}} \hat{a} \right) \bigg),
 \end{eqnarray}
-and,
+and
 \begin{equation}
 \hat{F} = \frac{\Gamma}{2} \hat{F}^a-
 \frac{i N \Omega}{2} \hat{F}^-+\dot{\hat{F}}^a.
 \end{equation}
+
 The annihilation operator $\hat{a}$ is decomposed according to,
 \begin{equation}
 \hat{a}= (a_0 + \hat{\rho}) e^{i\hat{\phi}}.
 \label{adecomp}
 \end{equation}
-Above threshold, amplitude fluctuations are expected to be small, so that
+Above threshold, amplitude fluctuations are small so that $\hat\rho$
+can be neglected.  We then obtain for the two time correlation function
+of the field amplitude
 \begin{equation}
 \left< \hat{a}^{\dagger}(t) \hat{a}(0) \right> =
 a_0^2 \left< e^{i(\hat{\phi}(t) - \hat{\phi}(0))} \right>.
@@ -1126,7 +1139,7 @@ is large, to arrive at,
 \hat{\phi}(t) - \hat{\phi}(0) =
 \frac{2}{a_0 (\kappa+\Gamma)}
 \int_0^t dt^{\prime} \text{Im}
-\left[ \frac{\Gamma}{2} \hat{F}^a-\frac{i N \Omega}{2} \hat{F}^-\right].
+\left[ \frac{\Gamma}{2} \hat{F}^a-\frac{i N \Omega}{2} \hat{F}^-\right]\;.
 \label{phieq2}
 \end{equation}
 Since $ \hat{F}^a$ and $\hat{F}^-$ are Gaussian, we can use
