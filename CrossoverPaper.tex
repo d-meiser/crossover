@@ -677,7 +677,7 @@ behavior of the system in the large $N$ limit.
 For simplicity, in all of these simulation results, we consider the
 parameter regime in which the single atom rates $\gamma$ and $1/T_2$
 are negligible compared to the cavity loss rate $\kappa$ and use
-Eq.~(\ref{CrossoverParameter2}) to define $\xi$.
+Eq.~(\ref{CrossoverParameter2}) to define $\xi$.  The results of the {\it c}-number Langevin simulations are an average over 1000 trajectories. In each trajectory, the trajectory values were used in the diffusion matrix to compute the noise. This method is justified by its agreement to the method that uses expectation values in the diffusion matrix, and also by its agreement with the exact SU(4) results.
 
 \begin{figure*}
 \begin{center}
@@ -700,7 +700,7 @@ regions for N=10000 and $\frac{\Omega^2}{\kappa \gamma}=0.1$. For
 $1/T_2=0$, the analytic Langevin (phase diffusion and mean field)
 solutions are shown in solid red (solid light gray), and the
 {\it c}-number Langevin simulation results are shown by black circles.
-For $1/T_2=\frac{1}{5} w_{opt}$, the analytic Langevin solutions are
+For $1/T_2=\frac{1}{5} w_{\rm opt}$, the analytic Langevin solutions are
 shown in dashed red (dashed light gray), and the {\it
 c}-number Langevin simulation results are shown by black diamonds. (a)
 All observables considered except linewidth  $\Delta \nu$ show universal
@@ -729,7 +729,7 @@ $\xi=0.2$, $\xi=1$, and $\xi=5$. These values of $\xi$ put the system in the
 superradiance, crossover, and lasing parameter regions, respectively.
 We note that the SU(4) method becomes more computationally intensive as $\xi$ is increased, since there are more photons as $\xi$ is increased, and hence
 more basis states need to be tracked. Therefore, for $\xi=5$, we used a
-method that combines the SU(4) approach with the quantum jump method (see Appendix~\ref{Su4Appendix}).
+method that combines the SU(4) approach with the quantum jump method (see Appendix~\ref{Su4Appendix}). The results using this method that are shown are an average over 500 trajectories.
 
 Fig.~\ref{N40Comparison} shows excellent agreement between {\it
 c}-number Langevin and the exact SU(4) theory in all parameter regions
@@ -773,7 +773,7 @@ change significantly from the $1/T_2=0$ case.
 It is worth noting that, even though  $\left<\hat{\sigma}_{1}^{+}
 \hat{\sigma}_{2}^{-}\right>$ has universal behavior throughout the
 crossover, typical lasers operate just above threshold in terms of the
-scaled quantities, i.e. $w \ll w_{opt}$.  Just above threshold the
+scaled quantities, i.e. $w \ll w_{\rm opt}$.  Just above threshold the
 atom-atom correlations are typically very small,
 \begin{equation}
 \left<\hat{\sigma}_{1}^{+}\hat{\sigma}_{2}^{-}\right>_{opt} \ll 1\;.
@@ -783,30 +783,30 @@ Thus atom-atom correlations are usually not important in lasers.
 The linewidth $\Delta \nu$, however, does not show universal behavior in
 the superradiance, crossover, and lasing regimes. As seen in
 Fig.~\ref{N10000Comparison} (b), in the superradiance region, when
-$1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{opt}<1$.
+$1/T_2=0$, $\Delta \nu / \kappa$ is flat in the region of $w/w_{\rm opt}<1$.
 In contrast, the linewidth in the lasing regime, shown in
-Fig.\ref{N10000Comparison} (d), linearly decreases as $w/w_{opt}$
+Fig.\ref{N10000Comparison} (d), linearly decreases as $w/w_{\rm opt}$
 increases towards unity. This is the typical Schawlow-Townes behavior,
 which can be seen by considering
 $\kappa/\left<\hat{a}^{\dagger}\hat{a}\right>$ using Eq.~\ref{a0sqSS}.
 In the crossover region, shown in Fig.~\ref{N10000Comparison} (c), we
-see that for $w/w_{opt}\ll 1$ , $\Delta \nu/\kappa$ is flat, and as
-$w/w_{opt}$ approaches unity, $\Delta \nu/\kappa$ starts to linearly
+see that for $w/w_{\rm opt}\ll 1$ , $\Delta \nu/\kappa$ is flat, and as
+$w/w_{\rm opt}$ approaches unity, $\Delta \nu/\kappa$ starts to linearly
 decrease as in the lasing regime. Therefore, a system in the crossover
 region displays characteristics of both superradiance and lasing. 
 
-When $1/T_2$ is increased to $1/T_2=w_{opt}/5$,
+When $1/T_2$ is increased to $1/T_2=w_{\rm opt}/5$,
 Fig.~\ref{N10000Comparison} (b) shows that $\Delta \nu/\kappa$ increases
-for $w/w_{opt}\ll 1$, but it is not significantly affected by $1/T_2$ as
-$w/w_{opt}$ approaches unity.  Note that the latter is the pumping
+for $w/w_{\rm opt}\ll 1$, but it is not significantly affected by $1/T_2$ as
+$w/w_{\rm opt}$ approaches unity.  Note that the latter is the pumping
 region where the emitted light intensity is largest.  Near $w\sim w_{\rm
 opt}$ we obtain both the largest intensity and the best frequency
 stability.
 
 In the crossover region, seen in Fig.~\ref{N10000Comparison} (c), when
-$1/T_2=w_{opt}/5$, $\Delta \nu/\kappa$ increase for $w/w_{opt}\ll 1$,
+$1/T_2=w_{\rm opt}/5$, $\Delta \nu/\kappa$ increase for $w/w_{\rm opt}\ll 1$,
 where the system is displaying superradiant behavior.  On the other
-hand, when $w \sim w_{opt}$ where the
+hand, when $w \sim w_{\rm opt}$ where the
 system starts to display lasing behavior, $\Delta\nu/\kappa$ is
 insensitive to the inhomogeneous broadening of the atomic line.
 \begin{figure}
@@ -827,18 +827,17 @@ crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
 \end{figure}
 
 Figure~\ref{N10000Comparison} (d) shows that $\Delta \nu/\kappa$ does
-not increase in the lasing region when $1/T_2=w_{opt}/5$.  Rather the
-linewidth decrease in the region slightly below $w/w_{opt}=1$, when
+not increase in the lasing region when $1/T_2=w_{\rm opt}/5$.  Rather the
+linewidth decrease in the region slightly below $w/w_{\rm opt}=1$, when
 compared to the $1/T_2=0$ case. This reduction has also been observed
 for smaller atom numbers using the exact SU(4) code. It can be shown
 that the value of $1/T_2$ that maximally reduces the linewidth is
-$1/T_2=\frac{w_{opt}}{1+\sqrt{2}}$.
-\dmcomment{Do we have an intuitive explanation of this result? DT Answer: I do not have an intuitive understanding of this result. I included it just incase it sparked the interest of someone else.}
+$1/T_2=\frac{w_{\rm opt}}{1+\sqrt{2}}$.
 
 As mentioned previous, a laser normally operates just above threshold,
-where $w/w_{opt} \ll 1$. As seen in Fig.~\ref{LWadaComparison} (a), for
+where $w/w_{\rm opt} \ll 1$. As seen in Fig.~\ref{LWadaComparison} (a), for
 the same pump strength $w$, and a fixed $N$, a system in the crossover
-region can operate with $w/w_{opt} = 1$, allowing the crossover system
+region can operate with $w/w_{\rm opt} = 1$, allowing the crossover system
 to have a linewidth orders of magnitude smaller than the linewidth of
 the lasing system.  Fig.~\ref{LWadaComparison} (b) shows that this
 improvement in linewidth can be achieved without paying the penalty of a
