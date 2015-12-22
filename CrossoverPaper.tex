@@ -19,38 +19,44 @@ superscriptaddress,groupedaddress]{revtex4}
 
 \title{Theory of the crossover from lasing to steady state superradiance}
 \author{D. A. Tieri}
-\affiliation{JILA, University of Colorado, Boulder}
+\affiliation{JILA, National Institute of Standards and Technology and
+  Department of Physics, University of Colorado, Boulder, Colorado
+  80309-0440, USA}
 \author{Minghui Xu}
-\affiliation{JILA, University of Colorado, Boulder}
+\affiliation{JILA, National Institute of Standards and Technology and
+  Department of Physics, University of Colorado, Boulder, Colorado
+  80309-0440, USA}
 \author{D. Meiser}
 \affiliation{Tech-X Corporation, 5621 Arapahoe Avenue,
              Boulder, Colorado 80303, USA.}
 \author{J. Cooper}
-\affiliation{JILA, University of Colorado, Boulder}
+\affiliation{JILA, National Institute of Standards and Technology and
+  Department of Physics, University of Colorado, Boulder, Colorado
+  80309-0440, USA}
 \author{M. J. Holland}
-\affiliation{JILA, University of Colorado, Boulder}
+\affiliation{JILA, National Institute of Standards and Technology and
+  Department of Physics, University of Colorado, Boulder, Colorado
+  80309-0440, USA}
 \date{\today}
 
 \begin{abstract}
   Lasing and steady state superradiance are two phenomena that may
-  appear at first glance to be distinct, but in fact should be thought
-  of as the two extreme limits of a continuous crossover.  In a laser,
-  phase information maintained by a macroscopic intracavity light field,
-  and the robustness of this phase is what leads to the coherence
-  properties of the output light.  In contrast, in steady-state
-  superradiant systems, the coherence derives from the macroscopic
-  collective dipole of a many-atom ensemble.  In this paper, we develop
-  a quantum theory that connects smoothly between these two extreme
-  limits.  The properties of systems that lie in the superradiance,
-  lasing, and crossover parameter regions are contrasted and compared.
-  We find that for a given output intensity a narrower linewidth can be
-  obtained by operating closer to the superradiance side of the
-  crossover.  We find that robustness against cavity frequency
-  fluctuations can be greatly reduced in the superradiance limit.
-  Brightness, narrow intrinsic linewidth, and robustness against
-  perturbations make light sources based on steady state superradiance
-  promising systems for ultra-stable local oscillators for precision
-  measurement applications.
+  appear at first glance to be distinct.  In a laser, phase
+  information is maintained by a macroscopic intracavity light field,
+  and the robustness of this phase is what leads to the coherence of
+  the output light.  In contrast, in steady-state superradiant
+  systems, the coherence derives from the macroscopic collective
+  dipole of a many-atom ensemble.  In this paper, we develop a quantum
+  theory that connects smoothly between these two extreme limits.  We
+  show that lasing and steady-state superadiance should be thought of
+  as the two extreme limits of a continuous crossover. The properties
+  of systems that lie in the superradiance, lasing, and crossover
+  parameter regions are contrasted and compared.  We find that for a
+  given output intensity a narrower linewidth can be obtained by
+  operating closer to the superradiance side of the crossover.  We
+  also find that the collective phase is robust against cavity
+  frequency fluctuations in the superradiant regime and against atomic
+  level fluctuations in the lasing regime.
 \end{abstract}
 
 \pacs{42.50.Nn, 06.30.Ft, 37.30.+i, 42.50.Ct}
@@ -62,80 +68,76 @@ superscriptaddress,groupedaddress]{revtex4}
 
 Since its first demonstration in 1960~\cite{maiman1960stimulated}, the
 laser has had a profound impact on fundamental science research and
-numerous areas of society.  Lasers are integral to many fields of
-research and technological applications, ranging from atomic and
-molecular physics research, atomic clocks, the global positioning
-system, nuclear fusion research, biology research, medicine, and
-consumer electronics.  Although many different types of lasers exist,
-with their characteristic parameters (such as intensity, power,
-linewidth, physical size) spanning many orders of magnitude, all lasers
-share a common conceptual foundation.  A laser is a cavity quantum
-electrodynamics (QED) system consisting of a gain medium inside an
-optical cavity.  We will oftentimes refer to the gain medium as
-``atoms'' for brevity.  Lasers typically operate in the good cavity
-regime of cavity QED where the linewidth of the cavity is much narrower
-than the bandwidth of the gain medium.  The atoms generate a coherent
-electromagnetic field in the cavity by means of stimulated
-emission~\cite{PhysRev.112.1940}.  Stimulated emission is a quantum
-mechanical interference effect in which the presence of a large number
-of photons in a particular mode of a light field increases the
-probability that an atom will emit into that mode. The energy emitted
-into the cavity field has to be replenished by some repumping mechanism
-to achieve steady state operation. In a laser, the macroscopic phase
-information that is associated with the coherence of the generated
-radiation is encoded in the light field.
+has found widespread application in society in general.  Although many
+different types of lasers exist, with their characteristic parameters
+(such as power, spectral properties, and physical size) spanning many
+orders of magnitude, all lasers share a common conceptual foundation.
+A laser is a cavity quantum electrodynamics (QED) system consisting of
+a gain medium inside an optical cavity~\cite{meystre2007elements}.  We
+will oftentimes refer to the gain medium as ``atoms'' for brevity.
+Lasers typically operate in the good cavity regime of cavity QED where
+the linewidth of the cavity is much narrower than the bandwidth of the
+gain medium.  The atoms generate a coherent electromagnetic field in
+the cavity by means of stimulated emission~\cite{PhysRev.112.1940}.
+Stimulated emission is a quantum mechanical interference effect in
+which the presence of a large number of photons in a particular mode
+of a light field increases the probability that an atom will emit into
+that mode. In a laser, the macroscopic phase information that is
+associated with the coherence of the generated radiation is encoded in
+the light field.
 
 Around the same time as the laser was first demonstrated, the effect
 of superradiance was predicted~\cite{PhysRev.93.99}, and soon
-thereafter, experimentally demonstrated.  Superradiance is a quantum
-mechanical interference effect in which correlations between atoms
-lead to collective emission.  Superradiance has most commonly been
-considered as a pulsed phenomenon.  Atoms in an ensemble are prepared
-in the excited state.  Spontaneous emission into one or a few spatial
-modes is then enhanced via growth of atom-atom correlations.
-However, it has been known for some time that superradiance can also
-occur in steady state~\cite{PhysRevLett.102.163601,
-  PhysRevA.81.033847, PhysRevA.81.063827,PhysRevLett.89.253003} by
-placing the atomic ensemble inside a cavity.  In contrast to lasers,
-superradiance in steady-state occurs in a cavity with a much broader
-linewidth than the atomic linewidth.  This regime is referred to as
-the bad-cavity limit of cavity QED~\cite{PhysRevA.51.809,
-  PhysRevLett.72.3815, ChenDeliciousLaser, HakenLaser,
-  HakenLaserBook}.  The radiation produced in steady state
-superradiance is also coherent.  However, in contrast to a laser, the
-coherence is encoded in the atomic medium.  Progress has recently been
-made towards the experimental
-verification~\cite{ThompsonPaper,bohnet2012relaxation} of this proposal.
+thereafter experimentally demonstrated~\cite{harocheSuperradiance}.
+Superradiance is a quantum mechanical interference effect in which
+correlations between atoms lead to collective emission.  Superradiance
+has most commonly been considered as a transient phenomenon.  Atoms in
+an ensemble are prepared in the excited state.  Spontaneous emission
+is then enhanced via growth of atom-atom correlations.  However, it
+has been known for some time that superradiance can also occur in
+steady state~\cite{PhysRevLett.102.163601, PhysRevA.81.033847,
+  PhysRevA.81.063827,PhysRevLett.89.253003} by placing the atomic
+ensemble inside a cavity.  In contrast to lasers, superradiance in
+steady-state occurs in a cavity with a much broader linewidth than the
+atomic linewidth.  This regime is referred to as the bad-cavity limit
+of cavity QED~\cite{PhysRevA.51.809, PhysRevLett.72.3815,
+  ChenDeliciousLaser, HakenLaser, HakenLaserBook}.  The radiation
+produced in steady state superradiance is also coherent.  However, in
+contrast to a laser, the coherence is encoded in the atomic medium.
+Progress has recently been made towards the experimental realization
+of steady-state superradiant
+systems~\cite{ThompsonPaper,bohnet2012relaxation}.
 
 An important application of lasers is as a stable local oscillator for
-optical atomic clocks and precision spectroscopy.  These lasers rely on
-stabilization against reference cavities.  The most advanced such lasers
-reach linewidths of $< 0.1 {\rm Hz}$ corresponding to quality factors of
-$Q>10^{15}$~\cite{Cole:TenfoldReductionBrownianNoise}. The principal
-limiting factor in the way of further improvement of these local
-oscillators is thermal vibrations of the dielectric coatings in the
-cavity mirrors~\cite{PhysRevLett.101.260602}.  To overcome this
+optical atomic clocks and precision
+spectroscopy~\cite{RevModPhys.87.637}.  These lasers rely on
+stabilization against reference cavities.  The most advanced such
+lasers reach linewidths of $< 0.1 {\rm Hz}$ corresponding to quality
+factors of $Q>10^{15}$~\cite{Cole:TenfoldReductionBrownianNoise}. The
+principal limiting factor in the way of further improvement of these
+local oscillators is thermal vibrations of the dielectric coatings on
+the cavity mirrors~\cite{PhysRevLett.101.260602}.  To overcome this
 technical challenge, researchers have proposed an alternate approach
 using an active system based on steady state superradiance on a clock
 transition to create an even more stable light
-source~\cite{PhysRevLett.102.163601, ChenDeliciousLaser}.  However, this
-proposal has challenges of its own.  First of all, in spite of the
-enhancement that occurs due to superradiance, the produced intensity is
-orders of magnitude lower than for a conventional laser.  Second of all,
-perturbations of atomic transition frequencies can potentially lead to
-phase and frequency perturbations in the generated field.
+source~\cite{PhysRevLett.102.163601, ChenDeliciousLaser}.  However,
+this proposal has challenges of its own.  First of all, in spite of
+the enhancement that occurs due to superradiance, the produced
+intensity is orders of magnitude lower than for a conventional laser.
+Second of all, perturbations of atomic transition frequencies can
+potentially lead to phase and frequency perturbations in the generated
+field.
 
-In this paper we develop a unified theory for lasers and steady state
-superradiance.  In this unified theory, lasers and steady state
-superradiance are the extreme limits of a continuous crossover and the
-theory continuously interpolates between the two.  This allows us to
-directly compare and contrast lasers, steady state superradiant systems,
-and systems in the crossover region using the same language.  Our
-analysis thus further clarifies the qualitative and quantitative
+In this paper we develop a unified theory of lasers and steady state
+superradiance.  We show that lasers and steady state superradiance are
+the extreme limits of a continuous crossover.  The theory allows us to
+directly compare and contrast lasers, steady state superradiant
+systems, and systems in the crossover region using common language.
+Our analysis further clarifies the qualitative and quantitative
 differences between lasing and steady state superradiance.  From the
-perspective of applications the unified theory enables us to determine
-the optimal system for ultra stable local oscillators and precision
-measurement applications.
+perspective of applications, the unified theory enables us to
+determine the optimal system for ultra stable local oscillators and
+precision measurement applications.
 
 We analyze the model using different levels of approximation: An exact
 method using SU(4) operators, a semi-classical method based on {\it
@@ -171,21 +173,23 @@ crossover.
 \section{Model}
 \label{sec:Model}
 
-As noted in the introduction, the fundamental ingredients of lasers and
-superradiance systems are an electromagnetic field and atoms serving as
-a gain medium.  A minimal model consists of a single mode cavity field
-and an ensemble of two level atoms.  The atoms couple to the
-cavity field via the dipole interaction.  Energy is supplied to the
-system by means of a continuous repumping mechanisms that transfers
-atoms from the ground state to the excited state.  In practice, this
-optical pumping necessitates a third atomic level.  But we assume that
-atoms quickly decay from that third level to the atomic excited state
-allowing the third level to be eliminated from the model.  The
-repumping and atomic and cavity relaxation processes make the system an
-open quantum system.
+As noted in the introduction, the fundamental ingredients of lasers
+and superradiance systems are an electromagnetic field and atoms
+serving as a gain medium.  A minimal model consists of a single mode
+cavity field and an ensemble of $N$-two level atoms.  The atoms couple
+to the cavity field via the dipole interaction.  Energy is supplied to
+the system by means of incoherent repumping mechanisms.  In practice
+this necessitates auxiliary atomic levels that rapidly decay and can
+be adiabtically eliminated. The resulting effect is incoherent
+transfer of population from the ground to excited state. The
+incoherent repumping, along with the atomic spontaneous emission,
+cavity decay, and other relaxation processes, make the system
+fundamentally an open quantum system that requires a quantum master
+equation treatment.
 
-Mathematically, our model is described by the quantum Born-Markov master
-equation,
+Mathematically, our model is described by the quantum master equation
+derived in the Born and Markov approximations for the reduced density
+matrix of the system $\hat{\rho}$
 \begin{equation}
   \frac{d}{dt} \hat{\rho} =
   \frac{1}{i \hbar} \left[ \hat{H}, \hat{\rho} \right] +
@@ -200,25 +204,24 @@ where,
     \hat{a}^{\dagger} \hat{\sigma}^{-}_{j} +
     \hat{\sigma}^{+}_{j} \hat{a} \right)\;.
 \end{equation}
-The Liouvillian superoperator $\hat{\mathcal{L}}\left[ \hat{\rho}
-\right]$ describes the various decay and noise processes as well as the
-repumping.
-
 The Hamiltonian $\hat{H}$ describes the coherent evolution of the
-coupled atom cavity system, where $\omega_{a}$ is the atomic transition
-frequency and $\omega_c$ is the frequency of the cavity mode. The Pauli
-spin matrices for the atoms are $\hat{\sigma}_j^{+}$,
-$\hat{\sigma}_j^{-}$ and $\hat{\sigma}_j^{z}$, and $\hat{a}$ is the
-annihilation operator of the cavity mode. The atom-cavity coupling rate
-is $\Omega$.  In general, the atom-cavity coupling depends on the
-location of the atom in the cavity field.  To simplify the discussion, we ignore
-such spatial effects because they are known to result in only minor
-quantitative changes.  In principle, a constant $\Omega$ could be
+coupled atom cavity system, where $\omega_{a}$ is the atomic
+transition frequency and $\omega_c$ is the frequency of the cavity
+mode. The Pauli spin matrices for the $j$-th atom are
+$\hat{\sigma}_j^{+}$, $\hat{\sigma}_j^{-}$ and $\hat{\sigma}_j^{z}$,
+and $\hat{a}$ is the annihilation operator of the cavity mode. The
+atom-cavity coupling strength is~$\Omega$.  In general, the
+atom-cavity coupling depends on the location of the atom in the cavity
+field.  To simplify the discussion, we ignore the spatial dependence
+since it results in quantitative changes but does not alter the basic
+physical properties.  In principle, a constant $\Omega$ could be
 realized experimentally by confining the atoms to locations of equal
-amplitude of the cavity mode by means of an optical lattice.
+amplitude of the cavity mode by means of a superimposed optical
+lattice.
 
-The incoherent evolution is described by the Liouvillian
-$\hat{\mathcal{L}}\left[ \hat{\rho} \right]$,
+The Liouvillian superoperator
+$\hat{\mathcal{L}}\left[ \hat{\rho} \right]$ describes the various
+non-Hermitian processes:
 \begin{eqnarray}
 \hat{\mathcal{L}}\left[ \hat{\rho} \right] &=&
   -\frac{\kappa}{2}
@@ -250,162 +253,151 @@ $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$,
    \hat{\sigma}_{j}^{z} \hat{\rho}  \hat{\sigma}_{j}^{z} - \hat{\rho}
   \right),
 \end{eqnarray}
-where $\hat{\rho}$ is the system's density matrix, $\kappa$ is the decay
-rate of the cavity, $\gamma$ is the natural decay rate of the atoms, $w$
-is the repumping rate, and $\frac{1}{T_2}$ is the inhomogeneous
-dephasing rate.
-
+where $\kappa$ is the decay rate of the cavity, $\gamma$ is the
+free-space spontaneous emission rate of the atoms, $w$ is the
+repumping rate, and $1/{T_2}$ is the rate of inhomogeneous dephasing.
 
 \section{Solution Methods}
 \label{sec:Methods}
 
-Direct numerical solution of Eq.~(\ref{ME1Crossover}) is impossible for
-experimentally relevant numbers of particles because the dimension of
-the Hilbert space of the system scales as $2^N$.  In this section we
-introduce several solution methods and approximations to overcome the
-exponential scaling of the size of the Hilbert space.  They can be
-grouped into three categories: Exact methods (SU(4) method with
-Monte-Carlo simulation); semi-classical methods ({\it c}-number Langevin
-equations, phase diffusion); and mean field
-treatment.  The exact solution methods solve the quantum mechanical
-problem directly without further approximations.  But of course they are
-only practical for small numbers of atoms.  Semi-classical methods aim
-to capture the physics of the system correctly for large $N$.  They
-include a classical representation of noise, fluctuations, and
-correlations.  Comparison with direct solution methods for small $N$
-allows us to verify the validity and accuracy of the semi-classical
-approach.  Finally, the mean field method neglect fluctuations to arrive
-at simple equations for mean values.  The mean field equations admit
-closed form solutions that provide valuable qualitative insights.
+Obtaining a direct numerical solution to Eq.~(\ref{ME1Crossover}) is
+practically impossible for experimentally relevant numbers of
+particles because the dimension of the Hilbert space of the system
+scales as $2^N$.  In this Section we introduce several solution
+methods to overcome the exponential scaling of the size of the Hilbert
+space.  They can be grouped into three categories: Exact methods
+(SU(4) method with Monte-Carlo simulation), semi-classical methods
+({\it c}-number Langevin equations, phase diffusion), and mean-field
+treatments.
 
-The SU(4) method provides a direct numerical solution of
-Eq.~(\ref{ME1Crossover}) by exploiting an underlying permutation
-symmetry to drastically reduce the Hilbert space
-dimension~\cite{Hartmann:arXiv1201.1732, PhysRevA.87.062101}.  The
-resulting master equation is solved using the quantum jump
-method~\cite{Dalibard92,Dum92,Knight98}.  Details of the method have
-been described previously in~\cite{PhysRevA.87.062101} and we summarize
-the main results in Appendix~\ref{Su4Appendix} to make this paper self
-contained.
+The exact solution methods solve the quantum mechanical problem
+directly without further approximations, but are limited in
+applicability to small numbers of atoms. The SU(4) method provides an
+exact numerical solution of Eq.~(\ref{ME1Crossover}) by exploiting an
+underlying permutation symmetry to drastically reduce the Hilbert
+space dimension~\cite{Hartmann:arXiv1201.1732,
+  PhysRevA.87.062101}. Details of the method have been described
+previously in~\cite{PhysRevA.87.062101}. Here we extend the approach
+to solve the quantum master equation in the SU(4) representation using
+the quantum jump method~\cite{Dalibard92,Dum92,Knight98}, the details
+of which are given in Appendix~\ref{Su4Appendix}.
+
+Semi-classical methods aim to capture the physics of the system
+correctly for large atom number.  They include a classical
+representation of fluctuations and correlations.  Comparison with
+direct solution methods for small atom number allows us to verify the
+validity and accuracy of the semi-classical approaches.
+
+The mean-field methods neglect fluctuations to arrive at equations for
+average quantities. These equations are sufficiently simple that it is
+straightforward to obtain closed form solutions that provide valuable
+qualitative insights into the system behavior.
+
 
 
 \subsection{Quantum Langevin Equations}
 
-For the derivation of the semi-classical equations corresponding to 
-Eq.~(\ref{ME1Crossover}) it is more convenient to go over to the
-Heisenberg picture.  The resulting equations are the quantum Langevin
-equations
-\begin{equation}
-\frac{d}{dt} \hat{a}= -\frac{1}{2} (\kappa +2i\omega_c) \hat{a}
+For the derivation of the semi-classical equations corresponding to
+Eq.~(\ref{ME1Crossover}) it is convenient to work in the Heisenberg
+picture.  The resulting equations are the quantum Langevin equations
+\begin{eqnarray}
+\frac{d}{dt} \hat{a}&=& -\frac{1}{2} (\kappa +2i\omega_c) \hat{a}
 -\frac{i N \Omega}{2} \hat{S}^{-}
 +\hat{F}^{a},
-\label{La}
-\end{equation}
-\begin{equation}
-\frac{d}{dt} \hat{S}^{-} =
+\label{La}\\
+\frac{d}{dt} \hat{S}^{-} &=&
 -\frac{1}{2} \left(\Gamma +2 i \omega_a \right)  \hat{S}^{-}
 +\frac{i \Omega}{2} \hat{a} \hat{S}^{z}
 +\hat{F}^{-},
-\label{Lsm}
-\end{equation}
-\begin{equation}
-\frac{d}{dt} \hat{S}^{z} =
+\label{Lsm}\\
+\frac{d}{dt} \hat{S}^{z} &=&
 -(w+\gamma)\left( \hat{S}^{z} - d_0\right)
 +i\Omega \left( \hat{a}^{\dagger}\hat{S}^{-} -
 \hat{a}\hat{S}^{+} \right)
-+\hat{F}^{z},
++\hat{F}^{z},\nonumber\\
 \label{Lsz}
-\end{equation}
-where $\delta=\omega_{a}-\omega_{c}$. We have defined the collective
-operators,
-\begin{eqnarray}
-\hat{S}^{-}&=&\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{-},
-\nonumber
-\\
-\hat{S}^{z}&=&\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{z},
-\nonumber
 \end{eqnarray}
-where $\Gamma \equiv w+\gamma+\frac{2}{T_2}$, $d_0 =
-\frac{w-\gamma}{w+\gamma}$ and where $\hat{S}^{+}$ and $\hat{S}^{-}$ are
-Hermitian conjugates of one another, $\hat{S}^{+} =
-(\hat{S}^{-})^{\dagger}$. The noise operators $\hat F^\mu$ have zero
-mean and their second order correlations are given by
+where $\delta=\omega_{a}-\omega_{c}$ is the atom-cavity detuning,
+$\Gamma \equiv w+\gamma+2/T_2$ is the generalized single-atom
+decoherence, and $d_0 = (w-\gamma)/(w+\gamma)$ characterizes the
+atomic inversion that would be obtained for a single-atom in the
+absence of the cavity. We have defined the collective operators,
+\begin{eqnarray}
+\hat{S}^{\pm}&=&\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{\pm},
+\\
+\hat{S}^{z}&=&\frac{1}{N}\sum_{k=1}^N \hat{\sigma}_k^{z}\,.
+\end{eqnarray}
+The quantum noise operators $\hat F^\mu$ have zero mean and
+second-order correlations given by
 \begin{equation}
 \left< \hat{F}^{\mu}(t) \hat{F}^{\nu}(t^{\prime})\right> =
 2 D^{\mu \nu} \delta(t-t^{\prime})\;.
 \end{equation}
-The diffusion matrix elements $D^{\mu \nu} $ can be calculated using the
+The diffusion matrix elements $D^{\mu \nu} $ are obtained using the
 Einstein relations \cite{meystre2007elements},
 \begin{eqnarray}
-&& 2D^{a a^{\dagger}}= \kappa \nonumber \\
-&& 2D^{+-}= \frac{1}{N}
+2D^{a a^{\dagger}}&=& \kappa \\
+2D^{+-}&=& \frac{1}{N}
 \left(
   w + \frac{1}{T_2} \left(1 + \left< \hat{S}^{z} \right> \right)
-\right) \nonumber \\
-&& 2D^{-+}= \frac{1}{N}
+\right) \\
+2D^{-+}&=& \frac{1}{N}
 \left(
   \gamma + \frac{1}{T_2} \left(1- \left< \hat{S}^{z} \right> \right)
-\right) \nonumber \\
-&& 2D^{+z}= -\frac{2w}{N} \left< \hat{S}^{+} \right>
-\hspace{0.83in} 2D^{z+}= \frac{2\gamma}{N} \left< \hat{S}^{+} \right>
-\nonumber \\
-&& 2D^{-z}= \frac{2\gamma}{N} \left< \hat{S}^{-} \right>
-\hspace{0.86in} 2D^{z-}= -\frac{2w}{N} \left< \hat{S}^{-} \right>
-\nonumber \\
-&& 2D^{zz}= \frac{2\gamma}{N}
+\right) \\
+2D^{+z}&=& -\frac{2w}{N} \left< \hat{S}^{+} \right>
+\\
+2D^{z+}&=& \frac{2\gamma}{N} \left< \hat{S}^{+} \right>
+\\
+2D^{-z}&=& \frac{2\gamma}{N} \left< \hat{S}^{-} \right>
+\\
+2D^{z-}&=& -\frac{2w}{N} \left< \hat{S}^{-} \right>
+\\
+2D^{zz}&=& \frac{2\gamma}{N}
 \left(1+ \left< \hat{S}^{z} \right> \right) +
 \frac{2w}{N}\left(1- \left< \hat{S}^{z} \right> \right).
 \label{OpNoise1}
 \end{eqnarray}
 
 
-\subsection{{\it c}-number Langevin equations for numerical simulations}
+\subsection{{\it C}-number Langevin Equations}
 
-The quantum Langevin equation are operator valued stochastic
-differential equations.  As such they are not suited for practical
-computations.  To obtain practical equations we construct a
-semi-classical theory by replacing the operators in the quantum Langevin
-equations by {\it c}-numbers,
-\begin{equation}
-\frac{d}{dt} a= -\frac{1}{2}  (\kappa +2i\omega_c) a
+Quantum Langevin equations are operator valued stochastic differential
+equations.  As such they are difficult to numerically simulate. It is
+often important to obtain more accessible equations that do not
+contain quantum operators. We construct such a semi-classical theory
+by replacing the operators in the quantum Langevin equations by
+complex numbers,
+\begin{eqnarray}
+\frac{d}{dt} a&=& -\frac{1}{2}  (\kappa +2i\omega_c) a
 -\frac{i N \Omega}{2} S^{-}
 +F^{a},
-\label{Lac}
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S^{-} = -\frac{1}{2}  \left(\Gamma +2 i \omega_a \right)  S^{-}
+\label{Lac}\\
+\frac{d}{dt} S^{-} &=& -\frac{1}{2}  \left(\Gamma +2 i \omega_a \right)  S^{-}
 +\frac{i \Omega}{2} a S^{z}
-+F^{-},
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S^{z} = -(w+\gamma)\left( S^{z} - d_0\right)
++F^{-},\\
+\frac{d}{dt} S^{z} &=& -(w+\gamma)\left( S^{z} - d_0\right)
 +i\Omega \left( a^{\dagger}S^{-} - a S^{+} \right)
++F^{z},\nonumber\\
 \label{Lszc}
-+F^{z},
-\end{equation}
-where the omission of the hats over the variables signifies that they
-are {\it c}-numbers.  The noise terms $F^a$, $F^-$, and $F^z$ should be
-interpreted according to the rules of Ito calculus.  The noises are
-correlated according to
-\begin{equation}
-\left< F^{\mu}(t) F^{\nu}(t^{\prime})\right> =
-2 \mathscr{D}^{\mu \nu} \delta(t-t^{\prime})\;.
-\label{ClassicalDiffusion1}
-\end{equation}
-
-It is easier to construct the semi-classical equations by introducing
-real variables according to
-\begin{eqnarray}
-\hspace{-0.5in} \hat{q} &=&
-\frac{1}{2} \left( \hat{a}^{\dagger} + \hat{a} \right),
-\hspace{0.48in} \hat{p} =
-\frac{1}{2i} \left( \hat{a}^{\dagger} - \hat{a} \right),
-\\
-\hat{S}^x &=&
-\frac{1}{2} \left( \hat{S}^{+} + \hat{S}^{-} \right),
-\hspace{0.2in} \hat{S}^y =
-\frac{1}{2i} \left( \hat{S}^{+} - \hat{S}^{-} \right)\;.
 \end{eqnarray}
+where there are no hats over the variables to signify that they are
+{\it C}-numbers and not operators.  The noise terms $F^a$, $F^-$, and
+$F^z$ should be interpreted according to the rules of Ito calculus. It is easier to construct the semi-classical equations by introducing
+real variables according to
+\begin{equation}
+\begin{array}{rclrcl}
+q &=&
+\frac{1}{2} \left( a^{\dagger} + a \right),&
+p &=&
+\frac{1}{2i} \left( a^{\dagger} - a \right),
+\\[1pc]
+S^x &=&
+\frac{1}{2} \left( S^{+} + S^{-} \right),&
+S^y &=&
+\frac{1}{2i} \left( S^{+} - S^{-} \right)\,.
+\end{array}
+\end{equation}
 The equations of motion in terms of these variables are
 \begin{eqnarray}
 \frac{d}{dt} q &=& -\kappa q - 2 \omega_c p - N \Omega S^{y} + F^{q},
@@ -426,100 +418,96 @@ The equations of motion in terms of these variables are
 \\
 \label{eqn:cnumberlangevin}
 \end{eqnarray}
-
+The noise terms have zero mean and delta-correlations given by
+\begin{equation}
+\left< F^{\mu}(t) F^{\nu}(t^{\prime})\right> =
+2 \mathscr{D}^{\mu \nu} \delta(t-t^{\prime})\;.
+\label{ClassicalDiffusion1}
+\end{equation}
 The correspondence between the semi-classical and quantum mechanical
 Langevin equations is established by requiring that they produce
 identical equations for first and second moments of the system
-operators.  Comparison of the first moments (i.e. the expectation
-values of the equations of motion) leads to
-\begin{equation}
-\langle F^q\rangle = 
-\langle F^p\rangle = 
-\langle F^x\rangle = 
-\langle F^y\rangle = 
-\langle F^z\rangle = 0\;,
-\end{equation}
-
-Comparison of the second moments allows us to find the classical
-diffusion matrix elements $\mathscr{D}^{\mu \nu}$ from the quantum
-mechanical ones.  To make this procedure well defined we have to choose
-a specific ordering of the quantum mechanical operators.  We choose to
-make the correspondence using symmetric ordering defined by the
-symmetric expectation value
+operators.  Comparison of the second moments allows us to find the
+classical diffusion matrix elements $\mathscr{D}^{\mu \nu}$.  In order
+to make this procedure well defined we have to choose a specific
+ordering of the quantum mechanical operators.  We choose to make the
+correspondence using symmetric ordering defined by the symmetric
+expectation value
 \begin{equation}
 \left< \hat{A}^{\mu} \hat{A}^{\nu} \right>_s=
 \frac{1}{2} \left( \left< \hat{A}^{\mu} \hat{A}^{\nu} \right> + \left<
 \hat{A}^{\nu} \hat{A}^{\mu} \right> \right)\;,
 \end{equation}
-where $\hat{A}^{\mu}$ and $\hat{A}^{\nu}$ are generic system operators.
-We point out that in this formulation, the classical Langevin equations
+where $\hat{A}^{\mu}$ and $\hat{A}^{\nu}$ are system operators.  We
+point out that in this formulation, the classical Langevin equations
 are equivalent to a Fokker-Planck equation for the Wigner
-quasi-probability distribution.  A tedious but straightforward
-calculation yields
+quasi-probability distribution. The resulting classical-quantum
+correspondance relations are
 \begin{eqnarray}
-&& 2\mathscr{D}^{q q}=
-\frac{\kappa}{4} \hspace{0.7in} 2\mathscr{D}^{p p}=
-\frac{\kappa}{4} \nonumber \\
-&& 2\mathscr{D}^{xx}=
-\frac{\Gamma}{4N} \hspace{0.57in} 2\mathscr{D}^{yy}=
-\frac{\Gamma}{4N} \nonumber \\
-&& 2\mathscr{D}^{xz}=
-2\mathscr{D}^{zx}=
-\frac{-w+\gamma}{N} \left< \hat{S}^{x} \right>  \nonumber \\
-&& 2\mathscr{D}^{yz}=
-2\mathscr{D}^{zy}=
-\frac{-w+\gamma}{N} \left< \hat{S}^{y} \right>  \nonumber \\
-&& 2\mathscr{D}^{zz}=
-\frac{2}{N}\left((w+\gamma) + (-w+\gamma)  \left< \hat{S}^{z} \right> \right).
+  2\mathscr{D}^{q q}&=&
+                        2\mathscr{D}^{p p}=
+                        \frac{\kappa}{4} \nonumber \\
+  2\mathscr{D}^{xx}&=&
+                       2\mathscr{D}^{yy}=
+                       \frac{\Gamma}{4N} \nonumber \\
+  2\mathscr{D}^{xz}&=&
+                       2\mathscr{D}^{zx}=
+                       \frac{-w+\gamma}{N} \left< \hat{S}^{x} \right>  
+                       \nonumber \\
+  2\mathscr{D}^{yz}&=&
+                       2\mathscr{D}^{zy}=
+                       \frac{-w+\gamma}{N} \left< \hat{S}^{y} \right>  
+                       \nonumber \\
+  2\mathscr{D}^{zz}&=&
+                       \frac{2}{N}\left((w+\gamma) 
+                       + (-w+\gamma)  \left< \hat{S}^{z} \right> \right).
 \label{cNoise1}
 \end{eqnarray}
 
-We solve the stochastic differential equations
-(\ref{eqn:cnumberlangevin}) by means of the explicit second order weak scheme \cite{kloeden2011numerical}. An ensemble of trajectories can be evolved simultaneously and the expectation values appearing in Eq.~(\ref{cNoise1}) can be calculated from the ensemble. This allows the additive form of the explicit second order weak scheme to be used, which is simpler than the general form.
+We solve the stochastic differential equations,
+Eqs.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) by means of the explicit
+second order weak scheme \cite{kloeden2011numerical}. It was found
+empirically that the symmetrically ordered diffusion matrix is
+positive definite when the system is above the first threshold
+(defined in Sec.~(\ref{MFE})). Below this threshold, the symmetrically
+ordered diffusion matrix is not positive definite, and divergent
+trajectories can occur. An ensemble of trajectories can be evolved
+simultaneously and the expectation values appearing in
+Eq.~(\ref{cNoise1}) can be calculated from the ensemble. This allows
+the additive form of the explicit second order weak scheme to be used,
+which is simpler than the general form. Typically, an ensemble of 1000
+trajectories can be used to achieve convergence to within a few
+percent.
 
-The noises $F^\mu$ are found by means of
-\begin{equation}
-F^\mu=\sum_\nu \sqrt{\lambda_\nu} M_{\mu,\nu}^T f^\nu\;,
-\end{equation}
-where $M_{\mu,\nu}$ is the orthogonal matrix that
-diagonalizes the diffusion matrix, $\lambda_\nu$ are its eigenvalues,
-and $f^\nu$ are independent normalized Wiener processes.
-It was found empirically that the symmetrically ordered diffusion matrix is positive definite when the system is above the first threshold (defined in Sec.~(\ref{MFE})). Below this threshold, the symmetrically ordered diffusion matrix is not positive definite, and divergent trajectories can occur. Typically, an ensemble of 1000 trajectories can be used to achieve convergence to within a few percent.
-
-
-\subsection{Mean Field Equations}
+\subsection{Mean-Field Treatment}
 \label{MFE}
 
 By taking expectation values of the semi-classical
-Eqns.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) we obtain the so called
-mean field equations
-
-\begin{equation}
-\frac{d}{dt} a_0= -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
+Eqns.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) we obtain mean-field
+equations
+\begin{eqnarray}
+\frac{d}{dt} a_0&=& -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
 -\frac{i N \Omega}{2} S_0^{-},
-\label{La0}
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S_0^{-} =
+\label{La0}\\
+\frac{d}{dt} S_0^{-} &=&
 -\frac{1}{2} \left(\Gamma +2 i (\omega_a-\omega) \right)  S_0^{-}
-+\frac{i \Omega}{2} a_0 S_0^{z},
-\end{equation}
-\begin{equation}
-\frac{d}{dt} S_0^{z} = -(w+\gamma)\left( S_0^{z} - d_0\right)
-+i\Omega \left( a_0^{*} S_0^{-} - a_0 S_0^{+} \right)\;.
++\frac{i \Omega}{2} a_0 S_0^{z},\\
+\frac{d}{dt} S_0^{z} &=& -(w+\gamma)\left( S_0^{z} - d_0\right)
++i\Omega \left( a_0^{*} S_0^{-} - a_0 S_0^{+} \right)\;,\nonumber\\
 \label{Lsz0}
-\end{equation}
-The noise terms drop out because they have zero mean.  The mean field
-equations capture many of the most important features of the physical
-system because the noise terms scale as $\sqrt{N}$ while the
-expectation values scale as~$N$.  In the limit of large numbers of
-atoms the noise terms are therefore less important.  Note that
-Eqns.~(\ref{La0})--(\ref{Lsz0}) are written in the reference frame
-rotating at frequency $\omega$.
+\end{eqnarray}
+where the $0$ subscript denotes the average value, {\em e.g.}\
+$\bigl< \hat{a} \bigr>=a_0$. The noise terms do not appear since they
+have zero mean.  The mean field equations capture many of the most
+important features of the physical system because the noise terms
+scale as $\sqrt{N}$ while the expectation values scale as~$N$.  In the
+limit of large numbers of atoms the noise terms are therefore less
+important.  Note that Eqns.~(\ref{La0})--(\ref{Lsz0}) are written in
+the reference frame rotating at frequency $\omega$.
 
-Eqns.~(\ref{La0})--(\ref{Lsz0}) can be written in steady-state by
-setting the left hand sides to zero and then solved in closed form.
-We find
+A closed-form solution of Eqns.~(\ref{La0})--(\ref{Lsz0}) can be
+obtained in steady-state by setting the left hand sides to zero.  We
+find
 \begin{equation}
 S_0^{z}=
 \frac{(\kappa+2i(\omega_c-\omega))(\Gamma+2i(\omega_a-\omega))}{N\Omega^2}
