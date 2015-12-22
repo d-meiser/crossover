@@ -377,7 +377,7 @@ complex numbers,
 +\frac{i \Omega}{2} a S^{z}
 +F^{-},\\
 \frac{d}{dt} S^{z} &=& -(w+\gamma)\left( S^{z} - d_0\right)
-+i\Omega \left( a^{\dagger}S^{-} - a S^{+} \right)
++i\Omega \left( a^{*}S^{-} - a S^{+} \right)
 +F^{z},\nonumber\\
 \label{Lszc}
 \end{eqnarray}
@@ -388,9 +388,9 @@ real variables according to
 \begin{equation}
 \begin{array}{rclrcl}
 q &=&
-\frac{1}{2} \left( a^{\dagger} + a \right),&
+\frac{1}{2} \left( a^{*} + a \right),&
 p &=&
-\frac{1}{2i} \left( a^{\dagger} - a \right),
+\frac{1}{2i} \left( a^{*} - a \right),
 \\[1pc]
 S^x &=&
 \frac{1}{2} \left( S^{+} + S^{-} \right),&
@@ -465,8 +465,8 @@ correspondance relations are
 \end{eqnarray}
 
 We solve the stochastic differential equations,
-Eqs.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) by means of the explicit
-second order weak scheme \cite{kloeden2011numerical}. It was found
+Eqs.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) by means of an explicit
+second order weak scheme \cite{kloeden2011numerical}. We find
 empirically that the symmetrically ordered diffusion matrix is
 positive definite when the system is above the first threshold
 (defined in Sec.~(\ref{MFE})). Below this threshold, the symmetrically
@@ -474,16 +474,17 @@ ordered diffusion matrix is not positive definite, and divergent
 trajectories can occur. An ensemble of trajectories can be evolved
 simultaneously and the expectation values appearing in
 Eq.~(\ref{cNoise1}) can be calculated from the ensemble. This allows
-the additive form of the explicit second order weak scheme to be used,
-which is simpler than the general form. Typically, an ensemble of 1000
-trajectories can be used to achieve convergence to within a few
-percent.
+us to use the additive form of the explicit second order weak scheme,
+which is simpler to implement than the general form. Typically, an
+ensemble of 1000 trajectories is sufficient to achieve convergence to
+within a few percent.
+
 
 \subsection{Mean-Field Treatment}
 \label{MFE}
 
 By taking expectation values of the semi-classical
-Eqns.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) we obtain mean-field
+Eqs.~(\ref{cq1}--\ref{eqn:cnumberlangevin}) we obtain mean-field
 equations
 \begin{eqnarray}
 \frac{d}{dt} a_0&=& -\frac{1}{2} (\kappa +2i(\omega_c-\omega)) a_0
@@ -502,10 +503,10 @@ have zero mean.  The mean field equations capture many of the most
 important features of the physical system because the noise terms
 scale as $\sqrt{N}$ while the expectation values scale as~$N$.  In the
 limit of large numbers of atoms the noise terms are therefore less
-important.  Note that Eqns.~(\ref{La0})--(\ref{Lsz0}) are written in
+important.  Note that Eqs.~(\ref{La0})--(\ref{Lsz0}) are written in
 the reference frame rotating at frequency $\omega$.
 
-A closed-form solution of Eqns.~(\ref{La0})--(\ref{Lsz0}) can be
+A closed-form solution of Eqs.~(\ref{La0})--(\ref{Lsz0}) can be
 obtained in steady-state by setting the left hand sides to zero.  We
 find
 \begin{equation}
@@ -1058,7 +1059,7 @@ based on a phase diffusion model.  Our analysis closely follows the
 derivation in~\cite{HakenLaser, HakenLaserBook}.
 
 Differentiating Eq.~(\ref{La}) with respect to time and substituting 
-Eqns.~(\ref{La})~--~(\ref{Lsm}) we obtain
+Eqs.~(\ref{La})~--~(\ref{Lsm}) we obtain
 \begin{equation}
 \ddot{\hat{a}} =
 -\frac{1}{2} (\kappa+\Gamma)  \dot{\hat{a}} -
@@ -1119,7 +1120,7 @@ Since $ \hat{F}^a$ and $\hat{F}^-$ are Gaussian, we can use
 \left< e^{i(\hat{\phi}(t) - \hat{\phi}(0))} \right> =
 e^{-\frac{1}{2}\left< ( \hat{\phi}(t) - \hat{\phi}(0) )^2 \right>}.
 \end{equation}
-Therefore, we use Eq.~(\ref{phieq2}), along with Eqns.~(\ref{OpNoise1})
+Therefore, we use Eq.~(\ref{phieq2}), along with Eqs.~(\ref{OpNoise1})
 to find,
 \begin{equation}
 \left<(\hat{\phi}(t) - \hat{\phi}(0))^2 \right> =
