@@ -21,42 +21,42 @@ superscriptaddress,groupedaddress]{revtex4}
 \author{D. A. Tieri}
 \affiliation{JILA, National Institute of Standards and Technology and
   Department of Physics, University of Colorado, Boulder, Colorado
-  80309-0440, USA}
+  80309-0440, USA.}
 \author{Minghui Xu}
 \affiliation{JILA, National Institute of Standards and Technology and
   Department of Physics, University of Colorado, Boulder, Colorado
-  80309-0440, USA}
+  80309-0440, USA.}
 \author{D. Meiser}
 \affiliation{Tech-X Corporation, 5621 Arapahoe Avenue,
              Boulder, Colorado 80303, USA.}
 \author{J. Cooper}
 \affiliation{JILA, National Institute of Standards and Technology and
   Department of Physics, University of Colorado, Boulder, Colorado
-  80309-0440, USA}
+  80309-0440, USA.}
 \author{M. J. Holland}
 \affiliation{JILA, National Institute of Standards and Technology and
   Department of Physics, University of Colorado, Boulder, Colorado
-  80309-0440, USA}
+  80309-0440, USA.}
 \date{\today}
 
 \begin{abstract}
   Lasing and steady state superradiance are two phenomena that may
-  appear at first glance to be distinct.  In a laser, phase
-  information is maintained by a macroscopic intracavity light field,
-  and the robustness of this phase is what leads to the coherence of
-  the output light.  In contrast, in steady-state superradiant
-  systems, the coherence derives from the macroscopic collective
-  dipole of a many-atom ensemble.  In this paper, we develop a quantum
-  theory that connects smoothly between these two extreme limits.  We
-  show that lasing and steady-state superadiance should be thought of
-  as the two extreme limits of a continuous crossover. The properties
-  of systems that lie in the superradiance, lasing, and crossover
-  parameter regions are contrasted and compared.  We find that for a
-  given output intensity a narrower linewidth can be obtained by
-  operating closer to the superradiance side of the crossover.  We
-  also find that the collective phase is robust against cavity
-  frequency fluctuations in the superradiant regime and against atomic
-  level fluctuations in the lasing regime.
+  appear at first glance to be distinct.  In a laser, phase information
+  is maintained by a macroscopic intracavity light field, and the
+  robustness of this phase is what leads to the coherence of the output
+  light.  In contrast, the coherence of steady-state superradiant
+  systems derives from the macroscopic collective dipole of a many-atom
+  ensemble.  In this paper, we develop a quantum theory that connects
+  smoothly between these two extreme limits.  We show that lasing and
+  steady-state superadiance should be thought of as the two extreme
+  limits of a continuous crossover. The properties of systems that lie
+  in the superradiance, lasing, and crossover parameter regions are
+  contrasted and compared.  We find that for a given output intensity a
+  narrower linewidth can be obtained by operating closer to the
+  superradiance side of the crossover.  We also find that the collective
+  phase is robust against cavity frequency fluctuations in the
+  superradiant regime and against atomic level fluctuations in the
+  lasing regime.
 \end{abstract}
 
 \pacs{42.50.Nn, 06.30.Ft, 37.30.+i, 42.50.Ct}
@@ -106,13 +106,13 @@ produced in steady state superradiance is also coherent.  However, in
 contrast to a laser, the coherence is encoded in the atomic medium.
 Progress has recently been made towards the experimental realization
 of steady-state superradiant
-systems~\cite{ThompsonPaper,bohnet2012relaxation}.
+systems~\cite{ThompsonPaper,bohnet2012relaxation,Norcia:Crossover}.
 
 An important application of lasers is as a stable local oscillator for
 optical atomic clocks and precision
 spectroscopy~\cite{RevModPhys.87.637}.  These lasers rely on
 stabilization against reference cavities.  The most advanced such
-lasers reach linewidths of $< 0.1 {\rm Hz}$ corresponding to quality
+lasers reach linewidths below $0.1 {\rm Hz}$ corresponding to quality
 factors of $Q>10^{15}$~\cite{Cole:TenfoldReductionBrownianNoise}. The
 principal limiting factor in the way of further improvement of these
 local oscillators is thermal vibrations of the dielectric coatings on
@@ -139,24 +139,24 @@ perspective of applications, the unified theory enables us to
 determine the optimal system for ultra stable local oscillators and
 precision measurement applications.
 
-We analyze the model using different levels of approximation: An exact
-method using SU(4) operators, a semi-classical method based on {\it
-c}-number Langevin equations, a quantum phase diffusion model for the
-field amplitude, and a mean field model.  The different approaches provide insight into
-different aspects of the problem.  Highly simplified models like the
-mean field equations and phase diffusion yield a qualitative
-understanding of the general characteristics of systems throughout the
-crossover.  By comparison between the approximations we can
-differentiate between truly critical physical effects and less important
-details.  We find that fluctuations and correlations are essential for
-the noise properties of the system (e.g. the linewidth of the generated
-light) but that the fluctuations and correlations can be modelled
-semi-classically.  Comparison with the exact SU(4) method for small
-numbers of atoms shows that {\it c}-number Langevin equations provide an
-accurate description of the system.  Due to their much smaller
-computational complexity, we are then able to use the {\it c}-number
-Langevin equations to quantitatively study much larger systems relevant
-for experiment.
+We analyze the model using different levels of approximation: an exact
+method using Monte-Carlo trajectories and SU(4) operators, a
+semi-classical method based on {\it c}-number Langevin equations, a
+quantum phase diffusion model for the field amplitude, and a mean field
+model.  The different approaches provide insight into different aspects
+of the problem.  Highly simplified models like the mean field equations
+and phase diffusion yield a qualitative understanding of the general
+characteristics of systems throughout the crossover.  By comparison
+between the approximations we can differentiate between truly critical
+physical effects and less important details.  We find that fluctuations
+and correlations are essential for the noise properties of the system
+(e.g. the linewidth of the generated light) but that the fluctuations
+and correlations can be modelled semi-classically.  Comparison with the
+exact SU(4) method for small numbers of atoms shows that {\it c}-number
+Langevin equations provide an accurate description of the system.  Due
+to their much smaller computational complexity, we are then able to use
+the {\it c}-number Langevin equations to quantitatively study much
+larger systems relevant for experiment.
 
 The rest of this paper is organized as follows.  In
 section~\ref{sec:Model} we summarize the physical model upon which our
@@ -189,7 +189,7 @@ equation treatment.
 
 Mathematically, our model is described by the quantum master equation
 derived in the Born and Markov approximations for the reduced density
-matrix of the system $\hat{\rho}$
+matrix of the system $\hat{\rho}$,
 \begin{equation}
   \frac{d}{dt} \hat{\rho} =
   \frac{1}{i \hbar} \left[ \hat{H}, \hat{\rho} \right] +
@@ -221,7 +221,7 @@ lattice.
 
 The Liouvillian superoperator
 $\hat{\mathcal{L}}\left[ \hat{\rho} \right]$ describes the various
-non-Hermitian processes:
+non-Hermitian processes,
 \begin{eqnarray}
 \hat{\mathcal{L}}\left[ \hat{\rho} \right] &=&
   -\frac{\kappa}{2}
@@ -270,17 +270,17 @@ space.  They can be grouped into three categories: Exact methods
 ({\it c}-number Langevin equations, phase diffusion), and mean-field
 treatments.
 
-The exact solution methods solve the quantum mechanical problem
-directly without further approximations, but are limited in
-applicability to small numbers of atoms. The SU(4) method provides an
-exact numerical solution of Eq.~(\ref{ME1Crossover}) by exploiting an
-underlying permutation symmetry to drastically reduce the Hilbert
-space dimension~\cite{Hartmann:arXiv1201.1732,
-  PhysRevA.87.062101}. Details of the method have been described
-previously in~\cite{PhysRevA.87.062101}. Here we extend the approach
-to solve the quantum master equation in the SU(4) representation using
-the quantum jump method~\cite{Dalibard92,Dum92,Knight98}, the details
-of which are given in Appendix~\ref{Su4Appendix}.
+The exact solution methods solve the quantum mechanical problem directly
+without further approximations, but are limited in applicability to
+small numbers of atoms. The SU(4) method provides an exact numerical
+solution of Eq.~(\ref{ME1Crossover}) by exploiting an underlying
+permutation symmetry to drastically reduce the Hilbert space
+dimension~\cite{Hartmann:arXiv1201.1732, PhysRevA.87.062101}. Details of
+the method have been described previously in~\cite{PhysRevA.87.062101}.
+Here we extend the approach to solve the quantum master equation in the
+SU(4) representation using the quantum jump
+method~\cite{Dalibard92,Dum92,Knight98}.  We give details of the SU(4)
+quantum jump method in Appendix~\ref{Su4Appendix}.
 
 Semi-classical methods aim to capture the physics of the system
 correctly for large atom number.  They include a classical
@@ -363,10 +363,9 @@ Einstein relations \cite{meystre2007elements},
 \subsection{{\it C}-number Langevin Equations}
 
 Quantum Langevin equations are operator valued stochastic differential
-equations.  As such they are difficult to numerically simulate. It is
-often important to obtain more accessible equations that do not
-contain quantum operators. We construct such a semi-classical theory
-by replacing the operators in the quantum Langevin equations by
+equations.  As such they are difficult to numerically simulate. To
+obtain numerically tractable equations we construct a semi-classical
+theory by replacing the operators in the quantum Langevin equations by
 complex numbers,
 \begin{eqnarray}
 \frac{d}{dt} a&=& -\frac{1}{2}  (\kappa +2i\omega_c) a
@@ -382,7 +381,7 @@ complex numbers,
 \label{Lszc}
 \end{eqnarray}
 where there are no hats over the variables to signify that they are
-{\it C}-numbers and not operators.  The noise terms $F^a$, $F^-$, and
+{\it c}-numbers and not operators.  The noise terms $F^a$, $F^-$, and
 $F^z$ should be interpreted according to the rules of Ito calculus. It is easier to construct the semi-classical equations by introducing
 real variables according to
 \begin{equation}
@@ -452,32 +451,32 @@ correspondance relations are
                        \frac{\Gamma}{4N} \nonumber \\
   2\mathscr{D}^{xz}&=&
                        2\mathscr{D}^{zx}=
-                       \frac{-w+\gamma}{N} \left< \hat{S}^{x} \right>  
+                       \frac{-w+\gamma}{N} \left< S^{x} \right>  
                        \nonumber \\
   2\mathscr{D}^{yz}&=&
                        2\mathscr{D}^{zy}=
-                       \frac{-w+\gamma}{N} \left< \hat{S}^{y} \right>  
+                       \frac{-w+\gamma}{N} \left< S^{y} \right>  
                        \nonumber \\
   2\mathscr{D}^{zz}&=&
                        \frac{2}{N}\left((w+\gamma) 
-                       + (-w+\gamma)  \left< \hat{S}^{z} \right> \right).
+                       + (-w+\gamma)  \left< S^{z} \right> \right).
 \label{cNoise1}
 \end{eqnarray}
 
 We solve the stochastic differential equations,
 Eqs.~(\ref{cq1})--(\ref{eqn:cnumberlangevin}) by means of an explicit
 second order weak scheme \cite{kloeden2011numerical}. We find
-empirically that the symmetrically ordered diffusion matrix is
-positive definite when the system is above the first threshold
-(defined in Sec.~(\ref{MFE})). Below this threshold, the symmetrically
-ordered diffusion matrix is not positive definite, and divergent
-trajectories can occur. An ensemble of trajectories can be evolved
-simultaneously and the expectation values appearing in
-Eq.~(\ref{cNoise1}) can be calculated from the ensemble. This allows
-us to use the additive form of the explicit second order weak scheme,
-which is simpler to implement than the general form. Typically, an
-ensemble of 1000 trajectories is sufficient to achieve convergence to
-within a few percent.
+empirically that the symmetrically ordered diffusion matrix is positive
+definite when the system is above the first threshold (defined in
+Sec.~(\ref{MFE})). Below this threshold, the symmetrically ordered
+diffusion matrix is not positive definite, and divergent trajectories
+can occur. We numerically evolve an ensemble of trajectories
+simultaneously and we compute the expectation values appearing in
+Eq.~(\ref{cNoise1}) as ensemble averages. This allows us to use the
+additive form of the explicit second order weak scheme, which is simpler
+to implement than the general form. Typically, an ensemble of 1000
+trajectories is sufficient to achieve convergence to within a few
+percent.
 
 
 \subsection{Mean-Field Treatment}
@@ -534,7 +533,8 @@ as well as the single atom linewidth $\gamma$ and dephasing $1/T_2$).
 In the same limit of small detuning we find for the steady state photon
 number
 \begin{equation}
-|a_0|^2=\frac{N(w+\gamma)}{2 \kappa} (d_0 - \frac{1}{\mathcal{C}})\;.
+|a_0|^2=\frac{N(w+\gamma)}{2 \kappa}
+\left(d_0 - \frac{1}{\mathcal{C}}\right)\;.
 \label{a0sqSS}
 \end{equation}
 The photon number has a maximum at
@@ -626,7 +626,7 @@ the number of atoms. The parameter $\xi$ quantifies the relative
 importance of stimulated emission to collective atomic spontaneous
 emission. If $\xi\ll1$, the system is in the bad cavity or
 superradiant regime. If $\xi\gg1$ the system is in the good cavity or
-laser regime. In the crossover or intermediate region, $\xi\sim1$, and
+laser regime. In the crossover or intermediate region, $\xi\sim1$,
 the system possesses features of both.
 
 The mean field equations allow us to rewrite this expression in an
@@ -1135,7 +1135,6 @@ so that the linewidth $\Delta \nu$ given by,
 \label{LWHaken}
 \end{equation}
 
-\bibliographystyle{unsrt}
 \bibliography{CrossoverPaper}
 
 \end{document}
