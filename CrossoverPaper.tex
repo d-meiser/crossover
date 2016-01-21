@@ -142,20 +142,21 @@ precision measurement applications.
 We analyze the model using different levels of approximation: an exact
 method using Monte-Carlo trajectories and SU(4) operators, a
 semi-classical method based on {\it c}-number Langevin equations, a
-quantum phase diffusion model, and a mean-field
-model.  The different approaches provide insight into different aspects
-of the problem.  Highly simplified models like the mean field equations
-and phase diffusion yield a qualitative understanding of the general
+quantum phase diffusion model, and a mean-field model.  The different
+approaches provide insight into different aspects of the problem.
+Highly simplified models like the mean field equations and phase
+diffusion yield a qualitative understanding of the general
 characteristics of systems throughout the crossover.  By comparison
 between the approximations we can differentiate between truly critical
 physical effects and less important details.  We find that fluctuations
-and correlations play an important role in the the noise properties of the system
-(e.g.\ the linewidth of the generated light), but can be modelled semi-classically.  Comparison with the
-exact SU(4) method for small numbers of atoms shows that {\it c}-number
-Langevin equations provide an accurate description of the system.  Due
-to their much smaller computational complexity, we are then able to use
-the {\it c}-number Langevin equations to quantitatively study much
-larger systems relevant for experiment.
+and correlations play an important role in the the noise properties of
+the system (e.g.\ the linewidth of the generated light), but can be
+modelled semi-classically.  Comparison with the exact SU(4) method for
+small numbers of atoms shows that {\it c}-number Langevin equations
+provide an accurate description of the system.  Due to their much
+smaller computational complexity, we are then able to use the {\it
+c}-number Langevin equations to quantitatively study much larger systems
+relevant for experiment.
 
 The rest of this paper is organized as follows.  In
 section~\ref{sec:Model} we summarize the physical model upon which our
@@ -256,6 +257,7 @@ where $\kappa$ is the decay rate of the cavity, $\gamma$ is the
 free-space spontaneous emission rate of the atoms, $w$ is the
 repumping rate, and $1/{T_2}$ is the rate of inhomogeneous dephasing.
 
+
 \section{Solution Methods}
 \label{sec:Methods}
 
@@ -291,7 +293,6 @@ The mean-field methods neglect fluctuations to arrive at equations for
 average quantities. These equations are sufficiently simple that it is
 straightforward to obtain closed form solutions that provide valuable
 qualitative insights into the system behavior.
-
 
 
 \subsection{Quantum Langevin Equations}
@@ -379,10 +380,11 @@ complex numbers,
 +F^{z},\nonumber\\
 \label{Lszc}
 \end{eqnarray}
-where there are no hats over the variables to signify that they are
-{\it c}-numbers and not operators.  The noise terms $F^a$, $F^-$, and
-$F^z$ should be interpreted according to the rules of Ito calculus. It is easier to construct the semi-classical equations by introducing
-real variables according to
+where there are no hats over the variables to signify that they are {\it
+c}-numbers and not operators.  The noise terms $F^a$, $F^-$, and $F^z$
+should be interpreted according to the rules of Ito calculus. It is
+easier to construct the semi-classical equations by introducing real
+variables according to
 \begin{equation}
 \begin{array}[b]{rclrcl}
 q &=&
@@ -483,6 +485,7 @@ presented by Haken~\cite{HakenLaserBook}, and provides a closed-form
 solution to obtain the spectral linewidth of the output field. We will
 refer to this as the phase diffusion method, and the details are given
 in Appendix~\ref{HakenAppendix}.
+
 
 \subsection{Mean-Field Treatment}
 \label{MFE}
@@ -652,14 +655,18 @@ by the ratio of the collective coupling between the many atom ensemble
 and the photon mode, $\sqrt{N}\;\Omega$, to the linewidth of the
 cavity, $\kappa$.
 
+
 \section{Results}
 \label{sec:Results}
 
-In this section, we present results throughout the crossover from lasing to superradiance for the field intensity and linewidth, and for the atomic inversion and correlations. We begin by comparing different solution
-methods for small atom numbers.  This comparison shows that the
+In this section, we present results throughout the crossover from lasing
+to superradiance for the field intensity and linewidth, and for the
+atomic inversion and correlations. We begin by comparing different
+solution methods for small atom numbers.  This comparison shows that the
 {\it c}-number theory gives an accurate description of first and second
 moments of the system operators.  With the validity of the
-semiclassical method established we then apply it to experimentally relevant systems with large atom number.
+semi-classical method established we then apply it to experimentally
+relevant systems with large atom number.
 
 \begin{figure*}
 \begin{center}
@@ -704,9 +711,10 @@ it is large enough to expect the approximate solution methods to be
 reasonably accurate.
 
 Fig.~\ref{N40Comparison} shows several observables obtained using the
-mean field Langevin method, the phase diffusion method, the {\it c}-number Langevin method, and exact SU(4) Monte-Carlo simulations
-for three different values of the crossover parameter: $\xi=0.2$,
-$\xi=1$, and $\xi=5$. These values of $\xi$ place the system in the
+mean field Langevin method, the phase diffusion method, the {\it
+c}-number Langevin method, and exact SU(4) Monte-Carlo simulations for
+three different values of the crossover parameter: $\xi=0.2$, $\xi=1$,
+and $\xi=5$. These values of $\xi$ place the system in the
 superradiance, crossover, and lasing parameter regions, respectively.
 
 
@@ -726,6 +734,7 @@ Fig.~\ref{N40Comparison} shows excellent agreement between {\it
 regions for all of the considered observables.  Therefore, the {\it
   c}-number Langevin theory can be relied upon for larger atom numbers
 inaccessible to the exact numerical solution.
+
 
 \subsection{Many-Atom Characteristics of the Crossover}
 
@@ -811,6 +820,7 @@ crossover region. For all systems, $N=10000$ and $\frac{\Omega^2}{\kappa
 \label{LWadaComparison}
 \end{figure}
 
+
 \subsection{Robustness Against Frequency Shifts}
 
 The sensitivity to frequency shifts is another figure of merit of an
@@ -887,15 +897,15 @@ conventional laser.
 \label{Su4Appendix}
 
 In this appendix we provide a short summary of the method we are using
-for the direct numerical simulation of the open quantum. Although the
-general aspects of the formalism are detailed in
-reference~\cite{PhysRevA.87.062101}, here we extend the SU(4) method
-to allow us to simulate systems in which there are large numbers of
-photons as well as large numbers of atoms. We do this by unraveling
-the quantum master equation into quantum trajectories---a standard
-method in quantum optics. The unusual feature here is that the
-unraveling is performed in the Louville space rather than in Hilbert
-space, because it is in Louville space that the SU(4) method operates.
+for the direct numerical simulation of the open quantum system.
+Although the general aspects of the formalism are detailed in
+reference~\cite{PhysRevA.87.062101}, here we extend the SU(4) method to
+allow us to simulate systems in which there are large numbers of photons
+as well as large numbers of atoms. We do this by unraveling the quantum
+master equation into quantum trajectories---a standard method in quantum
+optics. The unusual feature here is that the unraveling is performed in
+the Louville space rather than in Hilbert space, because it is in
+Louville space that the SU(4) method operates.
 
 The key insight that makes the master equation tractable for moderate
 numbers of atoms is to exploit the invariance of the
@@ -954,10 +964,12 @@ $N_q$ in the system.
 The quantum Monte Carlo method decomposes the density operator evolution
 into a set of quantum trajectories where, between applications of random
 jumps into random channels, the system evolves under an effective
-Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. These random jumps are chosen with the proper weights, so that when many trajectories are averaged over, the correct density operator evolution is given. While this has
-conventionally been done with wavefunctions to reduce the numerical
-complexity, here we apply the quantum trajectory algorithm in the
-density matrix space in order to get rid of the photon basis in the
+Hamiltonian~\cite{Dalibard92,Dum92,Knight98}. These random jumps are
+chosen with the proper weights, so that when many trajectories are
+averaged over, the correct density operator evolution is given. While
+this has conventionally been done with wavefunctions to reduce the
+numerical complexity, here we apply the quantum trajectory algorithm in
+the density matrix space in order to get rid of the photon basis in the
 expansion of the density operator. To construct a single trajectory, we
 first need to identify the jump operators. In our problem, there are
 four decay channels: repumping, spontaneous emission, dephasing and
@@ -1004,9 +1016,10 @@ corresponding photon state is
 \bigl|N_q-(q_3+\sigma_3+N/2)\bigr>
 \bigl<N_q-(q_3-\sigma_3+N/2)\bigr|.
 \end{equation}
-Therefore, if the system starts in a photon number state, by counting the quantum jumps, we have complete knowledge of
-photon states for every single trajectory. This enables us to remove the
-photon basis, which greatly improves the efficiency of the method. 
+Therefore, if the system starts in a photon number state, by counting
+the quantum jumps, we have complete knowledge of photon states for every
+single trajectory. This enables us to remove the photon basis, which
+greatly improves the efficiency of the method.
 
 The simulation of jump times and jump channels is completely analogous
 to the wave-function Monte Carlo method. The effective evolution of the
@@ -1026,10 +1039,10 @@ probability distribution,
 
 Finally, in order to get the density operator at each time step, an
 ensemble average of many quantum trajectories is required. Then, various
-observables can be calculated according to Ref.~\cite{PhysRevA.87.062101}. It is
-also worth noting that if one is only interested in the steady state
-density operator, a time average in the steady state can be applied
-instead of the ensemble average.
+observables can be calculated according to
+Ref.~\cite{PhysRevA.87.062101}. It is also worth noting that if one is
+only interested in the steady state density operator, a time average in
+the steady state can be applied instead of the ensemble average.
 
 
 \section{Phase Diffusion Linewidth}
